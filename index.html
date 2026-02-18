@@ -563,6 +563,10 @@ body{
       /* Punch Cards: stack cards vertically on mobile (avoid narrow squeezed columns) */
       #punchcards .grid{grid-template-columns: 1fr}
       #punchcards .card{grid-column: 1 / -1 !important}
+      
+      /* Contact: stack cards vertically on mobile */
+      #contact .grid{grid-template-columns: 1fr}
+      #contact .card{grid-column: 1 / -1 !important}
     }
 
 
@@ -725,14 +729,14 @@ body{
   5 of 9 holes.
 </p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#contact">Contact Us</a>
 <a class="btn btn-outline" btn-facebook href="#rates">💲 View Rates</a>
-<a class="btn btn-outline" href="#restaurant">🍔 Restaurant</a>
-<a class="btn btn-outline" href="#tournament-estimate" id="btnTournamentJump">🏆 Tournaments</a>
+<a href="#courseguide" class="btn" style="margin-left:8px;">📋 Scorecard</a>
+<a href="#weekend" class="btn">🔥 Weekly Deals</a>
 
 <div style="margin-top:12px;">
-  <a href="#weekend" class="btn">🔥 Weekly Deals</a>
-  <a href="#courseguide" class="btn" style="margin-left:8px;">📋 Scorecard</a>
+  <a class="btn btn-outline" href="#restaurant">🍔 Restaurant</a>
+  <a class="btn btn-outline" href="#tournament-estimate" id="btnTournamentJump">🏆 Tournaments</a>
+  <a class="btn btn-primary" href="#contact">Contact Us</a>
 </div>
 </div>
 <div aria-label="Course photo" class="hero-photo-slot">
@@ -980,10 +984,10 @@ body{
   <a class="btn btn-primary" href="#" data-pay="adult">Buy Adult</a>
   <a class="btn btn-primary" href="#" data-pay="couple">Buy Couple</a>
   <a class="btn btn-primary" href="#" data-pay="family">Buy Family</a>
-  <a class="btn btn-outline" href="#" data-pay="senior">Buy Senior</a>
-  <a class="btn btn-outline" href="#" data-pay="student">Buy Student</a>
-  <a class="btn btn-outline" href="#" data-pay="junior">Buy Junior</a>
-  <a class="btn btn-outline" href="#" data-pay="trail">Buy Trail Fee</a>
+  <a class="btn btn-primary" href="#" data-pay="senior">Buy Senior</a>
+  <a class="btn btn-primary" href="#" data-pay="student">Buy Student</a>
+  <a class="btn btn-primary" href="#" data-pay="junior">Buy Junior</a>
+  <a class="btn btn-primary" href="#" data-pay="trail">Buy Trail Fee</a>
 </div>
 
 <div class="btn-grid" style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:12px;">
@@ -1803,7 +1807,7 @@ body{
 
     const images = ["images/weekly1.jpg", "images/weekly2.jpg", "images/weekly3.jpg"];
     let i = 0;
-    const intervalMs = 9000;
+    const intervalMs = 6000;
     const fadeMs = 650;
 
     function preload(src) {
