@@ -632,6 +632,53 @@ body{
 @media (max-width: 720px){
   .twoImg{ grid-template-columns:1fr; }
 }
+
+
+/* Restaurant banners (3-up, stacks on mobile) */
+.restaurant-banners{
+  display:flex;
+  gap:12px;
+  margin:14px 0 18px;
+}
+.restaurant-banners > *{
+  flex:1;
+  min-width:0;
+}
+.restaurant-banners a{
+  display:block;
+}
+.restaurant-banners img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid var(--line);
+  display:block;
+}
+.restaurant-banners a img{
+  object-fit:contain;
+  background:#000;
+  padding:0;
+}
+@media (max-width: 760px){
+  .restaurant-banners{
+    flex-direction:column;
+  }
+  .restaurant-banners img{
+    height:210px;
+  }
+}
+
+
+/* Contact info spacing */
+.contact-lines{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.contact-lines strong{
+  font-weight:700;
+}
 </style>
 </head>
 <body>
@@ -639,7 +686,7 @@ body{
 <div class="container">
 <div class="nav">
 <a aria-label="Home" class="brand" href="#top">
-<div class="logo"><img src="images/hero.jpg" alt="VKGC Logo" style="height:36px; width:auto; vertical-align:middle; display:block;"></div>
+<div class="logo"><img src="logo.png" alt="VKGC Logo" style="height:36px; width:auto; vertical-align:middle; display:block;"></div>
 <div>
 <b>Vegreville Kinsmen Golf Club</b>
 <span></span>
@@ -655,7 +702,7 @@ body{
 <a href="#sponsors">Sponsors</a>
 <a href="#contact">Contact</a>
 </div>
-<a class="btn btn-primary" href="https://REPLACE-WITH-YOUR-TEE-ON-LINK" rel="noopener" target="_blank">🟢 Book Tee Time</a>
+<a class="btn btn-primary" href="https://www.tee-on.com/PubGolf/servlet/com.teeon.teesheet.servlets.golfersection.WebBookingAllTimesLanding?FromTrailSearch=true&FromCourseWebsite=true&CourseCode=VEGR&CourseGroupID=10863&Referrer=www.tee-on.com#" target="_blank" rel="noopener">🟢 Book Tee Time</a>
 </div>
 </div>
 </div>
@@ -671,13 +718,14 @@ body{
 
 <div style="font-weight:700; font-size:32px; line-height:1.12; margin:16px 0 18px; letter-spacing:.2px;">Play More. Pay Less. Golf Anytime</div>
 <p style="margin:0 0 20px 0; font-size:16px; line-height:1.75; max-width:820px;">
-  Welcome to Vegreville Kinsmen Golf Course designed for enjoyable, fast, and affordable golf.
-  Our 9-hole Par 36 Layout offers a fun challenge for experienced golfers while remaining welcoming for
+  Welcome to Vegreville Kinsmen Golf Course designed for enjoyable, fast, and affordable golf. 
+  Located on the North East Side of Vegreville, just off of the Yellowhead Highway less than an hour from the city.   
+  Our 9-hole Par 36 Layout plays up to 3370 yards and offers a fun challenge for experienced golfers while remaining welcoming for
   beginners and casual players. Large greens, challenging fairways, and water hazards that come into play
   5 of 9 holes.
 </p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="https://REPLACE-WITH-YOUR-TEE-ON-LINK" rel="noopener" target="_blank">🟢 Book Tee Time</a>
+<a class="btn btn-primary" href="#contact">Contact Us</a>
 <a class="btn btn-outline" btn-facebook href="#rates">💲 View Rates</a>
 <a class="btn btn-outline" href="#restaurant">🍔 Restaurant</a>
 <a class="btn btn-outline" href="#tournament-estimate" id="btnTournamentJump">🏆 Tournaments</a>
@@ -720,7 +768,7 @@ body{
 <div style="border:1px solid rgba(148,163,184,.35); border-radius:16px; padding:12px; background:rgba(255,255,255,.04);">
 
   <div class="eventPoster" style="margin-top:6px;">
-    <img src="images/event-flyer.jpg" alt="Upcoming event poster" style="width:100%; height:auto; display:block; border-radius:18px; border:1px solid var(--line);"/>
+    <img id="weeklyRotator" src="images/weekly1.jpg" alt="Weekly update poster" style="width:100%; height:auto; display:block; border-radius:18px; border:1px solid var(--line); transition: opacity 650ms ease; opacity:1;" loading="lazy"/>
   </div>
 
   <div style="margin-top:8px; text-align:center;">
@@ -866,7 +914,7 @@ body{
 <h2>💲 Rates (Clear &amp; Simple)</h2>
 
 </div>
-<a class="btn btn-primary" href="https://REPLACE-WITH-YOUR-TEE-ON-LINK" rel="noopener" target="_blank">🟢 Book Tee Time</a>
+<a class="btn btn-primary" href="https://www.tee-on.com/PubGolf/servlet/com.teeon.teesheet.servlets.golfersection.WebBookingAllTimesLanding?FromTrailSearch=true&FromCourseWebsite=true&CourseCode=VEGR&CourseGroupID=10863&Referrer=www.tee-on.com#" rel="noopener" target="_blank">🟢 Book Tee Time</a>
 </div>
 <div class="split">
 <div class="card">
@@ -1188,6 +1236,13 @@ body{
 </div>
 <span class="badge">Leased kitchen</span>
 </div>
+<div class="restaurant-banners">
+  <img src="images/Restaurant1.png" alt="Restaurant photo 1"/>
+  <a href="https://craveappetite.ca/" target="_blank" rel="noopener" aria-label="Crave Appetite website">
+    <img src="images/cravelogo.png" alt="Crave Appetite Grill & Pizza"/>
+  </a>
+  <img src="images/Restaurant2.png" alt="Restaurant photo 2"/>
+</div>
 <div class="split">
 <div class="card">
 <h3>Menu PDF</h3>
@@ -1221,12 +1276,15 @@ body{
 <tr><td style="padding:8px; border-bottom:1px solid #eee;">Smokie</td><td style="padding:8px; border-bottom:1px solid #eee;">Grilled smokie on a bun</td><td style="padding:8px; border-bottom:1px solid #eee; text-align:right;">$6</td></tr>
 <tr><td style="padding:8px; border-bottom:1px solid #eee;">Chips</td><td style="padding:8px; border-bottom:1px solid #eee;">Assorted flavours</td><td style="padding:8px; border-bottom:1px solid #eee; text-align:right;">$2</td></tr>
 <tr><td style="padding:8px; border-bottom:1px solid #eee;">Chocolate Bar</td><td style="padding:8px; border-bottom:1px solid #eee;">Various options</td><td style="padding:8px; border-bottom:1px solid #eee; text-align:right;">$2</td></tr>
-<tr><td style="padding:8px;">Pop / Water</td><td style="padding:8px;">Cold beverages</td><td style="padding:8px; text-align:right;">$2</td></tr>
+<tr><td style="padding:8px;">Pop / Water</td><td style="padding:8px;">Cold beverages</td><td style="padding:8px; text-align:right;">$2</td><tr><td style="padding:8px; border-bottom:1px solid #eee;">(Add item)</td><td style="padding:8px; border-bottom:1px solid #eee;">(Description)</td><td style="padding:8px; text-align:right;">$0</td></tr>
+<tr><td style="padding:8px; border-bottom:1px solid #eee;">(Add item)</td><td style="padding:8px; border-bottom:1px solid #eee;">(Description)</td><td style="padding:8px; text-align:right;">$0</td></tr>
+<tr><td style="padding:8px; border-bottom:1px solid #eee;">(Add item)</td><td style="padding:8px; border-bottom:1px solid #eee;">(Description)</td><td style="padding:8px; text-align:right;">$0</td></tr>
+<tr><td style="padding:8px;">(Add item)</td><td style="padding:8px;">(Description)</td><td style="padding:8px; text-align:right;">$0</td></tr>
 </tbody>
 </table>
 <div class="twoBtns" style="margin-top:12px;">
-<a class="btn btn-outline" href="#tournamentInquiry">Tournament meals</a>
-<a class="btn btn-primary" href="https://REPLACE-WITH-YOUR-TEE-ON-LINK" rel="noopener" target="_blank">🟢 Book Tee Time</a>
+<a class="btn btn-outline" href="event_rentals.pdf" target="_blank" rel="noopener">Event Rentals</a>
+<a class="btn btn-primary" href="#contact">Contact Us</a>
 </div>
 </div>
 </div>
@@ -1366,9 +1424,9 @@ body{
 <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--line);">
 <h4 style="margin:0 0 6px 0;">🏆 Tournaments (Featured)</h4>
 <div class="mini">
-<div><b>VKGC Classic Scramble</b> — Sat, June 15 • 1:00 PM shotgun</div>
-<div><b>Couples Night 9 &amp; Dine</b> — Fri, July 5 • Tee times from 4:30 PM</div>
-<div><b>Charity Golf Day</b> — TBD • Sponsorships available</div>
+<div><a href="tournaments/event_1.pdf" target="_blank" rel="noopener"><b>VKGC Classic Scramble</b></a> — Sat, June 15 • 1:00 PM shotgun</div>
+<div><a href="tournaments/event_2.pdf" target="_blank" rel="noopener"><b>Couples Night 9 &amp; Dine</b></a> — Fri, July 5 • Tee times from 4:30 PM</div>
+<div><a href="tournaments/event_3.pdf" target="_blank" rel="noopener"><b>Charity Golf Day</b></a> — TBD • Sponsorships available</div>
 </div>
 
 </div>
@@ -1382,7 +1440,7 @@ body{
 </ul>
 <div class="twoBtns" style="margin-top:10px;">
   <a class="btn" href="#calc">Tournament Calculator</a>
-  <a class="btn green" href="#contact">Contact Us</a>
+  <a class="btn green" href="mailto:2024vkgc@gmail.com?subject=Event%20Inquiry">Book an Event</a>
 </div>
 
 
@@ -1479,48 +1537,59 @@ body{
 <!-- Contact -->
 <section id="contact">
 <div class="container">
-<div class="sectionTitle">
-<div>
-<h2>☎️ Contact</h2>
-<p>Call us Anytime at (780) 632-3140</p>
-</div>
-<a class="btn btn-primary" href="https://REPLACE-WITH-YOUR-TEE-ON-LINK" rel="noopener" target="_blank">🟢 Book Tee Time</a>
-</div>
-<div class="cols3">
-<div class="card">
-<h3>Pro Shop</h3>
-<p class="muted">
-            Phone: <a href="tel:17806323140">(780) 632-3140</a><br/>
-            Email: <a href="mailto:2024vkgc@gmail.com?subject=Membership%20Inquiry">2024vkgc@gmail.com</a><br/>
-            Facebook: <a href="https://www.facebook.com/VEGKGC" target="_blank" rel="noopener">VEGKGC Page</a>
-          </p>
-<p class="note"></p>
-</div>
-<div class="card">
-<h3>Location</h3>
-<p class="note">14432 Township Road 524, Vegreville, Alberta • <a href="https://www.google.com/maps/search/?api=1&query=14432+Township+Road+524+Vegreville+Alberta" target="_blank" rel="noopener">Google Maps</a></p>
-<div style="margin-top:10px; border:1px solid var(--line); border-radius:14px; overflow:hidden;">
-  <iframe
-    title="VKGC Map"
-    src="https://www.google.com/maps?q=14432+Township+Road+524,+Vegreville,+Alberta&output=embed"
-    width="100%"
-    height="180"
-    style="border:0; display:block;"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen>
-  </iframe>
-</div>
-</div>
-<div class="card">
-<h3>Hours</h3>
-<p class="muted">
-           Open 8:00am to 9:00pm <br/>
-            7 Days a Week in season<br/> 
-            Last Cart Checkout 7:00pm
-          </p>
-</div>
-</div>
+  <div class="sectionTitle">
+    <div>
+      <h2>☎️ Contact</h2>
+      <p>Call us Anytime at (780) 632-3140</p>
+    </div>
+    <a class="btn btn-primary" href="https://www.tee-on.com/PubGolf/servlet/com.teeon.teesheet.servlets.golfersection.WebBookingAllTimesLanding?FromTrailSearch=true&FromCourseWebsite=true&CourseCode=VEGR&CourseGroupID=10863&Referrer=www.tee-on.com#" rel="noopener" target="_blank">🟢 Book Tee Time</a>
+  </div>
+
+  <div class="grid">
+    <div class="card" style="grid-column: span 4;">
+      <h3>Pro Shop</h3>
+      <div class="contact-lines muted">
+        <div><strong>Phone:</strong> <a href="tel:17806323140">(780) 632-3140</a></div>
+        <div><strong>Manager Email:</strong> <a href="mailto:2024vkgc@gmail.com">2024vkgc@gmail.com</a></div>
+        <div><strong>General Email:</strong> <a href="mailto:vegkgc@yahoo.ca">vegkgc@yahoo.ca</a></div>
+        <div><strong>Book an Event:</strong> <a href="mailto:2024vkgc@gmail.com?subject=Book%20an%20event">Email us</a></div>
+        <div><strong>Employment Opportunities:</strong> <a href="mailto:2024vkgc@gmail.com?subject=Employment%20Opportunities&amp;body=Please%20attach%20your%20resume%20and%20include%20a%20brief%20introduction.">Apply by email</a></div>
+        <div><strong>Facebook:</strong> <a href="https://www.facebook.com/VEGKGC" target="_blank" rel="noopener">VEGKGC Page</a></div>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 4;">
+      <h3>Location</h3>
+      <p class="note">Box 482, 14432 Township Road 524<br/>Vegreville, Alberta, T9C 1R6 • <a href="https://www.google.com/maps/search/?api=1&query=14432+Township+Road+524+Vegreville+Alberta" target="_blank" rel="noopener">Google Maps</a></p>
+      <div style="margin-top:10px; border:1px solid var(--line); border-radius:14px; overflow:hidden;">
+        <iframe
+          title="VKGC Map"
+          src="https://www.google.com/maps?q=14432+Township+Road+524,+Vegreville,+Alberta&output=embed"
+          width="100%"
+          height="180"
+          style="border:0; display:block;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 4;">
+      <h3>Hours</h3>
+      <p class="muted">
+        Open 7 days a week from April 17 to October 15<br/>
+        Monday: 8:00am – 9:00pm<br/>
+        Tuesday: 8:00am – 9:00pm<br/>
+        Wednesday: 8:00am – 9:00pm<br/>
+        Thursday: 8:00am – 9:00pm<br/>
+        Friday: 8:00am – 9:00pm<br/>
+        Saturday: 8:00am – 9:00pm<br/>
+        Sunday: 8:00am – 9:00pm<br/>
+        Last Cart Checkout 7:00pm
+      </p>
+    </div>
+  </div>
 </div>
 </section>
 <div class="footer">
@@ -1653,7 +1722,7 @@ body{
         Ready to play?<br/>
 <b>Book in seconds</b>
 </div>
-<a class="btn btn-primary" href="https://REPLACE-WITH-YOUR-TEE-ON-LINK" rel="noopener" target="_blank">🟢 Book Tee Time</a>
+<a class="btn btn-primary" href="https://www.tee-on.com/PubGolf/servlet/com.teeon.teesheet.servlets.golfersection.WebBookingAllTimesLanding?FromTrailSearch=true&FromCourseWebsite=true&CourseCode=VEGR&CourseGroupID=10863&Referrer=www.tee-on.com#" rel="noopener" target="_blank">🟢 Book Tee Time</a>
 </div>
 </div>
 
@@ -1724,6 +1793,54 @@ body{
       history.replaceState(null, "", "#tournament-estimate");
     });
   });
+</script>
+
+<script>
+  // Weekly flyer rotator (3 images, fade transition)
+  (function () {
+    const img = document.getElementById("weeklyRotator");
+    if (!img) return;
+
+    const images = ["images/weekly1.jpg", "images/weekly2.jpg", "images/weekly3.jpg"];
+    let i = 0;
+    const intervalMs = 9000;
+    const fadeMs = 650;
+
+    function preload(src) {
+      const im = new Image();
+      im.src = src;
+    }
+    images.forEach(preload);
+
+    function next() {
+      i = (i + 1) % images.length;
+      const nextSrc = images[i];
+
+      // Fade out
+      img.style.opacity = "0";
+
+      // Swap after fade-out, then fade in
+      setTimeout(() => {
+        img.src = nextSrc;
+      }, fadeMs);
+
+      // If image fails to load, skip to the next one
+      img.onerror = function () {
+        img.onerror = null;
+        // try next image on the next tick
+        setTimeout(next, 50);
+      };
+
+      img.onload = function () {
+        img.onload = null;
+        img.style.opacity = "1";
+      };
+    }
+
+    // Ensure visible
+    img.style.opacity = "1";
+    setInterval(next, intervalMs);
+  })();
 </script>
 </body>
 </html>
