@@ -391,16 +391,16 @@ body{
     }
     .holeLink:hover{border-color: rgba(22,163,74,.35)}
     .holeCard{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:14px;
-  align-items:start;   /* prevents vertical stretching */
-}
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
     .photo{
       border-radius: 16px;
       border:1px dashed rgba(71,85,105,.35);
       background: repeating-linear-gradient(45deg, rgba(71,85,105,.05), rgba(71,85,105,.05) 10px, rgba(71,85,105,.02) 10px, rgba(71,85,105,.02) 20px);
-      height: 170px;
+      min-height: 220px;
       display:grid;
       place-items:center;
       color: rgba(71,85,105,.85);
@@ -408,31 +408,13 @@ body{
       text-align:center;
       padding:10px;
     }
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
+
     /* Responsive */
-@media (max-width: 920px){
-  .hero-wrap{grid-template-columns:1fr}
-  .cols3{grid-template-columns: 1fr}
-  .split{grid-template-columns:1fr}
-  .holeCard{grid-template-columns:1fr}
-
-  /* Center the photo box + image on mobile */
-  .photo{
-    margin-left:auto;
-    margin-right:auto;
-    place-items:center;
-  }
-
-  .photo img{
-    margin-left:auto;
-    margin-right:auto;
-  }
-}
+    @media (max-width: 920px){
+      .hero-wrap{grid-template-columns:1fr}
+      .cols3{grid-template-columns: 1fr}
+      .split{grid-template-columns:1fr}
+      .holeCard{grid-template-columns:1fr}
     }
     @media (max-width: 640px){
       /* Sticky top bar on mobile for easy navigation */
