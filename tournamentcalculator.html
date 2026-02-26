@@ -21,7 +21,9 @@
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color:var(--text);
     background: var(--bg);
+    overflow-x:hidden;
   }
+
   .wrap { max-width: 1080px; margin: 0 auto; padding: 18px 14px 78px; }
   .topbar {
     display:flex; align-items:center; gap:12px; flex-wrap:wrap;
@@ -55,15 +57,16 @@
     border:1px solid var(--line);
     box-shadow: var(--shadow);
   }
-  .hero img { width:100%; height: 240px; object-fit: cover; display:block; }
-  @media (min-width: 900px) { .hero img { height: 320px; } }
+  .hero img { width:100%; height: 220px; object-fit: cover; display:block; }
+  @media (min-width: 650px) { .hero img { height: 320px; } }
   .hero .overlay {
     padding: 14px 14px 16px;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.78) 35%, rgba(255,255,255,.96) 100%);
-    margin-top: -120px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 35%, rgba(0,0,0,.78) 100%);
+    margin-top: -110px;
   }
-  .hero h2 { margin:0; font-size:22px; color: var(--accent2); }
-  .hero p { margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.55; max-width: 85ch; }
+  @media (min-width: 650px) { .hero .overlay { margin-top: -130px; } }
+  .hero h2 { margin:0; font-size:22px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.55); }
+  .hero p { margin:8px 0 0; color: rgba(255,255,255,.92); font-size:13px; line-height:1.55; max-width: 85ch; text-shadow: 0 2px 10px rgba(0,0,0,.55); }
 
   .grid { display:grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
   @media (min-width: 980px) { .grid { grid-template-columns: 1.15fr .85fr; gap: 14px; } }
@@ -160,6 +163,22 @@
     white-space: nowrap;
   }
   @media (min-width: 980px) { .mobilebar { display:none; } }
+
+
+  /* Mobile-first quick package buttons: stack on small screens, 3-up on larger */
+  .quickGrid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:12px;
+    align-items:stretch;
+    width:100%;
+  }
+  @media (min-width: 650px){
+    .quickGrid{
+      grid-template-columns: repeat(3, minmax(140px, 1fr));
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -209,7 +228,6 @@
           <div>
             <label>Tournament Size</label>
             <select id="size" disabled>
-              <option selected>Auto (based on golfers)</option>
               <option>Small (24–36)</option>
               <option>Medium (37–60)</option>
               <option>Large (61+)</option>
@@ -225,7 +243,7 @@
             <div style="min-width:220px;">
               <b>Quick Packages</b><br><small>Tap to auto‑build a quote</small>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(3, minmax(140px, 1fr)); gap:12px; align-items:stretch; flex:1; width:100%;">
+            <div class="quickGrid" style="flex:1; width:100%;">
               
               <div style="display:flex; flex-direction:column; align-items:center; gap:6px; justify-content:center; width:100%;">
                 <button type="button" id="presetBudget" class="btn" style="padding:10px 12px; border-radius:12px; width:100%;" >Budget</button>
@@ -281,8 +299,8 @@
 
         <label style="margin-top:12px;">Carts</label>
         <select id="carts">
-          <option selected>Walking</option>
-          <option>Course Carts</option>
+          <option selected>No Carts Included (Optional for Golfer at Registration)</option>
+          <option>Golf Carts Included</option>
         </select>
         <div class="sub">Carts are optional: +$10 per golfer for 9 holes or +$20 per golfer for 18 holes.</div>
 
@@ -298,7 +316,8 @@
             <label>Season</label>
             <select id="season" disabled>
               <option selected>Regular</option>
-              <option>Shoulder</option>
+              <option>Early Season</option>
+              <option>Late Season</option>
             </select>
           </div>
         </div>
@@ -331,7 +350,7 @@
         <textarea id="notes" placeholder="Awards setup, contests, timing, dietary needs, sponsor setup, etc."></textarea>
 
         <div class="actions">
-          <a id="emailBtn" class="btn primary" href="mailto:drouinirrigation@gmail.com" style="cursor:pointer;">Email Quote Summary</a>
+          <a id="emailBtn" class="btn primary" href="#" style="cursor:pointer;">Email Quote Summary</a>
           <button class="action secondary" type="button" id="resetBtn">Reset</button>
         </div>
 
@@ -378,7 +397,7 @@
           <tr><td>Drink tickets (2)</td><td class="money" id="liDrinks">$0</td></tr>
           <tr><td><b>Subtotal</b></td><td class="money" id="liSub">$0</td></tr>
           <tr><td>Weekend premium</td><td class="money" id="liPrem">$0</td></tr>
-          <tr><td>Shoulder discount</td><td class="money" id="liDisc">$0</td></tr>
+          <tr><td id="seasonDiscLabel">Seasonal discount</td><td class="money" id="liDisc">$0</td></tr>
           <tr><td>Large group discount (61+)</td><td class="money" id="liVol">$0</td></tr>
           <tr><td><b>Adjusted total</b></td><td class="money" id="liAdj">$0</td></tr>
         </table>
@@ -392,17 +411,19 @@
     <div>
       <b class="money" id="mbTotal">$0</b><div class="mini">Rough estimate</div>
     </div>
-    <a class="pillbtn" href="#quote">Edit Quote</a>
+    <a id="mbEmailBtn" class="pillbtn" href="#">Email Quote</a>
   </div>
 
 <script>
-  // VKGC Tournament Pricing Rules
+  
+  let __currentMailto = "";
+// VKGC Tournament Pricing Rules
   // Regular green fees (when carts OR meals are selected):
   //   9 holes: $30 • 18 holes: $40
   // Golf-only premium (when NO carts AND NO meals):
   //   9 holes: $35 • 18 holes: $45
   const GREEN_FEE = { nine: 30, eighteen: 40 };
-  const GOLF_ONLY_PREMIUM = { nine: 35, eighteen: 45 };
+  const GOLF_ONLY_PREMIUM = { nine: 30, eighteen: 45 };
 function formatMoney(x) {
     const n = Number(x || 0);
     return n.toLocaleString(undefined, { style: "currency", currency: "CAD", maximumFractionDigits: 0 });
@@ -424,7 +445,7 @@ function formatMoney(x) {
   }
 
   function cartAddon(is18, cartSel) {
-    if (cartSel === "Walking") return 0;
+    if (cartSel === "No Carts Included (Optional for Golfer at Registration)") return 0;
     return is18 ? 20 : 10;
   }
 
@@ -445,7 +466,7 @@ function formatMoney(x) {
     const mealSel = (kind === "budget") ? "Sandwich Lunch (+$10)"
                   : (kind === "popular") ? "BBQ Lunch (+$20)"
                   : "Plated Meal (+$30)";
-    const cartsSel = (kind === "budget") ? "Walking" : "Power Carts";
+    const cartsSel = (kind === "budget") ? "No Carts Included (Optional for Golfer at Registration)" : "Golf Carts Included";
     const prize = (kind !== "budget");   // popular/premium include prize
     const drinksChecked = (kind !== "budget"); // popular/premium include drink tickets
 
@@ -509,23 +530,31 @@ function formatMoney(x) {
   }
 
   function shoulderDiscountAmount(season) {
-    return (season === "Shoulder") ? 10 : 0;
+    // $10 off per golfer in early/late season
+    return (season === "Early Season" || season === "Late Season") ? 10 : 0;
   }
 
   function calc() {
     const golfers = Number(document.getElementById("golfers").value || 0);
     const sizeEl = document.getElementById("size");
-    // Tournament size is auto-filled from golfer count. After a golfer count is entered, lock the size selector.
+    // Tournament size is auto-filled from golfer count.
     const tier = inferTier(golfers);
-    if (golfers > 0) {
-      sizeEl.value = "Auto (based on golfers)";
-      sizeEl.disabled = true;
-    } else {
-      sizeEl.disabled = false;
-    }
+    sizeEl.value = tier;
+    sizeEl.disabled = true;
 
     const basePkg = document.getElementById("basePkg").value;
-    let mealSel = document.getElementById("meal").value;
+    const mealEl = document.getElementById("meal");
+    let mealSel = mealEl.value;
+
+    // If "Golf Only" is selected, meal must be "No Meal".
+    // Keep pricing logic consistent and reduce user confusion.
+    if (basePkg === "Golf Only") {
+      mealSel = "No Meal";
+      mealEl.value = mealSel;
+      mealEl.disabled = true;
+    } else {
+      mealEl.disabled = false;
+    }
 
     // Meals are priced as add-ons to the Golf Only rate:
     // No Meal = $0, Sandwich = $15, BBQ = $25, Plated = $35.
@@ -550,10 +579,14 @@ function formatMoney(x) {
       dayType = isWeekend ? "Weekend" : "Weekday";
       document.getElementById("dayType").value = dayType;
 
-      const startShoulder = new Date("2026-09-06T00:00:00");
-      const endShoulder = new Date("2027-05-20T23:59:59");
-      const inShoulder = (dt >= startShoulder && dt <= endShoulder);
-      season = inShoulder ? "Shoulder" : "Regular";
+      // Season is derived from the selected date (year-agnostic)
+      // Early Season: Jan 1 → May 20 (inclusive)
+      // Late Season: Sep 6 → Dec 31 (inclusive)
+      const m = dt.getMonth() + 1; // 1-12
+      const day = dt.getDate();
+      const isEarly = (m < 5) || (m === 5 && day <= 20);
+      const isLate = (m > 9) || (m === 9 && day >= 6);
+      season = isEarly ? "Early Season" : (isLate ? "Late Season" : "Regular");
       document.getElementById("season").value = season;
     }
 
@@ -588,12 +621,20 @@ function formatMoney(x) {
     const deposit = total * 0.30;
 
     // UI
-    document.getElementById("tierLabel").textContent = tier;
+        // Update the seasonal discount label for clarity
+    const lbl = document.getElementById("seasonDiscLabel");
+    if (lbl) {
+      if (season === "Early Season") lbl.textContent = "Early season discount";
+      else if (season === "Late Season") lbl.textContent = "Late season discount";
+      else lbl.textContent = "Seasonal discount";
+    }
+
+document.getElementById("tierLabel").textContent = tier;
     document.getElementById("tierDetail").textContent = `${golfers} golfers${(billedGolfers !== golfers) ? " (min billed as 24)" : ""} • ${dayType} • ${season}`;
     document.getElementById("holesDetail").textContent = loop18 ? "18 holes (loop)" : "9 holes";
     document.getElementById("mealDetail").textContent = mealSel;
     const extras = [];
-    if (cartsSel !== "Walking") extras.push(loop18 ? "Carts (18)" : "Carts (9)");
+    if (cartsSel !== "No Carts Included (Optional for Golfer at Registration)") extras.push(loop18 ? "Carts (18)" : "Carts (9)");
     if (prize) extras.push("Prize package");
     if (drinksChecked) extras.push("2 drink tickets");
     document.getElementById("extrasDetail").textContent = extras.length ? extras.join(", ") : "None";
@@ -642,7 +683,7 @@ function formatMoney(x) {
     const cPhone = (document.getElementById("phone")?.value || "").trim();
     const cNotes = (document.getElementById("notes")?.value || "").trim();
 
-    const subject = `VKGC Tournament Quote Request${gName ? " - " + gName : ""}`;
+    const subject = "Tournament Inquiry Quote";
     const bodyLines = [
       "CUSTOMER INFO",
       `Group/Company: ${gName || "(not provided)"}`,
@@ -656,15 +697,38 @@ function formatMoney(x) {
       "Notes:",
       cNotes || "(none)"
     ];
-    const mailto = "mailto:drouinirrigation@gmail.com"
+    const mailto = "mailto:2024VKGC@gmail.com"
       + "?subject=" + encodeURIComponent(subject)
       + "&body=" + encodeURIComponent(bodyLines.join("\n"));
     const emailBtn = document.getElementById("emailBtn");
     if (emailBtn) emailBtn.setAttribute("href", mailto);
 
+  
+    __currentMailto = mailto;
+}
+
+  
+  function openQuoteEmail(e){
+    if (e) e.preventDefault();
+    const cEmail = (document.getElementById("email")?.value || "").trim();
+    if (!cEmail) {
+      alert("Please enter your email address so we can follow up with you.");
+      document.getElementById("email")?.focus();
+      return;
+    }
+    // Ensure mailto is up to date
+    calc();
+    if (__currentMailto) window.location.href = __currentMailto;
   }
 
-  // Bind events
+  (function(){
+    const btn = document.getElementById("emailBtn");
+    if (btn) btn.addEventListener("click", openQuoteEmail);
+    const mb = document.getElementById("mbEmailBtn");
+    if (mb) mb.addEventListener("click", openQuoteEmail);
+  })();
+
+// Bind events
   ["eventDate","eventTime","golfers","size","basePkg","meal","carts","prize","drinks","loop18","dayType","season","groupName","contactName","email","phone","notes"].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -676,14 +740,14 @@ function formatMoney(x) {
     document.getElementById("eventDate").value = "";
     document.getElementById("eventTime").value = "10:00";
     document.getElementById("golfers").value = 48;
-    document.getElementById("size").value = "Auto (based on golfers)";
+    document.getElementById("size").value = inferTier(Number(document.getElementById("golfers").value || 0));
     document.getElementById("size").disabled = true;
     document.getElementById("basePkg").value = "Golf Only";
     document.getElementById("meal").value = "No Meal";
     document.getElementById("prize").checked = false;
     document.getElementById("drinks").checked = false;
     document.getElementById("loop18").checked = false;
-    document.getElementById("carts").value = "Walking";
+    document.getElementById("carts").value = "No Carts Included (Optional for Golfer at Registration)";
     document.getElementById("dayType").value = "Weekday";
     document.getElementById("season").value = "Regular";
     document.getElementById("groupName").value = "";
@@ -704,19 +768,19 @@ function formatMoney(x) {
 
     if (kind === "budget") {
       document.getElementById("meal").value = "Sandwich Lunch (+$10)";
-      document.getElementById("carts").value = "Walking";
+      document.getElementById("carts").value = "No Carts Included (Optional for Golfer at Registration)";
       document.getElementById("prize").checked = false;
       document.getElementById("drinks").checked = false;
     }
     if (kind === "popular") {
       document.getElementById("meal").value = "BBQ Lunch (+$20)";
-      document.getElementById("carts").value = "Power Carts";
+      document.getElementById("carts").value = "Golf Carts Included";
       document.getElementById("prize").checked = true;
       document.getElementById("drinks").checked = true;
     }
     if (kind === "premium") {
       document.getElementById("meal").value = "Plated Meal (+$30)";
-      document.getElementById("carts").value = "Power Carts";
+      document.getElementById("carts").value = "Golf Carts Included";
       document.getElementById("prize").checked = true;
       document.getElementById("drinks").checked = true;
     }
