@@ -1379,7 +1379,7 @@ body{
 </div>
 <div class="card" id="tournamentInquiry">
 <h3>Send Tournament Inquiry</h3>
-<form id="tourneyForm" action="mailto:2024vkgc@gmail.com?subject=Tournament%20Inquiry" class="form" enctype="text/plain" method="post" onsubmit="return sendTournamentEmail(event)">
+<form id="tourneyForm" class="form" onsubmit="return sendTournamentEmail(event)">
 <div>
 <label for="tname">Name</label>
 <input id="tname" name="name" placeholder="Your name" required=""/>
@@ -1427,7 +1427,6 @@ body{
 <h2>📅 Events</h2>
 <p>Leagues + Tournaments + Events</p>
 </div>
-<a class="btn btn-outline" href="#contact">Add an event</a>
 </div>
 <div class="split">
 <div class="card">
@@ -1483,7 +1482,6 @@ body{
 <a class="btn green" href="sponsorship-package.pdf" rel="noopener" target="_blank">Download Sponsorship Package</a>
 </div>
 </div>
-<a class="btn btn-outline" href="#sponsorForm">Become a Sponsor</a>
 </div>
 <div class="split">
   <div class="card">
@@ -1944,5 +1942,90 @@ body{
     setInterval(next, intervalMs);
   })();
 </script>
+
+<script>
+/* --- Tournament estimate fallback (in case earlier script fails) --- */
+(function(){
+  function money(n){
+    n = Number(n);
+    if(!isFinite(n)) n = 0;
+    return "$" + n.toFixed(0);
+  }
+
+  function compute(){
+    const playersEl = document.getElementById("players");
+    const holesEl = document.getElementById("holes");
+    const cartEl = document.getElementById("cartGolfers");
+    const pkgEl = document.getElementById("meal");
+    const prizeEl = document.getElementById("prizePkg");
+    const drinksEl = document.getElementById("drinkTickets");
+
+    if(!playersEl || !holesEl) return { total: 0, breakdown: "" };
+
+    const players = Math.max(0, parseInt(playersEl.value || "0", 10));
+    const holesSelected = parseInt(holesEl.value || "9", 10);
+
+    const baseRate = (holesSelected === 18) ? 40 : 30;
+    const baseTotal = players * baseRate;
+
+    const mealRates = { golfOnly: 0, sandwich: 10, bbq: 20, plated: 30 };
+    const pkgKey = pkgEl ? String(pkgEl.value || "golfOnly") : "golfOnly";
+    const mealRate = mealRates[pkgKey] || 0;
+    const mealTotal = players * mealRate;
+
+    const cartIncluded = cartEl && String(cartEl.value) === "1";
+    const cartTotal = cartIncluded ? (players * 10) : 0;
+
+    const upgradesTotal = players * (
+      (prizeEl && prizeEl.checked ? 10 : 0) +
+      (drinksEl && drinksEl.checked ? 10 : 0)
+    );
+
+    const total = baseTotal + mealTotal + cartTotal + upgradesTotal;
+
+    let breakdown = `${players} golfer(s) × ${money(baseRate)} = ${money(baseTotal)}`;
+    breakdown += mealTotal ? ` • Meal add-on: ${players} × ${money(mealRate)} = ${money(mealTotal)}` : ` • Meal: none`;
+    breakdown += cartTotal ? ` • Cart add-on: ${players} × ${money(10)} = ${money(cartTotal)}` : ` • Carts: none`;
+    if(upgradesTotal){
+      const parts = [];
+      if(prizeEl && prizeEl.checked) parts.push("Prize package");
+      if(drinksEl && drinksEl.checked) parts.push("Drink tickets");
+      breakdown += ` • Upgrades: ${parts.join(" + ")} = ${money(upgradesTotal)}`;
+    }
+
+    return { total, breakdown };
+  }
+
+  function render(){
+    const outTotal = document.getElementById("estTotal");
+    const outBreak = document.getElementById("estBreakdown");
+    const hidden = document.getElementById("estimate_details");
+    const res = compute();
+
+    if(outTotal) outTotal.textContent = money(res.total);
+    if(outBreak) outBreak.textContent = res.breakdown;
+
+    if(hidden) hidden.value = `Estimate: ${money(res.total)} | ${res.breakdown}`;
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    // Only run if the estimate output exists (tournament section is on this page)
+    if(!document.getElementById("estTotal")) return;
+
+    // Initial render
+    render();
+
+    // Re-render on changes
+    ["players","holes","cartGolfers","meal","prizePkg","drinkTickets"].forEach(function(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.addEventListener("input", render);
+      el.addEventListener("change", render);
+      el.addEventListener("click", render);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
