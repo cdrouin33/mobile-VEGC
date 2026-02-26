@@ -685,6 +685,14 @@ body{
 .contact-lines strong{
   font-weight:700;
 }
+.sponsorLogo{
+  max-width: 100%;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
 </style>
 </head>
 <body>
@@ -1463,19 +1471,54 @@ body{
 <a class="btn btn-outline" href="#sponsorForm">Become a Sponsor</a>
 </div>
 <div class="split">
-<div class="card">
-<h3>Thank you to our local sponsors</h3>
-<p class="muted">Replace the placeholders below with sponsor logos.</p>
-<div class="grid" style="margin-top:10px;">
-<div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">Sponsor Logo</div>
-<div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">Sponsor Logo</div>
-<div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">Sponsor Logo</div>
-<div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">Sponsor Logo</div>
-<div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">Sponsor Logo</div>
-<div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">Sponsor Logo</div>
-</div>
-</div>
-<div class="card" id="sponsorForm">
+  <div class="card">
+    <h3>Thank you to our local sponsors</h3>
+    <p class="muted">Replace the placeholders below with sponsor logos.</p>
+
+    <div class="grid" style="margin-top:10px;">
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor1.png" alt="Sponsor 1" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor2.png" alt="Sponsor 2" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor3.png" alt="Sponsor 3" class="sponsorLogo">
+      </div>
+
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor4.png" alt="Sponsor 4" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor5.png" alt="Sponsor 5" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor6.png" alt="Sponsor 6" class="sponsorLogo">
+      </div>
+
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor7.png" alt="Sponsor 7" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor8.png" alt="Sponsor 8" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor9.png" alt="Sponsor 9" class="sponsorLogo">
+      </div>
+
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor10.png" alt="Sponsor 10" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor11.png" alt="Sponsor 11" class="sponsorLogo">
+      </div>
+      <div class="card" style="grid-column: span 4; text-align:center; background: var(--soft); box-shadow:none;">
+        <img src="images/sponsors/sponsor12.png" alt="Sponsor 12" class="sponsorLogo">
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="sponsorForm">
 <h3>Sponsorship Tiers</h3>
 <ul class="list">
 <li><b>Bronze</b> — Hole sign + website listing</li>
@@ -1793,7 +1836,7 @@ body{
     const img = document.getElementById("weeklyRotator");
     if (!img) return;
 
-    const images = ["images/weekly1.jpg", "images/weekly2.jpg", "images/weekly3.jpg", "images/weekly4.jpg"];
+    const images = ["images/weekly1.jpg", "images/weekly2.jpg", "images/weekly3.jpg"];
     let i = 0;
     const intervalMs = 9000;
     const fadeMs = 650;
