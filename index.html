@@ -390,24 +390,22 @@ body{
       font-size:12px;
     }
     .holeLink:hover{border-color: rgba(22,163,74,.35)}
-    .holeCard{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
-    }
+    .holeCard{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
     .photo{
-      border-radius: 16px;
-      border:1px dashed rgba(71,85,105,.35);
-      background: repeating-linear-gradient(45deg, rgba(71,85,105,.05), rgba(71,85,105,.05) 10px, rgba(71,85,105,.02) 10px, rgba(71,85,105,.02) 20px);
-      min-height: 220px;
-      display:grid;
-      place-items:center;
-      color: rgba(71,85,105,.85);
-      font-weight:800;
-      text-align:center;
-      padding:10px;
-    }
+  border-radius: 16px;
+  border:1px dashed rgba(71,85,105,.35);
+  background: repeating-linear-gradient(45deg, rgba(71,85,105,.05), rgba(71,85,105,.05) 10px, rgba(71,85,105,.02) 10px, rgba(71,85,105,.02) 20px);
+
+  padding: 0;
+  min-height: 0;
+  aspect-ratio: 16 / 9;      /* controlled height */
+  max-height: 220px;         /* keeps it closer to the text height */
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     /* Responsive */
     @media (max-width: 920px){
@@ -505,12 +503,11 @@ body{
 
     /* Hole photos: ensure images fill the photo slot cleanly */
     .photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius: 16px;
-      display:block;
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 
 /* Uniform hole photo sizing (applies to all holes) */
 .photo{
@@ -1413,9 +1410,9 @@ body{
 <div class="card">
 <h3>Weekly Leagues</h3>
 <ul class="list">
-<li><b>Ladies Night:</b> Mondays - 6:00pm to 9:00pm</li>
-<li><b>Men’s Night:</b> Tuesdays - 6:00pm to 9:00pm</li>
-<li><b>Seniors:</b> Wednesday mornings - 9:00am to 11:00am</li>
+<li><a href="events/ladies-night.pdf" target="_blank" rel="noopener"><b>Ladies Night</b></a>: Mondays - 6:00pm to 9:00pm</li>
+<li><a href="events/mens-night.pdf" target="_blank" rel="noopener"><b>Men’s Night</b></a>: Tuesdays - 6:00pm to 9:00pm</li>
+<li><a href="events/seniors.pdf" target="_blank" rel="noopener"><b>Seniors</b></a>: Wednesday mornings - 9:00am to 11:00am</li>
 </ul>
 <p class="note">Call or Email for more Details (780)-632-3140 or Email: 2024vkgc@gmail.com (Everyone Welcome!)</p>
 <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--line);">
@@ -1430,8 +1427,8 @@ body{
 <div style="margin-top:14px; padding-top:14px; border-top:1px dashed var(--line);">
 <h4 style="margin:0 0 6px 0;">🏌️ Programs &amp; Lessons</h4>
 <ul class="list" style="margin-top:0;">
-<li>Beginner Clinics (Adults) TBD</li>
-<li>Junior Golf Program TBD</li>
+<li><a href="events/beginner-clinics.pdf" target="_blank" rel="noopener"><b>Beginner Clinics (Adults)</b></a> TBD</li>
+<li><a href="events/junior-golf-program.pdf" target="_blank" rel="noopener"><b>Junior Golf Program</b></a> TBD</li>
 </ul>
 <div class="twoBtns" style="margin-top:10px;">
   <a class="btn" href="#calc">Tournament Calculator</a>
@@ -1796,7 +1793,7 @@ body{
     const img = document.getElementById("weeklyRotator");
     if (!img) return;
 
-    const images = ["images/weekly1.jpg", "images/weekly2.jpg", "images/weekly3.jpg"];
+    const images = ["images/weekly1.jpg", "images/weekly2.jpg", "images/weekly3.jpg", "images/weekly4.jpg"];
     let i = 0;
     const intervalMs = 9000;
     const fadeMs = 650;
