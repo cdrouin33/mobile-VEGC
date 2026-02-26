@@ -1323,30 +1323,45 @@ body{
 </div>
 <div class="split" style="grid-template-columns: 1fr 1fr;">
 <div>
-<label for="cartGolfers">Golfers adding a power cart (optional)</label>
-<input id="cartGolfers" min="0" type="number" value="0"/>
+<label for="cartGolfers">Power Cart</label>
+<select id="cartGolfers">
+  <option selected="" value="0">No Carts (Optional at Time of Registration)</option>
+  <option value="1">Power Cart Included</option>
+</select>
 <div class="note" style="margin-top:6px;">Cart add-on is priced per golfer (not per cart).</div>
 </div>
 <div>
 <label for="meal">Package</label>
 <select id="meal">
-<option selected="" value="golfOnly">Golf Only</option>
-<option value="golfMeal">Golf + Meal</option>
+  <option selected="" value="golfOnly">Golf Only</option>
+  <option value="sandwich">Golf + Meal (Sandwich Lunch)</option>
+  <option value="bbq">Golf + Meal (BBQ Lunch)</option>
+  <option value="plated">Golf + Meal (Plated Meal)</option>
 </select>
 </div>
 </div>
-<div class="split" style="grid-template-columns: 1fr 1fr;">
-<div>
-<label for="weekendPremium">Weekend course-use premium (if applicable)</label>
-<select id="weekendPremium">
-<option selected="" value="0">No</option>
-<option value="1">Yes (estimate only)</option>
-</select>
+<div class="split" style="grid-template-columns: 1fr 1fr; gap:12px;">
+  <label class="card" style="padding:14px 16px; box-shadow:none; border:1px solid var(--line); border-radius:14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
+    <div>
+      <div style="font-weight:800;">Pro Shop Hole Prize Package</div>
+      <div class="muted" style="margin-top:2px;">+$10 per golfer</div>
+    </div>
+    <input id="prizePkg" type="checkbox" style="width:18px; height:18px;"/>
+  </label>
+
+  <label class="card" style="padding:14px 16px; box-shadow:none; border:1px solid var(--line); border-radius:14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
+    <div>
+      <div style="font-weight:800;">Drink Tickets (2)</div>
+      <div class="muted" style="margin-top:2px;">+$10 per golfer</div>
+    </div>
+    <input id="drinkTickets" type="checkbox" style="width:18px; height:18px;"/>
+  </label>
 </div>
-<div id="weekendPremiumWrap" style="display:none;">
-<label for="premiumPerGolfer">Premium amount (per golfer)</label>
-<input id="premiumPerGolfer" min="0" type="number" value="0"/>
-</div>
+
+<!-- Kept hidden for backward compatibility (not shown) -->
+<div style="display:none;">
+  <select id="weekendPremium"><option selected="" value="0">No</option></select>
+  <input id="premiumPerGolfer" type="number" value="0"/>
 </div>
 <div class="callout" style="margin-top:8px;">
 <div>✅</div>
@@ -1356,10 +1371,7 @@ body{
 </div>
 </div>
 
-<p class="note">
-              Pricing tiers (per golfer): Small 24–36 • Medium 37–60 • Large 61+.
-              Walking-first pricing. Carts are an optional add-on.
-            </p>
+<p class="note">Carts are an optional add-on.</p>
 </div>
 </div>
 <div class="card" id="tournamentInquiry">
@@ -1647,18 +1659,29 @@ body{
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Tournament calculator (matches tournament-packages.pdf)
+    // Base golf rates by holes + tier. Meal options and upgrades add per-golfer amounts.
     const tournamentRates = {
       9: {
-        golfOnly: { small: 35, medium: 40, large: 45 },
-        golfMeal: { small: 60, medium: 65, large: 75 }
+        golfOnly: { small: 35, medium: 40, large: 45 }
       },
       18: {
-        golfOnly: { small: 45, medium: 50, large: 55 },
-        golfMeal: { small: 70, medium: 75, large: 85 }
+        golfOnly: { small: 45, medium: 50, large: 55 }
       }
     };
 
-    const cartAddOnPerGolfer = { 9: 10, 18: 20 };
+    const cartAddOnPerGolfer = 10; // Power Cart Included: $10 per golfer
+
+    const mealAddOnPerGolfer = {
+      golfOnly: 0,
+      sandwich: 10,
+      bbq: 20,
+      plated: 30
+    };
+
+    const upgradeAddOnPerGolfer = {
+      prizePkg: 10,
+      drinkTickets: 10
+    };
 
     function money(n){
       return "$" + n.toFixed(0);
@@ -1673,46 +1696,51 @@ body{
     function computeEstimate(){
       const playersEl = document.getElementById("players");
       const holesEl = document.getElementById("holes");
-      const cartGolfersEl = document.getElementById("cartGolfers");
-      const mealEl = document.getElementById("meal");
-      const weekendPremiumEl = document.getElementById("weekendPremium");
-      const premiumPerGolferEl = document.getElementById("premiumPerGolfer");
+      const cartEl = document.getElementById("cartGolfers"); // Yes/No select
+      const pkgEl = document.getElementById("meal"); // package select (golfOnly/sandwich/bbq/plated)
+
+      const prizeEl = document.getElementById("prizePkg");
+      const drinksEl = document.getElementById("drinkTickets");
 
       let players = Math.max(0, parseInt(playersEl.value || "0", 10));
-      let holes = parseInt(holesEl.value, 10);
-      let cartGolfers = Math.max(0, parseInt(cartGolfersEl.value || "0", 10));
-      cartGolfers = Math.min(cartGolfers, players);
+      const holesSelected = parseInt(holesEl.value, 10);
 
-      const mealKey = mealEl.value; // golfOnly | golfMeal
-      const tier = tierFromPlayers(players);
-
-      const baseRate = tournamentRates[holes][mealKey][tier];
+      // Flat per-golfer pricing (no tiering)
+      const baseRate = (holesSelected === 18) ? 40 : 30;
       const baseTotal = players * baseRate;
 
-      const cartRate = cartAddOnPerGolfer[holes];
-      const cartTotal = cartGolfers * cartRate;
+      const pkgKey = pkgEl.value;
+      const mealRate = mealAddOnPerGolfer[pkgKey] || 0;
+      const mealTotal = players * mealRate;
 
-      const weekendOn = (weekendPremiumEl.value === "1");
-      const premiumPerGolfer = weekendOn ? Math.max(0, parseFloat(premiumPerGolferEl.value || "0")) : 0;
-      const premiumTotal = players * premiumPerGolfer;
+      const cartIncluded = (cartEl && String(cartEl.value) === "1");
+      const cartTotal = cartIncluded ? (players * cartAddOnPerGolfer) : 0;
 
-      const total = baseTotal + cartTotal + premiumTotal;
+      const prizeOn = !!(prizeEl && prizeEl.checked);
+      const drinksOn = !!(drinksEl && drinksEl.checked);
+      const upgradesTotal = players * ((prizeOn ? upgradeAddOnPerGolfer.prizePkg : 0) + (drinksOn ? upgradeAddOnPerGolfer.drinkTickets : 0));
 
-      let breakdown = `${tier.charAt(0).toUpperCase()+tier.slice(1)} tier • ${players} golfer(s) × ${money(baseRate)} = ${money(baseTotal)}`;
+      const total = baseTotal + mealTotal + cartTotal + upgradesTotal;
+
+      let breakdown = `${players} golfer(s) × ${money(baseRate)} = ${money(baseTotal)}`;
+
+      if(mealTotal){
+        breakdown += ` • Meal add-on: ${players} × ${money(mealRate)} = ${money(mealTotal)}`;
+      } else {
+        breakdown += ` • Meal: none`;
+      }
 
       if(cartTotal){
-        breakdown += ` • Cart add-on: ${cartGolfers} × ${money(cartRate)} = ${money(cartTotal)}`;
+        breakdown += ` • Cart add-on: ${players} × ${money(cartAddOnPerGolfer)} = ${money(cartTotal)}`;
       } else {
         breakdown += ` • Carts: none`;
       }
 
-      if(premiumTotal){
-        breakdown += ` • Weekend premium: ${players} × ${money(premiumPerGolfer)} = ${money(premiumTotal)}`;
-      }
-
-      // Helpful note for under-minimum groups
-      if(players > 0 && players < 24){
-        breakdown += ` • Note: pricing shown uses Small tier (24–36) as an estimate.`;
+      if(upgradesTotal){
+        const parts = [];
+        if(prizeOn) parts.push("Prize package");
+        if(drinksOn) parts.push("Drink tickets");
+        breakdown += ` • Upgrades: ${parts.join(" + ")} = ${money(upgradesTotal)}`;
       }
 
       return { total, breakdown };
@@ -1722,11 +1750,6 @@ body{
       const { total, breakdown } = computeEstimate();
       document.getElementById("estTotal").textContent = money(total);
       document.getElementById("estBreakdown").textContent = breakdown;
-
-      // Toggle weekend premium input visibility
-      const weekendOn = (document.getElementById("weekendPremium").value === "1");
-      const wrap = document.getElementById("weekendPremiumWrap");
-      if(wrap) wrap.style.display = weekendOn ? "" : "none";
 
       // Populate hidden estimate field for the inquiry form
       const estimateText = `Estimate: ${money(total)} | ${breakdown}`;
@@ -1741,10 +1764,12 @@ body{
     }
 
     // Hook up events
-    ["players","holes","cartGolfers","meal","weekendPremium","premiumPerGolfer"].forEach(id=>{
+    ["players","holes","cartGolfers","meal","prizePkg","drinkTickets"].forEach(id=>{
       const el = document.getElementById(id);
-      if(el) el.addEventListener("input", renderEstimate);
-      if(el) el.addEventListener("change", renderEstimate);
+      if(!el) return;
+      el.addEventListener("input", renderEstimate);
+      el.addEventListener("change", renderEstimate);
+      el.addEventListener("click", renderEstimate);
     });
 
     // Initialize
