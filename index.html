@@ -1363,6 +1363,7 @@ body{
   <select id="weekendPremium"><option selected="" value="0">No</option></select>
   <input id="premiumPerGolfer" type="number" value="0"/>
 </div>
+
 <div class="callout" style="margin-top:8px;">
 <div>✅</div>
 <div>
@@ -1371,12 +1372,14 @@ body{
 </div>
 </div>
 
+<a class="btn btn-primary" href="tournamentcalculator.html" style="width:100%; margin-top:10px;">Build Your Event</a>
+
 <p class="note">Carts are an optional add-on.</p>
 </div>
 </div>
 <div class="card" id="tournamentInquiry">
 <h3>Send Tournament Inquiry</h3>
-<form action="mailto:REPLACE_WITH_EMAIL?subject=Tournament%20Inquiry%20-%20VKGC" class="form" enctype="text/plain" method="post" onsubmit="appendEstimateToForm(this)">
+<form id="tourneyForm" action="mailto:2024vkgc@gmail.com?subject=Tournament%20Inquiry" class="form" enctype="text/plain" method="post" onsubmit="return sendTournamentEmail(event)">
 <div>
 <label for="tname">Name</label>
 <input id="tname" name="name" placeholder="Your name" required=""/>
@@ -1763,7 +1766,46 @@ body{
       return true;
     }
 
-    // Hook up events
+    
+
+    function sendTournamentEmail(e){
+      // Build a mailto link with all form fields + the live estimate
+      if(e) e.preventDefault();
+      renderEstimate();
+
+      const to = "2024vkgc@gmail.com";
+      const subject = "Tournament Inquiry";
+
+      const name = (document.getElementById("tname")?.value || "").trim();
+      const phone = (document.getElementById("tphone")?.value || "").trim();
+      const email = (document.getElementById("temail")?.value || "").trim();
+      const date = (document.getElementById("tdate")?.value || "").trim();
+      const size = (document.getElementById("tsize")?.value || "").trim();
+      const notes = (document.getElementById("tnotes")?.value || "").trim();
+      const estimate = (document.getElementById("estimate_details")?.value || "").trim();
+
+      const lines = [
+        "Name: " + name,
+        "Phone: " + phone,
+        "Email: " + email,
+        "Preferred date: " + date,
+        "Group size: " + size,
+        "",
+        "Notes:",
+        notes,
+        "",
+        estimate
+      ];
+
+      const body = encodeURIComponent(lines.join("
+"));
+      const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      window.location.href = mailto;
+      return false;
+    }
+
+// Hook up events
     ["players","holes","cartGolfers","meal","prizePkg","drinkTickets"].forEach(id=>{
       const el = document.getElementById(id);
       if(!el) return;
