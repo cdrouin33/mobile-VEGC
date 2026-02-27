@@ -365,7 +365,7 @@
         <h3 style="margin-top:10px;">Estimated Total</h3>
         <div class="total money" id="total">$0</div>
         <div class="sub">Per golfer: <b class="money" id="perGolfer">$0</b></div>
-        <div class="sub">Deposit (30%): <b class="money" id="deposit">$0</b></div>
+        <div class="sub">Deposit (20%): <b class="money" id="deposit">$0</b></div>
 
         <div class="kpi">
           <div class="box">
@@ -423,7 +423,7 @@
   // Golf-only premium (when NO carts AND NO meals):
   //   9 holes: $35 • 18 holes: $45
   const GREEN_FEE = { nine: 30, eighteen: 40 };
-  const GOLF_ONLY_PREMIUM = { nine: 30, eighteen: 45 };
+  const GOLF_ONLY_PREMIUM = { nine: 30, eighteen: 40 };
 function formatMoney(x) {
     const n = Number(x || 0);
     return n.toLocaleString(undefined, { style: "currency", currency: "CAD", maximumFractionDigits: 0 });
@@ -496,8 +496,8 @@ function formatMoney(x) {
     const drinks = drinksAddon(drinksChecked);
     const subtotal = base + mealPrice + cartsPrice + prizes + drinks;
 
-    const prem = weekendPremiumAmount(dayType);   // +$10 weekend
-    const disc = shoulderDiscountAmount(season);  // -$10 shoulder
+    const prem = weekendPremiumAmount(dayType, loop18);   // +$10 weekend
+    const disc = shoulderDiscountAmount(season, loop18);  // -$10 shoulder
 
     const billedGolfers = Math.max(golfers, 24);
     const volDiscPer = (golfers > 60) ? 5 : 0;
@@ -525,13 +525,19 @@ function formatMoney(x) {
   }
 
 
-  function weekendPremiumAmount(dayType) {
-    return (dayType === "Weekend") ? 10 : 0;
+  function weekendPremiumAmount(dayType, loop18) {
+    if (dayType !== "Weekend") return 0;
+    // 9 holes: $5 weekend premium; 18-hole upgrade: $10 weekend premium
+    return loop18 ? 10 : 5;
   }
 
-  function shoulderDiscountAmount(season) {
-    // $10 off per golfer in early/late season
-    return (season === "Early Season" || season === "Late Season") ? 10 : 0;
+  function shoulderDiscountAmount(season, loop18) {
+    // Early/Late season discount per golfer.
+    // 9 holes: $5 discount; 18-hole upgrade: $10 discount
+    if (season === "Early Season" || season === "Late Season") {
+      return loop18 ? 10 : 5;
+    }
+    return 0;
   }
 
   function calc() {
@@ -605,8 +611,8 @@ function formatMoney(x) {
     const drinks = drinksAddon(drinksChecked);
 
     const subtotal = base + meal + carts + prizes + drinks;
-    const prem = weekendPremiumAmount(dayType);
-    const disc = shoulderDiscountAmount(season);
+    const prem = weekendPremiumAmount(dayType, loop18);
+    const disc = shoulderDiscountAmount(season, loop18);
 
     // Minimum tournament size billed at 24 golfers
     const billedGolfers = Math.max(golfers, 24);
@@ -618,7 +624,7 @@ function formatMoney(x) {
     const finalPer = Math.max(0, adjustedPer - volDiscPer);
 
     const total = finalPer * billedGolfers;
-    const deposit = total * 0.30;
+    const deposit = total * 0.20;
 
     // UI
         // Update the seasonal discount label for clarity
