@@ -1382,7 +1382,7 @@ body{
 </div>
 <div class="card" id="tournamentInquiry">
 <h3>Send Tournament Inquiry</h3>
-<form id="tourneyForm" class="form" onsubmit="return sendTournamentEmail(event)">
+<form id="tourneyForm" class="form" onsubmit="return sendTournamentEmail()">
 <div>
 <label for="tname">Name</label>
 <input id="tname" name="name" placeholder="Your name" required=""/>
@@ -1413,7 +1413,7 @@ body{
 </div>
 <!-- Hidden field gets populated with the estimate details -->
 <input id="estimate_details" name="estimate_details" type="hidden" value=""/>
-<button class="btn btn-primary" type="submit">Send Inquiry</button>
+<button class="btn btn-primary" type="button" onclick="sendTournamentEmail()">Send Inquiry</button>
 <p class="note">
               Email Your Quote Directly to Us For a Full Proposal and Customization Options (We’ll Follow Up Within 1-2 Business Days)
             </p>
@@ -1597,7 +1597,7 @@ body{
 <label for="snotes">Notes</label>
 <textarea id="snotes" name="notes" placeholder="Preferred hole? Tournament sponsor? Signage needs?"></textarea>
 </div>
-<button class="btn btn-primary" type="submit">Send Inquiry</button>
+<button class="btn btn-primary" type="button" onclick="sendTournamentEmail()">Send Inquiry</button>
 </form>
 </div>
 </div>
@@ -1786,42 +1786,67 @@ body{
 
     
 
-    function sendTournamentEmail(e){
-      // Build a mailto link with all form fields + the live estimate
-      if(e) e.preventDefault();
-      renderEstimate();
+    function sendTournamentEmail(){
+      // Opens the user's email client with all inquiry fields + the latest estimate.
+      // Returns false to prevent any form submission navigation.
+      try{
+        // Ensure estimate is fresh before sending
+        if (typeof renderEstimate === "function") renderEstimate();
 
-      const to = "2024vkgc@gmail.com";
-      const subject = "Tournament Inquiry";
+        const to = "2024vkgc@gmail.ca";
+        const subject = "Tournament Inquiry";
 
-      const name = (document.getElementById("tname")?.value || "").trim();
-      const phone = (document.getElementById("tphone")?.value || "").trim();
-      const email = (document.getElementById("temail")?.value || "").trim();
-      const date = (document.getElementById("tdate")?.value || "").trim();
-      const size = (document.getElementById("tsize")?.value || "").trim();
-      const notes = (document.getElementById("tnotes")?.value || "").trim();
-      const estimate = (document.getElementById("estimate_details")?.value || "").trim();
+        const v = (id)=> (document.getElementById(id)?.value || "").trim();
 
-      const lines = [
-        "Name: " + name,
-        "Phone: " + phone,
-        "Email: " + email,
-        "Preferred date: " + date,
-        "Group size: " + size,
-        "",
-        "Notes:",
-        notes,
-        "",
-        estimate
-      ];
+        const name = v("tname");
+        const phone = v("tphone");
+        const email = v("temail");
+        const date = v("tdate");
+        const size = v("tsize");
+        const notes = v("tnotes");
+        const estimate = v("estimate_details") || (document.getElementById("estBreakdown")?.textContent || "").trim();
 
-      const body = encodeURIComponent(lines.join("
-"));
-      const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+        const lines = [
+          "Name: " + name,
+          "Phone: " + phone,
+          "Email: " + email,
+          "Preferred date: " + date,
+          "Group size: " + size,
+          "",
+          "Notes:",
+          notes,
+          "",
+          "Estimate / Details:",
+          estimate
+        ];
 
-      window.location.href = mailto;
+        const body = encodeURIComponent(lines.join("\\n"));
+        const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+        // More reliable than setting window.location in some environments
+        const a = document.createElement("a");
+        a.href = mailto;
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        // Fallback
+        window.location.href = mailto;
+
+      }catch(err){
+        console.error("Tournament inquiry email failed:", err);
+        alert("Sorry — your browser blocked opening an email window. Please email 2024vkgc@gmail.ca and include your details.");
+      }
       return false;
     }
+
+    // Ensure the inquiry form never submits/reloads (prevents "nothing happens" cases)
+    document.addEventListener("DOMContentLoaded", ()=>{
+      const f = document.getElementById("tourneyForm");
+      if(!f) return;
+      f.addEventListener("submit", (e)=>{ e.preventDefault(); sendTournamentEmail(); });
+    });
 
 // Hook up events
     ["players","holes","cartGolfers","meal","prizePkg","drinkTickets"].forEach(id=>{
