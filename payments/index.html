@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Payment Coming Soon | Vegreville Kinsmen Golf Club</title>
+  <meta name="description" content="Online payment is coming soon for Vegreville Kinsmen Golf Club. Please call or email us in the meantime for purchases and questions." />
+  <style>
+    :root {
+      --bg: #0f2d1f;
+      --bg-deep: #0a1d14;
+      --card: rgba(255,255,255,0.1);
+      --card-border: rgba(255,255,255,0.18);
+      --text: #f5f2e8;
+      --muted: #d5d0c1;
+      --gold: #d8b15a;
+      --gold-dark: #b58b37;
+      --green-soft: #18422e;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(10, 29, 20, 0.7), rgba(10, 29, 20, 0.88)),
+        url('images/banner.jpg') center/cover no-repeat,
+        linear-gradient(135deg, #18422e 0%, #0f2d1f 45%, #091912 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(8, 20, 14, 0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--bg-deep);
+      background: linear-gradient(135deg, #f1d28a, var(--gold));
+      box-shadow: var(--shadow);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      line-height: 1.15;
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn-outline:hover { transform: translateY(-1px); }
+
+    .btn {
+      background: linear-gradient(135deg, #e1bc67, var(--gold-dark));
+      color: #182014;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(216, 177, 90, 0.13);
+      color: #f1d28a;
+      border: 1px solid rgba(216, 177, 90, 0.28);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 4.8vw, 4.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      max-width: 700px;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0 0 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .mini-note {
+      color: #e7e0cf;
+      font-size: 0.95rem;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.08));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .status-card h2,
+    .info-card h3 {
+      margin-top: 0;
+    }
+
+    .status-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .status-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216,177,90,0.25), transparent 70%);
+      pointer-events: none;
+    }
+
+    .status-pill {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #163222;
+      background: #f1d28a;
+      border-radius: 999px;
+      padding: 7px 12px;
+      margin-bottom: 14px;
+    }
+
+    .big-text {
+      font-size: 1.8rem;
+      line-height: 1.15;
+      margin: 0 0 12px;
+    }
+
+    .status-copy {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 16px 0 54px;
+    }
+
+    .info-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .info-card p,
+    .info-card li {
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .info-card ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5, 14, 9, 0.62);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 22px 0 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      .nav {
+        padding: 10px 0;
+        align-items: flex-start;
+      }
+
+      .nav,
+      .brand,
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .nav-links a {
+        width: 100%;
+      }
+
+      .btn,
+      .btn-outline {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="/">
+        <div class="brand-badge">VK</div>
+        <div class="brand-text">
+          <strong>Vegreville Kinsmen Golf Club</strong>
+          <span>Fast, affordable golf in Vegreville</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Quick links">
+        <a class="btn-outline" href="/">Back to Home</a>
+        <a class="btn-outline" href="tel:17806323140">Call Pro Shop</a>
+        <a class="btn" href="mailto:2024vkgc@gmail.com?subject=Online%20Payment%20Question">Email Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Online Purchases</div>
+          <h1>Online Payment Coming Soon</h1>
+          <p class="lead">
+            Our payment portal is being finalized. In the meantime, please call or email us and we will be happy to help with punch cards, memberships, carts, or other purchase questions.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="mailto:2024vkgc@gmail.com?subject=Online%20Purchase%20Inquiry">Email 2024vkgc@gmail.com</a>
+            <a class="btn-outline" href="tel:17806323140">Call (780) 632-3140</a>
+          </div>
+          <p class="mini-note">Thank you for your patience while we finish the new online payment system.</p>
+        </div>
+
+        <aside class="panel status-card">
+          <div class="status-pill">Temporary Page</div>
+          <h2 class="big-text">We’re almost ready.</h2>
+          <p class="status-copy">
+            This page is designed as a temporary destination for any <strong>Buy Now</strong> buttons until your live payment link is ready.
+          </p>
+          <a class="btn" href="/">Return to Main Website</a>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid">
+        <div class="panel info-card">
+          <h3>What this page is for</h3>
+          <p>Use this as the temporary link target for any purchase button on your site so visitors do not hit a dead end.</p>
+        </div>
+
+        <div class="panel info-card">
+          <h3>Suggested temporary message</h3>
+          <ul>
+            <li>Online payment coming soon</li>
+            <li>Please contact the pro shop to purchase</li>
+            <li>Phone and email links are included above</li>
+          </ul>
+        </div>
+
+        <div class="panel info-card">
+          <h3>Easy swap later</h3>
+          <p>Once your payment portal is live, you can simply replace each button link with the final payment URL.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>© Vegreville Kinsmen Golf Club</div>
+      <div class="contact-links">
+        <a href="mailto:2024vkgc@gmail.com">2024vkgc@gmail.com</a>
+        <a href="tel:17806323140">(780) 632-3140</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
