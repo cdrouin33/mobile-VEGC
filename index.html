@@ -30,6 +30,7 @@
     #tournament-estimate { scroll-margin-top: 320px; }
 body{
       margin:0;
+      padding-top: 79px;
       font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       background:
         radial-gradient(1200px 700px at 20% -10%, rgba(34,197,94,.14), transparent 55%),
@@ -41,10 +42,11 @@ body{
     a{color:inherit}
     .container{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
     .topbar{
-      position:sticky; top:0; z-index:50;
-      background: rgba(255,255,255,.86);
+      position:fixed; top:0; left:0; right:0; z-index:9999;
+      background: rgba(255,255,255,.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
+      box-shadow: 0 6px 14px rgba(0,0,0,.06);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
@@ -415,8 +417,8 @@ body{
       .holeCard{grid-template-columns:1fr}
     }
     @media (max-width: 640px){
-      /* Sticky top bar on mobile for easy navigation */
-      .topbar{position:sticky;top:0;z-index:9999;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+      /* Keep fixed top bar on mobile for easy navigation */
+      .topbar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.06)}
       /* Show hamburger; keep Book Tee Time visible; hide links behind dropdown */
       .nav-toggle{display:inline-flex}
       .menu{position:relative}
@@ -484,7 +486,7 @@ body{
     @media (max-width: 640px){
       .mobile-book{display:block}
       /* give page bottom room so content isn't covered */
-      body{padding-bottom: 86px;}
+      body{padding-top: 94px; padding-bottom: 86px;}
     }
 
   
@@ -852,8 +854,11 @@ body{
 <div class="grid">
 <div class="card" style="grid-column: span 4;">
 <div class="badge">10-Rounds • 9 Holes</div>
-<div class="price">$240</div>
-<div class="sub">$24/round (20% discount)</div>
+<div class="price">
+<span style="text-decoration: line-through; color:#999; margin-right:8px; font-size:22px;">$240</span>
+$200 <span style="color:#d9534f; font-size:14px; font-weight:600;">(Limited Time – Save $40)</span>
+</div>
+<div class="sub">$20/round (Spring Sale until April 12)</div>
 <ul class="list">
 <li>Valid any day of the week and Fully transferable</li>
 <li>Great for Individuals or Businesses</li>
