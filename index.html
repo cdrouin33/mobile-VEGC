@@ -30,7 +30,6 @@
     #tournament-estimate { scroll-margin-top: 320px; }
 body{
       margin:0;
-      padding-top: 79px;
       font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       background:
         radial-gradient(1200px 700px at 20% -10%, rgba(34,197,94,.14), transparent 55%),
@@ -48,6 +47,7 @@ body{
       border-bottom: 1px solid var(--line);
       box-shadow: 0 6px 14px rgba(0,0,0,.06);
     }
+    body{padding-top:var(--header-offset,88px);}
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; padding:12px 0;
@@ -417,8 +417,16 @@ body{
       .holeCard{grid-template-columns:1fr}
     }
     @media (max-width: 640px){
-      /* Keep fixed top bar on mobile for easy navigation */
+      /* Keep fixed top bar on mobile and tighten spacing */
       .topbar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+      body{padding-top:var(--header-offset,96px);}
+      .nav{gap:10px; padding:10px 0;}
+      .brand{gap:8px; min-width:0; flex:1 1 auto;}
+      .logo{width:34px; height:34px; border-radius:10px;}
+      .brand b{font-size:12px; line-height:1.15;}
+      .menu{gap:8px; flex:0 0 auto; align-items:center;}
+      .menu .btn{padding:10px 14px; font-size:12px; gap:8px; white-space:nowrap;}
+      .nav-toggle{width:38px; height:38px;}
       /* Show hamburger; keep Book Tee Time visible; hide links behind dropdown */
       .nav-toggle{display:inline-flex}
       .menu{position:relative}
@@ -486,7 +494,7 @@ body{
     @media (max-width: 640px){
       .mobile-book{display:block}
       /* give page bottom room so content isn't covered */
-      body{padding-top: 94px; padding-bottom: 86px;}
+      body{padding-bottom: 86px;}
     }
 
   
@@ -2131,5 +2139,17 @@ $200 <span style="color:#d9534f; font-size:14px; font-weight:600;">(Limited Time
 })();
 </script>
 
+<script>
+(function(){
+  function setHeaderOffset(){
+    var topbar=document.querySelector('.topbar');
+    if(!topbar) return;
+    document.body.style.setProperty('--header-offset', topbar.offsetHeight + 'px');
+  }
+  window.addEventListener('load', setHeaderOffset);
+  window.addEventListener('resize', setHeaderOffset);
+  setHeaderOffset();
+})();
+</script>
 </body>
 </html>
