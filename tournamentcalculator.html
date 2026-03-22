@@ -271,9 +271,9 @@
         <label>Meal Option</label>
         <select id="meal">
           <option selected>No Meal</option>
-          <option>Sandwich Lunch (+$10)</option>
-          <option>BBQ Lunch (+$20)</option>
-          <option>Plated Meal (+$30)</option>
+          <option>Sandwich Lunch (+$15)</option>
+          <option>BBQ Lunch (+$30)</option>
+          <option>Plated Meal (+$45)</option>
         </select>
 
         <div class="toggle-row" style="margin-top:10px;">
@@ -438,9 +438,9 @@ function formatMoney(x) {
 
   function mealAddon(label) {
     if (label === "No Meal") return 0;
-    if (label.startsWith("Sandwich")) return 10;
-    if (label.startsWith("BBQ")) return 20;
-    if (label.startsWith("Plated")) return 30;
+    if (label.startsWith("Sandwich")) return 15;
+    if (label.startsWith("BBQ")) return 30;
+    if (label.startsWith("Plated")) return 45;
     return 0;
   }
 
@@ -463,9 +463,9 @@ function formatMoney(x) {
     const golfers = Number(document.getElementById("golfers").value || 0);
     const loop18 = false; // presets default to 9 holes; 18 holes is an optional add-on
     const basePkg = "Golf + Meal (base)";
-    const mealSel = (kind === "budget") ? "Sandwich Lunch (+$10)"
-                  : (kind === "popular") ? "BBQ Lunch (+$20)"
-                  : "Plated Meal (+$30)";
+    const mealSel = (kind === "budget") ? "Sandwich Lunch (+$15)"
+                  : (kind === "popular") ? "BBQ Lunch (+$30)"
+                  : "Plated Meal (+$45)";
     const cartsSel = (kind === "budget") ? "No Carts Included (Optional for Golfer at Registration)" : "Golf Carts Included";
     const prize = (kind !== "budget");   // popular/premium include prize
     const drinksChecked = (kind !== "budget"); // popular/premium include drink tickets
@@ -563,10 +563,10 @@ function formatMoney(x) {
     }
 
     // Meals are priced as add-ons to the Golf Only rate:
-    // No Meal = $0, Sandwich = $15, BBQ = $25, Plated = $35.
+    // No Meal = $0, Sandwich = $15, BBQ = $30, Plated = $45.
     // If someone selects "Golf + Meal (base)" but leaves Meal at "No Meal", default them to Sandwich.
     if (basePkg !== "Golf Only" && mealSel === "No Meal") {
-      mealSel = "Sandwich Lunch (+$10)";
+      mealSel = "Sandwich Lunch (+$15)";
       document.getElementById("meal").value = mealSel;
     }
     const cartsSel = document.getElementById("carts").value;
@@ -773,19 +773,19 @@ document.getElementById("tierLabel").textContent = tier;
     document.getElementById("basePkg").value = "Golf + Meal (base)";
 
     if (kind === "budget") {
-      document.getElementById("meal").value = "Sandwich Lunch (+$10)";
+      document.getElementById("meal").value = "Sandwich Lunch (+$15)";
       document.getElementById("carts").value = "No Carts Included (Optional for Golfer at Registration)";
       document.getElementById("prize").checked = false;
       document.getElementById("drinks").checked = false;
     }
     if (kind === "popular") {
-      document.getElementById("meal").value = "BBQ Lunch (+$20)";
+      document.getElementById("meal").value = "BBQ Lunch (+$30)";
       document.getElementById("carts").value = "Golf Carts Included";
       document.getElementById("prize").checked = true;
       document.getElementById("drinks").checked = true;
     }
     if (kind === "premium") {
-      document.getElementById("meal").value = "Plated Meal (+$30)";
+      document.getElementById("meal").value = "Plated Meal (+$45)";
       document.getElementById("carts").value = "Golf Carts Included";
       document.getElementById("prize").checked = true;
       document.getElementById("drinks").checked = true;
