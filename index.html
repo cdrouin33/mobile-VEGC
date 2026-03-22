@@ -2081,7 +2081,7 @@ $200 <span style="color:#d9534f; font-size:14px; font-weight:600;">(Limited Time
     const baseRate = (holesSelected === 18) ? 40 : 30;
     const baseTotal = players * baseRate;
 
-    const mealRates = { golfOnly: 0, sandwich: 10, bbq: 20, plated: 30 };
+    const mealRates = { golfOnly: 0, sandwich: 15, bbq: 30, plated: 45 };
     const pkgKey = pkgEl ? String(pkgEl.value || "golfOnly") : "golfOnly";
     const mealRate = mealRates[pkgKey] || 0;
     const mealTotal = players * mealRate;
