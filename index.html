@@ -329,6 +329,20 @@ body{
       grid-template-columns: 1fr 1fr;
       gap:14px;
     }
+    .sponsor-btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top:12px;
+      align-items:center;
+      position:relative;
+      z-index:5;
+    }
+    .sponsor-btn-row a{
+      position:relative;
+      z-index:6;
+      pointer-events:auto;
+    }
     .callout{
       display:flex; gap:12px; align-items:flex-start;
       padding:14px;
@@ -1533,13 +1547,26 @@ $200 <span style="color:#d9534f; font-size:14px; font-weight:600;">(Limited Time
 <div>
 <h2>🤝 Sponsors</h2>
 <p></p>
-<div class="split" style="margin-top:12px; align-items:start;">
-  <div>
-    <a class="btn green" href="/sponsorship-package.pdf" rel="noopener" target="_blank" style="position:relative; z-index:2;">Download Sponsorship Package</a>
-  </div>
-  <div>
-    <a class="btn btn-primary" href="https://www.tee-on.com/PubGolf/servlet/com.teeon.teesheet.servlets.golfersection.OnlineSales?CourseCode=VEGR&PageID=28&Referrer=www.vegkgc.com" target="_blank" rel="noopener" style="position:relative; z-index:1;">Buy Sponsorship Online</a>
-  </div>
+<div class="sponsor-btn-row">
+  <a
+    id="sponsorPdfBtn"
+    class="btn green"
+    href="/sponsorship-package.pdf"
+    target="_blank"
+    rel="noopener"
+  >
+    Download Sponsorship Package
+  </a>
+
+  <a
+    id="sponsorBuyBtn"
+    class="btn btn-primary"
+    href="https://www.tee-on.com/PubGolf/servlet/com.teeon.teesheet.servlets.golfersection.OnlineSales?CourseCode=VEGR&PageID=28&Referrer=www.vegkgc.com"
+    target="_blank"
+    rel="noopener"
+  >
+    Buy Sponsorship Online
+  </a>
 </div>
 </div>
 </div>
