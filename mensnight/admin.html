@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mens Night League Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 id="adminTitle">Mens Night League Admin</h1>
+      <p>Private weekly score entry, payouts, teams, and hole assignments.</p>
+    </div>
+  </header>
+  <main class="container">
+    <div id="gate" class="card" style="max-width:460px;margin:0 auto;">
+      <h2>Admin Login</h2>
+      <p class="note">Basic password lock for convenience. This is not a secure backend.</p>
+      <label>Password</label>
+      <input id="pwd" type="password" placeholder="Enter admin password">
+      <div class="toolbar" style="margin-top:12px;">
+        <button id="unlockBtn">Unlock Admin</button>
+      </div>
+      <p id="gateStatus" class="footer-note"></p>
+    </div>
+
+    <div id="panel" class="hidden">
+      <div class="toolbar" style="margin-bottom:16px; justify-content:space-between;">
+        <div class="note">Edits save locally in your browser. Export a new <span class="mono">league-data.json</span> when ready to publish.</div>
+        <button id="logoutBtn" class="secondary">Lock Admin</button>
+      </div>
+      <p id="saveStatus" class="footer-note"></p>
+      <div id="adminApp" class="grid"></div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script>MensLeagueApp.initAdmin();</script>
+</body>
+</html>

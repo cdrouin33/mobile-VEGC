@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mens Night League 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 id="title">Mens Night League 2026</h1>
+      <p>Public leaderboard, segment standings, payouts, and weekly hole assignments.</p>
+    </div>
+  </header>
+  <main class="container">
+    <div id="kpis" class="grid"></div>
+    <div class="grid" style="margin-top:16px;">
+      <div id="tonight" class="card half"></div>
+      <div id="latestResults" class="card half"></div>
+      <div id="seasonStandings" class="card two-thirds"></div>
+      <div id="preseason" class="card third"></div>
+    </div>
+    <div id="segments" class="grid" style="margin-top:16px;"></div>
+    <div id="pots" class="card full" style="margin-top:16px;"></div>
+    <p class="footer-note">This page reads from <span class="mono">league-data.json</span>. To publish admin changes, export a new JSON file from the admin page and upload it beside this file.</p>
+  </main>
+  <script src="app.js"></script>
+  <script>MensLeagueApp.initPublic();</script>
+</body>
+</html>
