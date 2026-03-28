@@ -205,19 +205,24 @@
       "sponsorSegment": 50,
       "sponsorYearEnd": 0,
       "kpWon": false,
-      "kpWinner": "Carry Over",
+      "kpWinner": "Carryover",
       "notes": "",
-      "scores": {},
+      "scores": {
+        "T1": 32,
+        "T2": 29,
+        "T3": 33,
+        "T4": 35
+      },
       "pairings": [
         {
           "hole": 1,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T1",
+          "teamB": "T2"
         },
         {
           "hole": 2,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T4",
+          "teamB": "T3"
         },
         {
           "hole": 3,
