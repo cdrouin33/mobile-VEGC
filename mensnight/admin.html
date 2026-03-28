@@ -7,33 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1 id="adminTitle">Mens Night League Admin</h1>
-      <p>Private weekly score entry, payouts, teams, and hole assignments.</p>
+  <div class="site-shell"></div>
+  <header class="topbar-wrap">
+    <div class="container topbar">
+      <div>
+        <p class="eyebrow">Private Admin</p>
+        <h1>Mens Night League 2026 Admin</h1>
+        <p class="subtitle">Publish pairings the day before, then enter players, money, and scores after the round.</p>
+      </div>
     </div>
   </header>
+
   <main class="container">
-    <div id="gate" class="card" style="max-width:460px;margin:0 auto;">
+    <div id="gate" class="card gate-card">
       <h2>Admin Login</h2>
-      <p class="note">Basic password lock for convenience. This is not a secure backend.</p>
+      <p class="note">Convenience password lock only. This is still a front-end website, not a secure backend.</p>
       <label>Password</label>
       <input id="pwd" type="password" placeholder="Enter admin password">
-      <div class="toolbar" style="margin-top:12px;">
-        <button id="unlockBtn">Unlock Admin</button>
+      <div class="toolbar mt-12">
+        <button id="unlockBtn" class="gold">Unlock Admin</button>
       </div>
       <p id="gateStatus" class="footer-note"></p>
     </div>
 
     <div id="panel" class="hidden">
-      <div class="toolbar" style="margin-bottom:16px; justify-content:space-between;">
-        <div class="note">Edits save locally in your browser. Export a new <span class="mono">league-data.json</span> when ready to publish.</div>
+      <div class="toolbar space-between mb-16">
+        <div class="note">Edits save locally in your browser. Export a fresh <span class="mono">league-data.json</span> when you want to publish live changes.</div>
         <button id="logoutBtn" class="secondary">Lock Admin</button>
       </div>
       <p id="saveStatus" class="footer-note"></p>
-      <div id="adminApp" class="grid"></div>
+      <div id="adminApp"></div>
     </div>
   </main>
+
   <script src="app.js"></script>
   <script>MensLeagueApp.initAdmin();</script>
 </body>

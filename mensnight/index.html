@@ -7,24 +7,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1 id="title">Mens Night League 2026</h1>
-      <p>Public leaderboard, segment standings, payouts, and weekly hole assignments.</p>
+  <div class="site-shell"></div>
+  <header class="topbar-wrap">
+    <div class="container topbar">
+      <div>
+        <p class="eyebrow">Vegreville Kinsmen Golf Club</p>
+        <h1 id="title">Mens Night League 2026</h1>
+        <p class="subtitle">Mobile-first public leaderboard, pairings, payouts, and season standings.</p>
+      </div>
+      <div class="hero-buttons">
+        <a href="mens-night-league-2026.pdf" target="_blank" class="button gold pdf-button">📄 League PDF</a>
+      </div>
     </div>
   </header>
-  <main class="container">
-    <div id="kpis" class="grid"></div>
-    <div class="grid" style="margin-top:16px;">
-      <div id="tonight" class="card half"></div>
-      <div id="latestResults" class="card half"></div>
-      <div id="seasonStandings" class="card two-thirds"></div>
-      <div id="preseason" class="card third"></div>
-    </div>
-    <div id="segments" class="grid" style="margin-top:16px;"></div>
-    <div id="pots" class="card full" style="margin-top:16px;"></div>
-    <p class="footer-note">This page reads from <span class="mono">league-data.json</span>. To publish admin changes, export a new JSON file from the admin page and upload it beside this file.</p>
+
+  <main class="container public-layout">
+    <section>
+      <div id="payoutBreakdowns" class="grid payout-grid"></div>
+    </section>
+
+    <section class="grid main-grid">
+      <div id="weeklyPairings" class="card full"></div>
+      <div id="weeklyPayouts" class="card half"></div>
+      <div id="weeklyTeamPayouts" class="card half"></div>
+      <div id="latestResults" class="card full"></div>
+      <div id="preseason" class="card half"></div>
+      <div id="segmentStandings" class="card full"></div>
+      <div id="seasonStandings" class="card full"></div>
+    </section>
+
+    <p class="footer-note public-note">This page reads from <span class="mono">league-data.json</span>. Publish pairings early from admin, then enter attendance, money, and scores after league night.</p>
   </main>
+
   <script src="app.js"></script>
   <script>MensLeagueApp.initPublic();</script>
 </body>

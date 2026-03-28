@@ -6,7 +6,6 @@
     "weeklyPayoutPerPlayer": 7.5,
     "kpPerPlayer": 2.5,
     "segmentPerPlayer": 5,
-    "seasonBuyInPerPlayer": 100,
     "weeklySplit": [
       0.45,
       0.3,
@@ -25,50 +24,48 @@
     ],
     "squareSegmentPct": 0.5,
     "squareYearEndPct": 0.5,
-    "squareDefaultRevenue": 400,
-    "squareDefaultPrizeCost": 300,
     "maxHandicap": 6,
     "maxIncreasePerWeek": 2
   },
   "teams": [
     {
       "id": "T1",
-      "name": "Balls Deep",
+      "name": "Team 1",
       "players": [
-        "Jonn C",
-        "Paul W",
-        "Rick O",
-        "Ed W"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T2",
-      "name": "Scratch",
+      "name": "Team 2",
       "players": [
-        "Kevin O",
-        "Al B",
-        "Jimmy P",
-        "Frankie W"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T3",
-      "name": "Not Gonna Make It",
+      "name": "Team 3",
       "players": [
-        "Tim T",
-        "Jake V",
-        "Sam K",
-        "Habib N"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T4",
-      "name": "Happy ",
+      "name": "Team 4",
       "players": [
-        "Adam S",
-        "Shooter M",
-        "Lenny L",
-        "Bob B"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
@@ -150,46 +147,6 @@
         "",
         ""
       ]
-    },
-    {
-      "id": "T13",
-      "name": "Team 13",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T14",
-      "name": "Team 14",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T15",
-      "name": "Team 15",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T16",
-      "name": "Team 16",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
     }
   ],
   "weeks": [
@@ -199,58 +156,47 @@
       "segment": "Preseason",
       "officialSeason": false,
       "dropLowestEligible": false,
-      "attendancePlayers": 16,
-      "squareRevenue": 200,
-      "squarePrizeCost": 100,
-      "sponsorSegment": 50,
-      "sponsorYearEnd": 0,
+      "attendancePlayers": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
-      "kpWinner": "Carryover",
+      "kpWinner": "",
       "notes": "",
-      "scores": {
-        "T1": 32,
-        "T2": 29,
-        "T3": 33,
-        "T4": 35
-      },
+      "pairingsPublished": false,
+      "publishedAt": "",
+      "scores": {},
       "pairings": [
         {
-          "hole": 1,
-          "teamA": "T1",
-          "teamB": "T2"
-        },
-        {
-          "hole": 2,
-          "teamA": "T4",
-          "teamB": "T3"
-        },
-        {
-          "hole": 3,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 7,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -263,52 +209,46 @@
       "officialSeason": false,
       "dropLowestEligible": false,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -321,52 +261,46 @@
       "officialSeason": false,
       "dropLowestEligible": false,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -379,52 +313,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -437,52 +365,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -495,52 +417,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -553,52 +469,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -611,52 +521,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -669,52 +573,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -727,52 +625,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -785,52 +677,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -843,52 +729,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -901,52 +781,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -959,52 +833,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -1017,52 +885,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -1075,52 +937,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -1133,52 +989,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -1191,52 +1041,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
@@ -1249,52 +1093,46 @@
       "officialSeason": true,
       "dropLowestEligible": true,
       "attendancePlayers": 0,
-      "squareRevenue": 400,
-      "squarePrizeCost": 300,
-      "sponsorSegment": 0,
-      "sponsorYearEnd": 0,
+      "weeklyExtraMoney": 0,
+      "segmentExtraMoney": 0,
+      "yearEndCollected": 0,
+      "yearEndExtraMoney": 0,
+      "squareRevenue": 0,
+      "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
-          "hole": 1,
+          "slot": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "slot": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
+          "slot": 3,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 4,
+          "slot": 4,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 5,
+          "slot": 5,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "slot": 6,
           "teamA": "",
           "teamB": ""
         }
