@@ -7,39 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="site-shell"></div>
-  <header class="topbar-wrap">
-    <div class="container topbar">
+  <header class="site-header">
+    <div class="container hero-shell">
       <div>
-        <p class="eyebrow">Vegreville Kinsmen Golf Club</p>
-        <h1 id="title">Mens Night League 2026</h1>
-        <p class="subtitle">Mobile-first public leaderboard, pairings, payouts, and season standings.</p>
+        <div class="eyebrow" id="courseName">Vegreville Kinsmen Golf Club</div>
+        <h1 id="title">2026 Mens Night League</h1>
+        <p id="subtitle">Mobile-first public leaderboard, pairings, payouts, and season standings.</p>
       </div>
-      <div class="hero-buttons">
-        <a href="mens-night-league-2026.pdf" target="_blank" class="button gold pdf-button">📄 League PDF</a>
-      </div>
+      <a href="mens-night-league-2026.pdf" target="_blank" class="button gold pdf-button">📄 League PDF</a>
     </div>
   </header>
 
-  <main class="container public-layout">
-    <section>
-      <div id="payoutBreakdowns" class="grid payout-grid"></div>
+  <main class="container main-stack">
+    <section id="payoutBreakdowns" class="grid"></section>
+    <section class="grid top-info-grid">
+      <div id="weeklyInfo" class="card third"></div>
+      <div id="weeklyPayouts" class="card third"></div>
+      <div id="lastWeekPayouts" class="card third"></div>
     </section>
-
-    <section class="grid main-grid">
-      <div id="weeklyPairings" class="card full"></div>
-      <div id="weeklyPayouts" class="card half"></div>
-      <div id="weeklyTeamPayouts" class="card half"></div>
-      <div id="latestResults" class="card full"></div>
-      <div id="preseason" class="card half"></div>
-      <div id="segmentStandings" class="card full"></div>
+    <section class="grid">
+      <div id="pairingsSection" class="card half"></div>
+      <div id="leaderboardSection" class="card half"></div>
+    </section>
+    <section class="grid">
+      <div id="preseasonStandings" class="card full"></div>
+    </section>
+    <section id="miniSeasonStandings" class="grid"></section>
+    <section class="grid">
       <div id="seasonStandings" class="card full"></div>
     </section>
-
-    <p class="footer-note public-note">This page reads from <span class="mono">league-data.json</span>. Publish pairings early from admin, then enter attendance, money, and scores after league night.</p>
+    <p class="footer-note">This page reads from <span class="mono">league-data.json</span>. Publish pairings from admin, then export and upload the JSON file to update the live site.</p>
   </main>
 
   <script src="app.js"></script>
-  <script>MensLeagueApp.initPublic();</script>
+  <script>window.MensNightLeague.initPublic();</script>
 </body>
 </html>

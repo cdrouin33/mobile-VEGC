@@ -7,40 +7,41 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="site-shell"></div>
-  <header class="topbar-wrap">
-    <div class="container topbar">
+  <header class="site-header">
+    <div class="container hero-shell">
       <div>
-        <p class="eyebrow">Private Admin</p>
-        <h1>Mens Night League 2026 Admin</h1>
-        <p class="subtitle">Publish pairings the day before, then enter players, money, and scores after the round.</p>
+        <div class="eyebrow">Vegreville Kinsmen Golf Club</div>
+        <h1 id="adminTitle">Mens Night League Admin</h1>
+        <p>Private weekly setup, pairings, score entry, payout control, and JSON publishing.</p>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <div id="gate" class="card gate-card">
+  <main class="container main-stack">
+    <section id="gate" class="card gate-card">
       <h2>Admin Login</h2>
-      <p class="note">Convenience password lock only. This is still a front-end website, not a secure backend.</p>
-      <label>Password</label>
-      <input id="pwd" type="password" placeholder="Enter admin password">
-      <div class="toolbar mt-12">
-        <button id="unlockBtn" class="gold">Unlock Admin</button>
+      <p class="note">This is a light front-end lock for convenience only. Anyone with access to the files could inspect the code.</p>
+      <label for="adminPasswordInput">Password</label>
+      <input id="adminPasswordInput" type="password" placeholder="Enter admin password">
+      <div class="toolbar top-gap">
+        <button id="unlockBtn">Unlock Admin</button>
       </div>
       <p id="gateStatus" class="footer-note"></p>
-    </div>
+    </section>
 
-    <div id="panel" class="hidden">
-      <div class="toolbar space-between mb-16">
-        <div class="note">Edits save locally in your browser. Export a fresh <span class="mono">league-data.json</span> when you want to publish live changes.</div>
-        <button id="logoutBtn" class="secondary">Lock Admin</button>
+    <section id="adminPanel" class="hidden main-stack">
+      <div class="card helper-card" id="helperBox"></div>
+      <div class="toolbar spread save-toolbar">
+        <div id="saveStatus" class="footer-note"></div>
+        <div class="toolbar">
+          <button id="lockBtn" class="secondary">Lock Admin</button>
+        </div>
       </div>
-      <p id="saveStatus" class="footer-note"></p>
-      <div id="adminApp"></div>
-    </div>
+      <div id="adminApp" class="main-stack"></div>
+    </section>
   </main>
 
   <script src="app.js"></script>
-  <script>MensLeagueApp.initAdmin();</script>
+  <script>window.MensNightLeague.initAdmin();</script>
 </body>
 </html>

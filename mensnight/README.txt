@@ -1,27 +1,25 @@
-Mens Night League 2026 rebuild
+Mens Night League 2026
 
-Files included:
+Files in this folder:
 - index.html = public page
 - admin.html = admin page
-- style.css = dark green / gold theme
-- app.js = all public + admin logic
-- league-data.json = editable league data file
+- style.css = design
+- app.js = public + admin logic
+- league-data.json = live data file
 
-Workflow:
+Admin password: mens2026
+
+Important workflow:
 1. Open admin.html
-2. Password: mens2026
-3. Choose a week
-4. Generate/publish pairings before league night if you want
-5. After the round, enter attendance, money, and scores
-6. Export league-data.json
-7. Upload that JSON beside index.html and admin.html to publish updates
+2. Select a week
+3. Generate + publish pairings
+4. Export league-data.json and upload it to your website
+5. After league, re-open that same week
+6. Enter attendance, money, KP, weekly info, and scores
+7. Save This Week
+8. Export league-data.json again
 
-Notes:
-- Preseason = May 5, May 12, May 19
-- Official season starts May 26
-- 4 equal 4-week segments after that
-- Lowest score drops once per in-season segment only
-- Teams with no rounds stay hidden from standings
-- New teams start at 0 handicap until they have score history
-- Year-end purse stays at $0 until real weekly amounts are entered
-- PDF button expects mens-night-league-2026.pdf in the same folder
+Resetting after test season:
+- Use Reset Season (Keep Teams) inside admin
+- Then export league-data.json
+- Upload the new JSON to the website
