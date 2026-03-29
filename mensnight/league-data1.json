@@ -231,75 +231,62 @@
       "id": "W2",
       "date": "2026-05-12",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T1",
-          "teamB": "T2"
-        },
-        {
-          "hole": "2",
-          "teamA": "T3",
-          "teamB": "T4"
-        },
-        {
-          "hole": "3",
-          "teamA": "T5",
-          "teamB": "T7"
-        },
-        {
-          "hole": "4",
-          "teamA": "T6",
-          "teamB": "T8"
-        },
-        {
-          "hole": "5",
-          "teamA": "T9",
-          "teamB": "T11"
-        },
-        {
-          "hole": "6",
-          "teamA": "T10",
-          "teamB": "T12"
-        },
-        {
-          "hole": "7",
+          "hole": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 28,
-        "T2": 29,
-        "T3": 30,
-        "T4": 31,
-        "T5": 31,
-        "T6": 31,
-        "T7": 32,
-        "T8": 32,
-        "T9": 32,
-        "T10": 34,
-        "T11": 34,
-        "T12": 37
-      },
-      "mealOption": "Grilled Chicken",
-      "mealPrice": "$25",
-      "drinkSpecial": "Cooler Packs",
-      "holeInOnePrize": "$10,000",
+      "scores": {},
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
       "extraNote": ""
     },
     {
