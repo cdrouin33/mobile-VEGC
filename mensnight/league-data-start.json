@@ -30,7 +30,7 @@
   "teams": [
     {
       "id": "T1",
-      "name": "The Bogey Men",
+      "name": "Team 1",
       "players": [
         "",
         "",
@@ -40,7 +40,7 @@
     },
     {
       "id": "T2",
-      "name": "Fore Play",
+      "name": "Team 2",
       "players": [
         "",
         "",
@@ -50,7 +50,7 @@
     },
     {
       "id": "T3",
-      "name": "Grip It & Sip It",
+      "name": "Team 3",
       "players": [
         "",
         "",
@@ -60,7 +60,7 @@
     },
     {
       "id": "T4",
-      "name": "The Sandbaggers",
+      "name": "Team 4",
       "players": [
         "",
         "",
@@ -70,7 +70,7 @@
     },
     {
       "id": "T5",
-      "name": "Putt Pirates",
+      "name": "Team 5",
       "players": [
         "",
         "",
@@ -80,7 +80,7 @@
     },
     {
       "id": "T6",
-      "name": "The Mulligan Mafia",
+      "name": "Team 6",
       "players": [
         "",
         "",
@@ -90,7 +90,7 @@
     },
     {
       "id": "T7",
-      "name": "Fairway to Heaven",
+      "name": "Team 7",
       "players": [
         "",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "id": "T8",
-      "name": "The Shankaholics",
+      "name": "Team 8",
       "players": [
         "",
         "",
@@ -110,7 +110,7 @@
     },
     {
       "id": "T9",
-      "name": "Beer Cart Bandits",
+      "name": "Team 9",
       "players": [
         "",
         "",
@@ -120,7 +120,7 @@
     },
     {
       "id": "T10",
-      "name": "The Dirty Divots",
+      "name": "Team 10",
       "players": [
         "",
         "",
@@ -130,7 +130,7 @@
     },
     {
       "id": "T11",
-      "name": "Par-Tee Animals",
+      "name": "Team 11",
       "players": [
         "",
         "",
@@ -140,7 +140,7 @@
     },
     {
       "id": "T12",
-      "name": "The Breakfast Balls",
+      "name": "Team 12",
       "players": [
         "",
         "",
@@ -156,49 +156,49 @@
       "segment": "Preseason",
       "officialSeason": false,
       "dropLowestEligible": false,
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "segmentExtraMoney": 0,
-      "yearEndCollected": 4800,
+      "yearEndCollected": 0,
       "yearEndExtraMoney": 0,
       "squareRevenue": 0,
       "squarePrizeCost": 0,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
-      "pairingsPublished": true,
-      "publishedAt": "2026-05-05",
+      "pairingsPublished": false,
+      "publishedAt": "",
       "scores": {},
       "pairings": [
         {
           "slot": 1,
-          "teamA": "T2",
-          "teamB": "T7"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "slot": 2,
-          "teamA": "T3",
-          "teamB": "T9"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "slot": 3,
-          "teamA": "T12",
-          "teamB": "T11"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "slot": 4,
-          "teamA": "T1",
-          "teamB": "T5"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "slot": 5,
-          "teamA": "T4",
-          "teamB": "T8"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "slot": 6,
-          "teamA": "T10",
-          "teamB": "T6"
+          "teamA": "",
+          "teamB": ""
         }
       ]
     },
