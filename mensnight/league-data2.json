@@ -306,71 +306,58 @@
       "id": "W3",
       "date": "2026-05-19",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "mini-season",
-      "kpWinner": "Johnny Q",
-      "kpWon": true,
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T1",
-          "teamB": "T4"
-        },
-        {
-          "hole": "2",
-          "teamA": "T2",
-          "teamB": "T3"
-        },
-        {
-          "hole": "3",
-          "teamA": "T5",
-          "teamB": "T6"
-        },
-        {
-          "hole": "4",
-          "teamA": "T7",
-          "teamB": "T9"
-        },
-        {
-          "hole": "5",
-          "teamA": "T8",
-          "teamB": "T12"
-        },
-        {
-          "hole": "6",
-          "teamA": "T10",
-          "teamB": "T11"
-        },
-        {
-          "hole": "7",
+          "hole": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 29,
-        "T2": 30,
-        "T3": 33,
-        "T4": 33,
-        "T5": 32,
-        "T6": 31,
-        "T7": 33,
-        "T8": 34,
-        "T9": 33,
-        "T10": 35,
-        "T11": 36,
-        "T12": 32
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
