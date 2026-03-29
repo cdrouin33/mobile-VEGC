@@ -459,7 +459,7 @@ function renderPublic(data){
         <div class="row-labels">
           <div class="row-label"><span>Current pot</span><strong>${money(calc.miniSeasonPots[ms.key] || 0)}</strong></div>
           ${payoutLines(rows)}
-          <div class="row-label"><span>Drop score</span><strong>${ms.drop ? (ms.key === 'preseason' ? 'No' : 'Lowest of 4') : 'No'}</strong></div>
+          <div class="row-label"><span>Drop score</span><strong>${ms.drop ? (ms.key === 'preseason' ? 'No' : 'Drop worst of 4') : 'No'}</strong></div>
           <div class="row-label"><span>Leader</span><strong>${standings[0]?.teamName || 'No rounds yet'}</strong></div>
         </div>
       </div>`;
@@ -513,7 +513,7 @@ function renderPublic(data){
   $('pairingsSection').innerHTML = `
     <div class="section-title"><h2>Weekly Pairings</h2><span class="badge ${computeStatus(infoWeek).className}">${computeStatus(infoWeek).label}</span></div>
     <p class="subdued">Showing ${fmtDate(infoWeek.date)} · ${getMiniSeasonByKey(infoWeek.miniSeasonKey).label}</p>
-    ${weekHasPairings(infoWeek) ? tableHTML(['Hole','Team A','Team B'], infoWeek.pairings.filter(p => p.teamA || p.teamB).map(p => [p.hole, escapeHTML(teamName(data, p.teamA)), escapeHTML(teamName(data, p.teamB))])) : '<div class="note">Pairings not published yet.</div>'}`;
+    ${weekHasPairings(infoWeek) ? tableHTML(['Hole','Team 1','Team 2'], infoWeek.pairings.filter(p => p.teamA || p.teamB).map(p => [escapeHTML(String(p.hole ?? '')), escapeHTML(teamName(data, p.teamA)), escapeHTML(teamName(data, p.teamB))])) : '<div class="note">Pairings not published yet.</div>'}`;
 
   $('leaderboardSection').innerHTML = `
     <h2>Latest Weekly Leaderboard</h2>
@@ -529,7 +529,7 @@ function renderPublic(data){
     const standings = calc.miniSeasonStandings[ms.key] || [];
     return `<div class="card half">
       <h2>${ms.label}</h2>
-      <p class="subdued">Lowest week is dropped once a team has at least 2 scores in this mini season. Dropped week is also excluded from year-end points.</p>
+      <p class="subdued">Worst week is dropped once a team has at least 2 scores in this mini season. Dropped week is also excluded from year-end points.</p>
       ${tableHTML(['Rank','Team','Counted Pts','Gross Pts','Dropped Week'], standings.map(row => [row.rank, escapeHTML(row.teamName), row.countedPoints, row.rawPoints, row.droppedWeekId || '—']))}
     </div>`;
   }).join('');
@@ -659,8 +659,8 @@ function renderWeekEditorHTML(data, weekIndex, calc){
         <button id="publishPairingsBtn" class="gold">Publish Pairings</button>
         <button id="restoreWeekBtn" class="secondary">Restore Previous Backup</button>
       </div>
-      ${tableHTML(['Hole','Team A','Team B'], week.pairings.map((pair, idx) => [
-        pair.hole,
+      ${tableHTML(['Hole','Team 1','Team 2'], week.pairings.map((pair, idx) => [
+        `<input id="pairingHole-${idx}" value="${escapeAttr(String(pair.hole ?? ''))}" placeholder="1">`,
         teamSelectHTML(data, `pairingA-${idx}`, pair.teamA),
         teamSelectHTML(data, `pairingB-${idx}`, pair.teamB)
       ]))}
@@ -758,7 +758,7 @@ function updateDataFromAdminInputs(data, weekIndex){
   });
 
   week.pairings = week.pairings.map((pair, idx) => ({
-    hole: pair.hole,
+    hole: $(`pairingHole-${idx}`).value.trim() || pair.hole,
     teamA: $(`pairingA-${idx}`).value,
     teamB: $(`pairingB-${idx}`).value,
   }));
