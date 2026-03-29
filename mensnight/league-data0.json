@@ -25,14 +25,14 @@
     ],
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
-    "maxHandicap": 8,
-    "holeInOneDefault": "10000"
+    "maxHandicap": 12,
+    "holeInOneDefault": 5000
   },
-  "yearEndCollected": 4800,
+  "yearEndCollected": 0,
   "teams": [
     {
       "id": "T1",
-      "name": "The Bogey Men",
+      "name": "Team 1",
       "players": [
         "",
         "",
@@ -42,7 +42,7 @@
     },
     {
       "id": "T2",
-      "name": "Fore Play",
+      "name": "Team 2",
       "players": [
         "",
         "",
@@ -52,7 +52,7 @@
     },
     {
       "id": "T3",
-      "name": "Grip It & Sip It",
+      "name": "Team 3",
       "players": [
         "",
         "",
@@ -62,7 +62,7 @@
     },
     {
       "id": "T4",
-      "name": "The Sandbaggers",
+      "name": "Team 4",
       "players": [
         "",
         "",
@@ -72,7 +72,7 @@
     },
     {
       "id": "T5",
-      "name": "Putt Pirates",
+      "name": "Team 5",
       "players": [
         "",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "id": "T6",
-      "name": "The Mulligan Mafia",
+      "name": "Team 6",
       "players": [
         "",
         "",
@@ -92,7 +92,7 @@
     },
     {
       "id": "T7",
-      "name": "Fairway to Heaven",
+      "name": "Team 7",
       "players": [
         "",
         "",
@@ -102,7 +102,7 @@
     },
     {
       "id": "T8",
-      "name": "The Shankaholics",
+      "name": "Team 8",
       "players": [
         "",
         "",
@@ -112,7 +112,7 @@
     },
     {
       "id": "T9",
-      "name": "Beer Cart Bandit",
+      "name": "Team 9",
       "players": [
         "",
         "",
@@ -122,7 +122,7 @@
     },
     {
       "id": "T10",
-      "name": "The Dirty Divots",
+      "name": "Team 10",
       "players": [
         "",
         "",
@@ -132,7 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "Par-Tee Animals",
+      "name": "Team 11",
       "players": [
         "",
         "",
@@ -142,7 +142,7 @@
     },
     {
       "id": "T12",
-      "name": "The Breakfast Balls",
+      "name": "Team 12",
       "players": [
         "",
         "",
@@ -156,7 +156,7 @@
       "id": "W1",
       "date": "2026-05-05",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
@@ -164,37 +164,37 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
           "hole": 1,
-          "teamA": "T1",
-          "teamB": "T4"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 2,
-          "teamA": "T2",
-          "teamB": "T3"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 3,
-          "teamA": "T5",
-          "teamB": "T8"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 4,
-          "teamA": "T6",
-          "teamB": "T7"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 5,
-          "teamA": "T9",
-          "teamB": "T10"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 6,
-          "teamA": "T11",
-          "teamB": "T12"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 7,
@@ -208,10 +208,10 @@
         }
       ],
       "scores": {},
-      "mealOption": "AAA Steak Diner, Roasted Potatoes, Ceasar Salad",
-      "mealPrice": "$35",
-      "drinkSpecial": "4 for $18 Coller Packs",
-      "holeInOnePrize": "$10,000",
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
       "extraNote": ""
     },
     {
