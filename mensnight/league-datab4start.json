@@ -26,13 +26,13 @@
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
     "maxHandicap": 12,
-    "holeInOneDefault": "5000"
+    "holeInOneDefault": 5000
   },
-  "yearEndCollected": 4800,
+  "yearEndCollected": 0,
   "teams": [
     {
       "id": "T1",
-      "name": "The Bogey Men",
+      "name": "Team 1",
       "players": [
         "",
         "",
@@ -42,7 +42,7 @@
     },
     {
       "id": "T2",
-      "name": "Fore Play",
+      "name": "Team 2",
       "players": [
         "",
         "",
@@ -52,7 +52,7 @@
     },
     {
       "id": "T3",
-      "name": "Grip It & Sip It",
+      "name": "Team 3",
       "players": [
         "",
         "",
@@ -62,7 +62,7 @@
     },
     {
       "id": "T4",
-      "name": "The Sandbaggers",
+      "name": "Team 4",
       "players": [
         "",
         "",
@@ -72,7 +72,7 @@
     },
     {
       "id": "T5",
-      "name": "Putt Pirates",
+      "name": "Team 5",
       "players": [
         "",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "id": "T6",
-      "name": "The Mulligan Mafia",
+      "name": "Team 6",
       "players": [
         "",
         "",
@@ -92,7 +92,7 @@
     },
     {
       "id": "T7",
-      "name": "Fairway to Heaven",
+      "name": "Team 7",
       "players": [
         "",
         "",
@@ -102,7 +102,7 @@
     },
     {
       "id": "T8",
-      "name": "The Shankaholics",
+      "name": "Team 8",
       "players": [
         "",
         "",
@@ -112,7 +112,7 @@
     },
     {
       "id": "T9",
-      "name": "Beer Cart Bandits",
+      "name": "Team 9",
       "players": [
         "",
         "",
@@ -122,7 +122,7 @@
     },
     {
       "id": "T10",
-      "name": "The Dirty Divots",
+      "name": "Team 10",
       "players": [
         "",
         "",
@@ -132,7 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "Par-Tee Animals",
+      "name": "Team 11",
       "players": [
         "",
         "",
@@ -142,7 +142,7 @@
     },
     {
       "id": "T12",
-      "name": "The Breakfast Balls",
+      "name": "Team 12",
       "players": [
         "",
         "",
@@ -156,75 +156,62 @@
       "id": "W1",
       "date": "2026-05-05",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T1",
-          "teamB": "T2"
-        },
-        {
-          "hole": "2",
-          "teamA": "T3",
-          "teamB": "T4"
-        },
-        {
-          "hole": "3",
-          "teamA": "T5",
-          "teamB": "T8"
-        },
-        {
-          "hole": "4",
-          "teamA": "T6",
-          "teamB": "T9"
-        },
-        {
-          "hole": "5",
-          "teamA": "T7",
-          "teamB": "T10"
-        },
-        {
-          "hole": "9",
-          "teamA": "T11",
-          "teamB": "T12"
-        },
-        {
-          "hole": "7",
+          "hole": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 29,
-        "T2": 30,
-        "T3": 30,
-        "T4": 32,
-        "T5": 32,
-        "T6": 32,
-        "T7": 33,
-        "T8": 34,
-        "T9": 35,
-        "T10": 35,
-        "T11": 36,
-        "T12": 38
-      },
-      "mealOption": "Steak Dinner, Roasted Potatoes, Vegetable, Ceasar Salad",
-      "mealPrice": "35",
-      "drinkSpecial": "4 for $18 Cooler Packs",
-      "holeInOnePrize": "10000",
+      "scores": {},
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
       "extraNote": ""
     },
     {
