@@ -23,7 +23,7 @@ const DEFAULT_DATA = {
     kpPerPlayer: 2.5,
     miniSeasonPerPlayer: 5,
     seasonBuyInPerPlayer: 100,
-    weeklySplit: [0.45, 0.30, 0.25],
+    weeklySplit: [0.5, 0.3, 0.2],
     miniSeasonSplit: [0.5, 0.3, 0.2],
     yearEndSplit: [0.4, 0.3, 0.2, 0.1],
     preseasonMaxChange: 4,
@@ -275,8 +275,9 @@ function calculateLeague(data){
     if (miniSeason.official) officialSeasonWeeklyPots += weeklyPool;
 
     const weeklyPayoutRows = payoutRows(weeklyPool, data.settings.weeklySplit, 3);
-    weeklyPayoutRows.forEach((payout, index) => {
-      if (results[index]) teamState[results[index].teamId].currentWinnings += payout.amount;
+    const weeklyAwardRows = assignTiedPayouts(results, data.settings.weeklySplit, weeklyPool, 'net');
+    weeklyAwardRows.forEach(payout => {
+      if (teamState[payout.teamId]) teamState[payout.teamId].currentWinnings += payout.amount;
     });
 
     const kpAvailable = kpCarry + kpPool;
@@ -293,7 +294,7 @@ function calculateLeague(data){
       bestGross,
       results,
       status: computeStatus(week),
-      payouts: { weeklyPool, weeklyPayoutRows, kpPool, kpAvailable, kpPaid, kpCarryAfter: kpCarry, miniSeasonAdd: miniSeasonPoolAddBase + miniSeasonSquareAdd, yearEndAdd: yearEndExtra }
+      payouts: { weeklyPool, weeklyPayoutRows, weeklyAwardRows, kpPool, kpAvailable, kpPaid, kpCarryAfter: kpCarry, miniSeasonAdd: miniSeasonPoolAddBase + miniSeasonSquareAdd, yearEndAdd: yearEndExtra }
     });
   });
 
@@ -332,16 +333,16 @@ function calculateLeague(data){
 
     const pot = miniSeasonPots[ms.key] || 0;
     const payoutRowsForSeason = payoutRows(pot, data.settings.miniSeasonSplit, 3);
-    miniSeasonPayoutRows[ms.key] = payoutRowsForSeason;
+    const miniSeasonAwardRows = assignTiedPayouts(standings, data.settings.miniSeasonSplit, pot, 'countedPoints');
+    miniSeasonPayoutRows[ms.key] = { baseRows: payoutRowsForSeason, awardRows: miniSeasonAwardRows };
 
     const completed = ms.weeks.every(weekId => {
       const w = weekly.find(entry => entry.id === weekId);
       return w && w.results.length > 0;
     });
     if (completed) {
-      payoutRowsForSeason.forEach((row, index) => {
-        const standing = standings[index];
-        if (standing) teamState[standing.teamId].currentWinnings += row.amount;
+      miniSeasonAwardRows.forEach(row => {
+        if (teamState[row.teamId]) teamState[row.teamId].currentWinnings += row.amount;
       });
     }
   });
@@ -371,8 +372,10 @@ function calculateLeague(data){
 
   const yearEndPurse = round2(number(data.yearEndCollected) + officialSeasonYearEndExtras);
   const projectedYearEndRows = payoutRows(yearEndPurse, data.settings.yearEndSplit, 4);
-  seasonStandings.forEach((row, index) => {
-    row.projectedYearEnd = projectedYearEndRows[index]?.amount || 0;
+  const projectedYearEndAwards = assignTiedPayouts(seasonStandings, data.settings.yearEndSplit, yearEndPurse, 'points');
+  const projectedMap = Object.fromEntries(projectedYearEndAwards.map(row => [row.teamId, row.amount]));
+  seasonStandings.forEach((row) => {
+    row.projectedYearEnd = projectedMap[row.teamId] || 0;
   });
 
   const preseasonStandings = miniSeasonStandings.preseason || [];
@@ -413,6 +416,29 @@ function payoutRows(total, split, maxCount){
   return split.slice(0, maxCount).map((pct, index) => ({ place: index + 1, amount: round2(total * pct) }));
 }
 
+function placeLabel(rank){
+  return `T${rank}`;
+}
+
+function assignTiedPayouts(sortedRows, split, total, scoreKey){
+  const buckets = payoutRows(total, split, split.length);
+  const payouts = [];
+  let cursor = 1;
+  let i = 0;
+  while (i < sortedRows.length && cursor <= split.length) {
+    let j = i + 1;
+    while (j < sortedRows.length && sortedRows[j][scoreKey] === sortedRows[i][scoreKey]) j += 1;
+    const tieCount = j - i;
+    const occupied = [];
+    for (let place = cursor; place < cursor + tieCount && place <= split.length; place += 1) occupied.push(place);
+    const amount = round2(occupied.reduce((sum, place) => sum + (buckets[place - 1]?.amount || 0), 0) / Math.max(tieCount, 1));
+    for (let k = i; k < j; k += 1) payouts.push({ teamId: sortedRows[k].teamId, place: cursor, displayPlace: tieCount > 1 ? placeLabel(cursor) : String(cursor), amount });
+    cursor += tieCount;
+    i = j;
+  }
+  return payouts;
+}
+
 function awardPoints(results){
   const n = results.length;
   let i = 0;
@@ -450,8 +476,13 @@ function renderPublic(data){
   $('payoutBreakdowns').innerHTML = [
     ...MINI_SEASONS.map(ms => {
       const weekDates = ms.weeks.map(id => getWeek(data, id)?.date).filter(Boolean);
-      const rows = calc.miniSeasonPayoutRows[ms.key];
+      const payoutInfo = calc.miniSeasonPayoutRows[ms.key];
+      const rows = payoutInfo.baseRows;
       const standings = calc.miniSeasonStandings[ms.key] || [];
+      const completed = ms.weeks.every(weekId => {
+        const w = calc.weekly.find(entry => entry.id === weekId);
+        return w && w.results.length > 0;
+      });
       return `<div class="card third breakdown-card">
         <div class="eyebrow">Payout Breakdown</div>
         <h2>${ms.label}</h2>
@@ -459,8 +490,8 @@ function renderPublic(data){
         <div class="row-labels">
           <div class="row-label"><span>Current pot</span><strong>${money(calc.miniSeasonPots[ms.key] || 0)}</strong></div>
           ${payoutLines(rows)}
-          <div class="row-label"><span>Drop score</span><strong>${ms.drop ? (ms.key === 'preseason' ? 'No' : 'Drop worst of 4') : 'No'}</strong></div>
-          <div class="row-label"><span>Leader</span><strong>${standings[0]?.teamName || 'No rounds yet'}</strong></div>
+          <div class="row-label"><span>Drop score</span><strong>${ms.drop ? 'Drop worst of 4' : 'No'}</strong></div>
+          <div class="row-label"><span>${completed ? 'Winner' : 'Leader'}</span><strong>${standings[0]?.teamName || 'No rounds yet'}</strong></div>
         </div>
       </div>`;
     }),
@@ -495,20 +526,23 @@ function renderPublic(data){
     <h2>${latest ? `${latest.id} — ${fmtDate(latest.date)}` : 'No results yet'}</h2>
     ${latest ? `<div class="row-labels">
       <div class="row-label"><span>Weekly pot</span><strong>${money(latest.payouts.weeklyPool)}</strong></div>
-      ${payoutLines(latest.payouts.weeklyPayoutRows)}
+      ${latest.payouts.weeklyAwardRows.map(row => `<div class="row-label"><span>${row.displayPlace}</span><strong>${money(row.amount)}</strong></div>`).join('')}
       <div class="row-label"><span>KP</span><strong>${latest.kpWon ? escapeHTML(latest.kpWinner || 'Won this week') : `Carryover: ${money(latest.payouts.kpCarryAfter)}`}</strong></div>
     </div>` : `<div class="note">Enter scores and attendance from admin to populate weekly payouts.</div>`}`;
 
   $('lastWeekPayouts').innerHTML = `
     <div class="eyebrow">Last Week Team Payouts</div>
-    <h2>${latest ? latest.miniSeason.label : 'No results yet'}</h2>
-    ${latest ? tableHTML(['Place','Team','Net','Points','Payout'], latest.results.slice(0,3).map((row, idx) => [
-      idx + 1,
-      escapeHTML(teamName(data, row.teamId)),
-      row.net,
-      row.points,
-      money(latest.payouts.weeklyPayoutRows[idx]?.amount || 0)
-    ])) : `<div class="note">Weekly podium payouts will show here after scores are entered.</div>`}`;
+    <h2>${latest ? `${latest.id} — ${fmtDate(latest.date)}` : 'No results yet'}</h2>
+    ${latest ? tableHTML(['Place','Team','Net','Points','Payout'], latest.payouts.weeklyAwardRows.map(row => {
+      const result = latest.results.find(item => item.teamId === row.teamId);
+      return [
+        row.displayPlace,
+        escapeHTML(teamName(data, row.teamId)),
+        result?.net ?? '—',
+        result?.points ?? '—',
+        money(row.amount)
+      ];
+    })) : `<div class="note">Weekly podium payouts will show here after scores are entered.</div>`}`;
 
   $('pairingsSection').innerHTML = `
     <div class="section-title"><h2>Weekly Pairings</h2><span class="badge ${computeStatus(infoWeek).className}">${computeStatus(infoWeek).label}</span></div>
@@ -516,8 +550,8 @@ function renderPublic(data){
     ${weekHasPairings(infoWeek) ? tableHTML(['Hole','Team 1','Team 2'], infoWeek.pairings.filter(p => p.teamA || p.teamB).map(p => [escapeHTML(String(p.hole ?? '')), escapeHTML(teamName(data, p.teamA)), escapeHTML(teamName(data, p.teamB))])) : '<div class="note">Pairings not published yet.</div>'}`;
 
   $('leaderboardSection').innerHTML = `
-    <h2>Latest Weekly Leaderboard</h2>
-    <p class="subdued">Top 10 based on net score for the latest completed week.</p>
+    <h2>Last Week Leaderboard</h2>
+    <p class="subdued">${latest ? `Results from ${latest.id} — ${fmtDate(latest.date)}.` : 'No completed week yet.'}</p>
     ${latest ? tableHTML(['Place','Team','Gross','HDCP','Net','Points'], latest.results.slice(0,10).map((row, idx) => [idx + 1, escapeHTML(teamName(data, row.teamId)), row.gross, row.handicap, row.net, row.points])) : '<div class="note">No weekly scores entered yet.</div>'}`;
 
   $('preseasonStandings').innerHTML = `
