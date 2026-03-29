@@ -315,32 +315,32 @@
       "pairings": [
         {
           "slot": 1,
-          "teamA": "T2",
-          "teamB": "T3"
+          "teamA": "T9",
+          "teamB": "T7"
         },
         {
           "slot": 2,
-          "teamA": "T7",
-          "teamB": "T9"
+          "teamA": "T3",
+          "teamB": "T2"
         },
         {
           "slot": 3,
-          "teamA": "T5",
-          "teamB": "T11"
-        },
-        {
-          "slot": 4,
           "teamA": "T1",
           "teamB": "T12"
         },
         {
+          "slot": 4,
+          "teamA": "T5",
+          "teamB": "T11"
+        },
+        {
           "slot": 5,
-          "teamA": "T10",
-          "teamB": "T4"
+          "teamA": "T4",
+          "teamB": "T8"
         },
         {
           "slot": 6,
-          "teamA": "T8",
+          "teamA": "T10",
           "teamB": "T6"
         }
       ]
@@ -351,49 +351,62 @@
       "segment": "Segment 1",
       "officialSeason": true,
       "dropLowestEligible": true,
-      "attendancePlayers": 0,
+      "attendancePlayers": 48,
       "weeklyExtraMoney": 0,
       "segmentExtraMoney": 0,
       "yearEndCollected": 0,
       "yearEndExtraMoney": 0,
-      "squareRevenue": 0,
-      "squarePrizeCost": 0,
+      "squareRevenue": 500,
+      "squarePrizeCost": 250,
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
       "pairingsPublished": false,
       "publishedAt": "",
-      "scores": {},
+      "scores": {
+        "T4": 27,
+        "T1": 33,
+        "T2": 33,
+        "T3": 33,
+        "T5": 33,
+        "T6": 33,
+        "T7": 33,
+        "T8": 33,
+        "T9": 32,
+        "T10": 32,
+        "T11": 32,
+        "T12": 32
+      },
       "pairings": [
         {
           "slot": 1,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T3",
+          "teamB": "T2"
         },
         {
           "slot": 2,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T7",
+          "teamB": "T9"
         },
         {
           "slot": 3,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T12",
+          "teamB": "T1"
         },
         {
           "slot": 4,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T11",
+          "teamB": "T5"
         },
         {
           "slot": 5,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T10",
+          "teamB": "T4"
         },
         {
           "slot": 6,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T6",
+          "teamB": "T8"
         }
       ]
     },
