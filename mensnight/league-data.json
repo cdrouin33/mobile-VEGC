@@ -286,49 +286,62 @@
       "segment": "Preseason",
       "officialSeason": false,
       "dropLowestEligible": false,
-      "attendancePlayers": 0,
+      "attendancePlayers": 48,
       "weeklyExtraMoney": 0,
       "segmentExtraMoney": 0,
       "yearEndCollected": 0,
       "yearEndExtraMoney": 0,
-      "squareRevenue": 0,
-      "squarePrizeCost": 0,
+      "squareRevenue": 400,
+      "squarePrizeCost": 250,
       "kpWon": false,
       "kpWinner": "",
-      "notes": "",
+      "notes": "steak dinner $35",
       "pairingsPublished": false,
       "publishedAt": "",
-      "scores": {},
+      "scores": {
+        "T1": 28,
+        "T2": 33,
+        "T3": 34,
+        "T4": 36,
+        "T5": 35,
+        "T6": 29,
+        "T7": 30,
+        "T8": 30,
+        "T9": 31,
+        "T10": 32,
+        "T11": 34,
+        "T12": 35
+      },
       "pairings": [
         {
           "slot": 1,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T2",
+          "teamB": "T3"
         },
         {
           "slot": 2,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T7",
+          "teamB": "T9"
         },
         {
           "slot": 3,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T5",
+          "teamB": "T11"
         },
         {
           "slot": 4,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T1",
+          "teamB": "T12"
         },
         {
           "slot": 5,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T10",
+          "teamB": "T4"
         },
         {
           "slot": 6,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T8",
+          "teamB": "T6"
         }
       ]
     },
