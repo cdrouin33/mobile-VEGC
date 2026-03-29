@@ -231,39 +231,39 @@
       "kpWon": false,
       "kpWinner": "",
       "notes": "",
-      "pairingsPublished": false,
-      "publishedAt": "",
+      "pairingsPublished": true,
+      "publishedAt": "2026-05-12",
       "scores": {},
       "pairings": [
         {
           "slot": 1,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T7",
+          "teamB": "T2"
         },
         {
           "slot": 2,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T3",
+          "teamB": "T9"
         },
         {
           "slot": 3,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T12",
+          "teamB": "T5"
         },
         {
           "slot": 4,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T1",
+          "teamB": "T11"
         },
         {
           "slot": 5,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T6",
+          "teamB": "T4"
         },
         {
           "slot": 6,
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T8",
+          "teamB": "T10"
         }
       ]
     },
