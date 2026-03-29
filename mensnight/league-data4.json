@@ -25,7 +25,7 @@
     ],
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
-    "maxHandicap": 8,
+    "maxHandicap": 12,
     "holeInOneDefault": "5000"
   },
   "yearEndCollected": 4800,
@@ -456,71 +456,58 @@
       "id": "W5",
       "date": "2026-06-02",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T11",
-          "teamB": "T9"
-        },
-        {
-          "hole": "2",
-          "teamA": "T12",
-          "teamB": "T10"
-        },
-        {
-          "hole": "3",
-          "teamA": "T8",
-          "teamB": "T7"
-        },
-        {
-          "hole": "4",
-          "teamA": "T5",
-          "teamB": "T6"
-        },
-        {
-          "hole": "5",
-          "teamA": "T4",
-          "teamB": "T2"
-        },
-        {
-          "hole": "6",
-          "teamA": "T3",
-          "teamB": "T1"
-        },
-        {
-          "hole": "7",
+          "hole": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 32,
-        "T2": 32,
-        "T3": 32,
-        "T4": 32,
-        "T5": 32,
-        "T6": 32,
-        "T7": 34,
-        "T8": 34,
-        "T9": 34,
-        "T10": 30,
-        "T11": 31,
-        "T12": 33
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
