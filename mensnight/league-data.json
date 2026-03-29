@@ -168,7 +168,19 @@
       "notes": "",
       "pairingsPublished": true,
       "publishedAt": "2026-05-05",
-      "scores": {},
+      "scores": {
+        "T1": 33,
+        "T2": 34,
+        "T3": 29,
+        "T4": 28,
+        "T5": 35,
+        "T6": 36,
+        "T7": 39,
+        "T8": 34,
+        "T9": 35,
+        "T10": 33,
+        "T11": 2
+      },
       "pairings": [
         {
           "slot": 1,
