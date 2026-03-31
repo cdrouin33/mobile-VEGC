@@ -381,45 +381,45 @@
       "id": "W4",
       "date": "2026-05-26",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Tommy G",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
           "hole": 1,
-          "teamA": "T1",
-          "teamB": "T4"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 2,
-          "teamA": "T2",
-          "teamB": "T5"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 3,
-          "teamA": "T3",
-          "teamB": "T6"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 4,
-          "teamA": "T7",
-          "teamB": "T9"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 5,
-          "teamA": "T8",
-          "teamB": "T12"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 6,
-          "teamA": "T10",
-          "teamB": "T11"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 7,
@@ -432,20 +432,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 30,
-        "T4": 31,
-        "T5": 32,
-        "T6": 32,
-        "T7": 33,
-        "T8": 33,
-        "T9": 34,
-        "T10": 35,
-        "T11": 36,
-        "T12": 38
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
