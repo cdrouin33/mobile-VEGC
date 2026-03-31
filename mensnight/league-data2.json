@@ -306,45 +306,45 @@
       "id": "W3",
       "date": "2026-05-19",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "mini-season",
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
           "hole": 1,
-          "teamA": "T1",
-          "teamB": "T3"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 2,
-          "teamA": "T2",
-          "teamB": "T5"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 3,
-          "teamA": "T4",
-          "teamB": "T8"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 4,
-          "teamA": "T6",
-          "teamB": "T10"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 5,
-          "teamA": "T7",
-          "teamB": "T9"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 6,
-          "teamA": "T11",
-          "teamB": "T12"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 7,
@@ -357,20 +357,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 29,
-        "T3": 31,
-        "T4": 32,
-        "T5": 32,
-        "T6": 33,
-        "T7": 33,
-        "T8": 34,
-        "T9": 34,
-        "T10": 35,
-        "T11": 36,
-        "T12": 37
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
