@@ -26,42 +26,12 @@
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
     "maxHandicap": 8,
-    "holeInOneDefault": "10000"
+    "holeInOneDefault": "5000"
   },
   "yearEndCollected": 4800,
   "teams": [
     {
       "id": "T1",
-      "name": "The Bogey Men",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T2",
-      "name": "Fore Play",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T3",
-      "name": "Grip It & Sip It",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T4",
       "name": "The Sandbaggers",
       "players": [
         "",
@@ -71,7 +41,7 @@
       ]
     },
     {
-      "id": "T5",
+      "id": "T2",
       "name": "Putt Pirates",
       "players": [
         "",
@@ -81,8 +51,38 @@
       ]
     },
     {
+      "id": "T3",
+      "name": "Fore Play",
+      "players": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "T4",
+      "name": "Dirty Divots",
+      "players": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "T5",
+      "name": "Mulligan Mafia",
+      "players": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
       "id": "T6",
-      "name": "The Mulligan Mafia",
+      "name": "Tap in KIngs",
       "players": [
         "",
         "",
@@ -92,7 +92,7 @@
     },
     {
       "id": "T7",
-      "name": "Fairway to Heaven",
+      "name": "Par Tee Animals",
       "players": [
         "",
         "",
@@ -102,7 +102,7 @@
     },
     {
       "id": "T8",
-      "name": "The Shankaholics",
+      "name": "Bogey Men",
       "players": [
         "",
         "",
@@ -112,7 +112,7 @@
     },
     {
       "id": "T9",
-      "name": "Beer Cart Bandit",
+      "name": "Grip it and Sip it",
       "players": [
         "",
         "",
@@ -122,7 +122,7 @@
     },
     {
       "id": "T10",
-      "name": "The Dirty Divots",
+      "name": "Shankopotamus",
       "players": [
         "",
         "",
@@ -132,7 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "Par-Tee Animals",
+      "name": "Fairway to Heaven",
       "players": [
         "",
         "",
@@ -142,7 +142,7 @@
     },
     {
       "id": "T12",
-      "name": "The Breakfast Balls",
+      "name": "Green Jackets",
       "players": [
         "",
         "",
@@ -160,35 +160,35 @@
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 0,
-      "squareAllocation": "split",
+      "squareNetAmount": 100,
+      "squareAllocation": "mini-season",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
           "hole": 1,
           "teamA": "T1",
-          "teamB": "T4"
+          "teamB": "T3"
         },
         {
           "hole": 2,
           "teamA": "T2",
-          "teamB": "T3"
+          "teamB": "T5"
         },
         {
           "hole": 3,
-          "teamA": "T5",
-          "teamB": "T8"
+          "teamA": "T4",
+          "teamB": "T7"
         },
         {
           "hole": 4,
           "teamA": "T6",
-          "teamB": "T7"
+          "teamB": "T9"
         },
         {
           "hole": 5,
-          "teamA": "T9",
+          "teamA": "T8",
           "teamB": "T10"
         },
         {
@@ -207,11 +207,24 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 30,
+        "T2": 31,
+        "T3": 31,
+        "T4": 42,
+        "T5": 32,
+        "T6": 33,
+        "T7": 33,
+        "T8": 34,
+        "T9": 34,
+        "T10": 35,
+        "T11": 36,
+        "T12": 37
+      },
       "mealOption": "AAA Steak Diner, Roasted Potatoes, Ceasar Salad",
-      "mealPrice": "$35",
+      "mealPrice": "$25",
       "drinkSpecial": "4 for $18 Coller Packs",
-      "holeInOnePrize": "$10,000",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
