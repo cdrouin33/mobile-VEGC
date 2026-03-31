@@ -756,45 +756,45 @@
       "id": "W9",
       "date": "2026-06-30",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 48,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Sammy P",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
           "hole": 1,
-          "teamA": "T4",
-          "teamB": "T6"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 2,
-          "teamA": "T7",
-          "teamB": "T8"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 3,
-          "teamA": "T11",
-          "teamB": "T9"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 4,
-          "teamA": "T5",
-          "teamB": "T10"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 5,
-          "teamA": "T12",
-          "teamB": "T1"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 6,
-          "teamA": "T3",
-          "teamB": "T2"
+          "teamA": "",
+          "teamB": ""
         },
         {
           "hole": 7,
@@ -807,20 +807,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 31,
-        "T2": 30,
-        "T3": 31,
-        "T4": 32,
-        "T5": 33,
-        "T6": 33,
-        "T7": 32,
-        "T8": 34,
-        "T9": 34,
-        "T10": 35,
-        "T11": 37,
-        "T12": 38
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
