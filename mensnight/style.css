@@ -178,3 +178,5 @@ tr:hover td { background: rgba(255,255,255,.02); }
   td { display: flex; justify-content: space-between; gap: 16px; }
   td::before { content: attr(data-label); color: var(--muted); text-transform: uppercase; font-size: 12px; }
 }
+
+.recap-text { min-height: 280px; white-space: pre-wrap; }
