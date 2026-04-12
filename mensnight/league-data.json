@@ -233,7 +233,7 @@
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
-      "squareAllocation": "split",
+      "squareAllocation": "mini-season",
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": true,
@@ -279,7 +279,17 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 31,
+        "T2": 31,
+        "T3": 30,
+        "T4": 31,
+        "T5": 32,
+        "T6": 32,
+        "T7": 32,
+        "T8": 33,
+        "T9": 33
+      },
       "mealOption": "Steak Dineer",
       "mealPrice": "$25",
       "drinkSpecial": "Happy Dad $5",
