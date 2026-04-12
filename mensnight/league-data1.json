@@ -228,62 +228,62 @@
       "id": "W2",
       "date": "2026-05-12",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T1",
-          "teamB": "T3"
-        },
-        {
-          "hole": "2",
-          "teamA": "T2",
-          "teamB": "T6"
-        },
-        {
-          "hole": "3",
-          "teamA": "T4",
-          "teamB": "T5"
-        },
-        {
-          "hole": "4",
-          "teamA": "T7",
-          "teamB": "T9"
-        },
-        {
-          "hole": "5",
-          "teamA": "T8",
-          "teamB": ""
-        },
-        {
-          "hole": "6",
+          "hole": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "7",
+          "hole": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "Steak Dineer",
-      "mealPrice": "$25",
-      "drinkSpecial": "Happy Dad $5",
-      "holeInOnePrize": "$5000",
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
       "extraNote": ""
     },
     {
