@@ -62,7 +62,7 @@
     },
     {
       "id": "T4",
-      "name": "San Savers",
+      "name": "Sand Savers",
       "players": [
         "",
         "",
@@ -207,7 +207,17 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 30,
+        "T2": 31,
+        "T3": 32,
+        "T4": 31,
+        "T5": 32,
+        "T6": 33,
+        "T7": 32,
+        "T8": 33,
+        "T9": 33
+      },
       "mealOption": "Staek Diner",
       "mealPrice": "$15",
       "drinkSpecial": "4 for 18 Cooler Pack",
