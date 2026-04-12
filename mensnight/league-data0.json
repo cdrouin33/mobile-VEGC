@@ -25,24 +25,24 @@
     ],
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
-    "maxHandicap": 8,
-    "holeInOneDefault": "5000"
+    "maxHandicap": 12,
+    "holeInOneDefault": 5000
   },
-  "yearEndCollected": 3600,
+  "yearEndCollected": 0,
   "teams": [
     {
       "id": "T1",
-      "name": "Fairway Kings",
+      "name": "Team 1",
       "players": [
-        "Liam",
-        "noah",
-        "mazon",
-        "carter"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T2",
-      "name": "bogey boys",
+      "name": "Team 2",
       "players": [
         "",
         "",
@@ -52,7 +52,7 @@
     },
     {
       "id": "T3",
-      "name": "pin seekers",
+      "name": "Team 3",
       "players": [
         "",
         "",
@@ -62,7 +62,7 @@
     },
     {
       "id": "T4",
-      "name": "San Savers",
+      "name": "Team 4",
       "players": [
         "",
         "",
@@ -72,7 +72,7 @@
     },
     {
       "id": "T5",
-      "name": "Rough Riders",
+      "name": "Team 5",
       "players": [
         "",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "id": "T6",
-      "name": "Green Jackets",
+      "name": "Team 6",
       "players": [
         "",
         "",
@@ -92,7 +92,7 @@
     },
     {
       "id": "T7",
-      "name": "Birdie Bandits",
+      "name": "Team 7",
       "players": [
         "",
         "",
@@ -102,7 +102,7 @@
     },
     {
       "id": "T8",
-      "name": "Mulligan Crew",
+      "name": "Team 8",
       "players": [
         "",
         "",
@@ -112,7 +112,7 @@
     },
     {
       "id": "T9",
-      "name": "Tap in Traders",
+      "name": "Team 9",
       "players": [
         "",
         "",
@@ -122,7 +122,7 @@
     },
     {
       "id": "T10",
-      "name": "",
+      "name": "Team 10",
       "players": [
         "",
         "",
@@ -132,7 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "",
+      "name": "Team 11",
       "players": [
         "",
         "",
@@ -142,7 +142,7 @@
     },
     {
       "id": "T12",
-      "name": "",
+      "name": "Team 12",
       "players": [
         "",
         "",
@@ -156,62 +156,62 @@
       "id": "W1",
       "date": "2026-05-05",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "mini-season",
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T1",
-          "teamB": "T2"
-        },
-        {
-          "hole": "2",
-          "teamA": "T3",
-          "teamB": "T4"
-        },
-        {
-          "hole": "3",
-          "teamA": "T5",
-          "teamB": "T6"
-        },
-        {
-          "hole": "4",
-          "teamA": "T7",
-          "teamB": "T9"
-        },
-        {
-          "hole": "5",
-          "teamA": "T8",
-          "teamB": ""
-        },
-        {
-          "hole": "6",
+          "hole": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "7",
+          "hole": 2,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "Staek Diner",
-      "mealPrice": "$15",
-      "drinkSpecial": "4 for 18 Cooler Pack",
-      "holeInOnePrize": "$5000",
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
       "extraNote": ""
     },
     {
