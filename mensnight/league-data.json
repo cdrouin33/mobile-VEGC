@@ -32,92 +32,92 @@
   "teams": [
     {
       "id": "T1",
-      "name": "Team T1",
+      "name": "Fairway Kings",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T2",
-      "name": "Team T2",
+      "name": "Rough Riders",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T3",
-      "name": "Team T3",
+      "name": "Pin Seekers",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T4",
-      "name": "Team T4",
+      "name": "Bogey Boys",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T5",
-      "name": "Team T5",
+      "name": "Green Jackets",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T6",
-      "name": "Team T6",
+      "name": "Sand Savers",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T7",
-      "name": "Team T7",
+      "name": "Mulligan Crew",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T8",
-      "name": "Team T8",
+      "name": "Tap-In Bandits",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T9",
-      "name": "Team T9",
+      "name": "Prairie Hackers",
       "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     }
   ],
@@ -134,23 +134,64 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [],
+      "pairingsPublished": true,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 2,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 3,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 4,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 5,
+          "teamA": "T9",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 34,
-        "T2": 34,
-        "T3": 35,
-        "T4": 31,
+        "T1": 32,
+        "T2": 29,
+        "T3": 33,
+        "T4": 32,
         "T5": 32,
-        "T6": 29,
-        "T7": 30,
+        "T6": 32,
+        "T7": 32,
         "T8": 35,
-        "T9": 29
+        "T9": 34
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -163,25 +204,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [],
+      "kpWinner": "Rough Riders",
+      "kpWon": true,
+      "pairingsPublished": true,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 2,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 3,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 4,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 5,
+          "teamA": "T1",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 34,
-        "T2": 31,
-        "T3": 34,
-        "T4": 34,
-        "T5": 32,
-        "T6": 34,
-        "T7": 33,
-        "T8": 31,
-        "T9": 34
+        "T1": 32,
+        "T2": 32,
+        "T3": 32,
+        "T4": 29,
+        "T5": 30,
+        "T6": 30,
+        "T7": 32,
+        "T8": 33,
+        "T9": 35
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -196,23 +278,64 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [],
+      "pairingsPublished": true,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 2,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 3,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 4,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 5,
+          "teamA": "T2",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 29,
+        "T1": 30,
         "T2": 31,
-        "T3": 33,
-        "T4": 32,
-        "T5": 34,
-        "T6": 29,
-        "T7": 35,
-        "T8": 32,
+        "T3": 30,
+        "T4": 34,
+        "T5": 33,
+        "T6": 34,
+        "T7": 33,
+        "T8": 34,
         "T9": 35
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -228,22 +351,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 2,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 3,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 4,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 5,
+          "teamA": "T3",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 35,
-        "T2": 34,
-        "T3": 33,
-        "T4": 29,
-        "T5": 34,
-        "T6": 29,
-        "T7": 31,
-        "T8": 29,
-        "T9": 34
+        "T1": 33,
+        "T2": 29,
+        "T3": 32,
+        "T4": 31,
+        "T5": 33,
+        "T6": 30,
+        "T7": 32,
+        "T8": 35,
+        "T9": 35
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -256,25 +420,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Bogey Boys",
+      "kpWon": true,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 2,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 3,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 4,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 5,
+          "teamA": "T4",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
         "T1": 31,
-        "T2": 29,
-        "T3": 29,
-        "T4": 30,
-        "T5": 30,
-        "T6": 31,
-        "T7": 29,
-        "T8": 34,
+        "T2": 30,
+        "T3": 32,
+        "T4": 29,
+        "T5": 33,
+        "T6": 34,
+        "T7": 34,
+        "T8": 32,
         "T9": 33
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -290,22 +495,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 2,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 3,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 4,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 5,
+          "teamA": "T5",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 32,
-        "T2": 33,
-        "T3": 32,
+        "T1": 30,
+        "T2": 29,
+        "T3": 30,
         "T4": 33,
-        "T5": 32,
-        "T6": 35,
+        "T5": 30,
+        "T6": 32,
         "T7": 33,
-        "T8": 35,
-        "T9": 34
+        "T8": 31,
+        "T9": 30
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -318,25 +564,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Fairway Kings",
+      "kpWon": true,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 2,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 3,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 4,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 5,
+          "teamA": "T6",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 29,
+        "T1": 34,
         "T2": 31,
-        "T3": 30,
-        "T4": 35,
+        "T3": 32,
+        "T4": 33,
         "T5": 29,
-        "T6": 29,
+        "T6": 33,
         "T7": 35,
-        "T8": 32,
-        "T9": 29
+        "T8": 30,
+        "T9": 35
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -352,22 +639,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 2,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 3,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 4,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 5,
+          "teamA": "T7",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 34,
-        "T2": 34,
-        "T3": 30,
+        "T1": 32,
+        "T2": 29,
+        "T3": 29,
         "T4": 32,
-        "T5": 31,
-        "T6": 31,
-        "T7": 30,
-        "T8": 31,
-        "T9": 35
+        "T5": 32,
+        "T6": 33,
+        "T7": 31,
+        "T8": 35,
+        "T9": 34
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -383,22 +711,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 2,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 3,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 4,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 5,
+          "teamA": "T8",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 30,
-        "T2": 34,
-        "T3": 34,
-        "T4": 34,
-        "T5": 31,
-        "T6": 29,
+        "T1": 32,
+        "T2": 29,
+        "T3": 31,
+        "T4": 29,
+        "T5": 33,
+        "T6": 34,
         "T7": 31,
-        "T8": 33,
-        "T9": 30
+        "T8": 35,
+        "T9": 33
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -411,25 +780,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Prairie Hackers",
+      "kpWon": true,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 2,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 3,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 4,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 5,
+          "teamA": "T9",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 29,
-        "T2": 34,
-        "T3": 31,
-        "T4": 35,
-        "T5": 35,
-        "T6": 30,
-        "T7": 32,
-        "T8": 30,
-        "T9": 31
+        "T1": 30,
+        "T2": 29,
+        "T3": 30,
+        "T4": 31,
+        "T5": 31,
+        "T6": 33,
+        "T7": 33,
+        "T8": 31,
+        "T9": 33
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -445,22 +855,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 2,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 3,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 4,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 5,
+          "teamA": "T1",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 31,
-        "T2": 35,
-        "T3": 33,
-        "T4": 33,
+        "T1": 30,
+        "T2": 33,
+        "T3": 31,
+        "T4": 31,
         "T5": 29,
-        "T6": 29,
+        "T6": 33,
         "T7": 35,
-        "T8": 29,
-        "T9": 34
+        "T8": 34,
+        "T9": 30
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -476,22 +927,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 2,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 3,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 4,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 5,
+          "teamA": "T2",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 31,
-        "T2": 35,
-        "T3": 32,
+        "T1": 32,
+        "T2": 29,
+        "T3": 31,
         "T4": 33,
-        "T5": 35,
-        "T6": 33,
-        "T7": 32,
+        "T5": 32,
+        "T6": 32,
+        "T7": 33,
         "T8": 32,
-        "T9": 31
+        "T9": 33
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -504,25 +996,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Tap-In Bandits",
+      "kpWon": true,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 2,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 3,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 4,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 5,
+          "teamA": "T3",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 33,
-        "T2": 33,
-        "T3": 29,
+        "T1": 29,
+        "T2": 32,
+        "T3": 32,
         "T4": 29,
-        "T5": 31,
-        "T6": 30,
-        "T7": 34,
+        "T5": 32,
+        "T6": 32,
+        "T7": 31,
         "T8": 31,
-        "T9": 34
+        "T9": 35
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -538,22 +1071,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 2,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 3,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 4,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 5,
+          "teamA": "T4",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 33,
-        "T2": 34,
-        "T3": 34,
-        "T4": 29,
-        "T5": 35,
-        "T6": 31,
-        "T7": 29,
+        "T1": 30,
+        "T2": 29,
+        "T3": 30,
+        "T4": 33,
+        "T5": 32,
+        "T6": 32,
+        "T7": 34,
         "T8": 30,
-        "T9": 31
+        "T9": 34
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -566,25 +1140,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Sand Savers",
+      "kpWon": true,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 2,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 3,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 4,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 5,
+          "teamA": "T5",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 31,
-        "T2": 35,
-        "T3": 33,
-        "T4": 32,
-        "T5": 30,
-        "T6": 35,
-        "T7": 32,
-        "T8": 34,
+        "T1": 30,
+        "T2": 31,
+        "T3": 31,
+        "T4": 30,
+        "T5": 29,
+        "T6": 33,
+        "T7": 33,
+        "T8": 31,
         "T9": 34
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -600,22 +1215,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 2,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 3,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 4,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 5,
+          "teamA": "T6",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 35,
-        "T2": 30,
-        "T3": 30,
-        "T4": 32,
-        "T5": 31,
-        "T6": 33,
-        "T7": 29,
-        "T8": 35,
-        "T9": 31
+        "T1": 33,
+        "T2": 29,
+        "T3": 32,
+        "T4": 31,
+        "T5": 32,
+        "T6": 32,
+        "T7": 34,
+        "T8": 34,
+        "T9": 35
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -631,22 +1287,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 2,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 3,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 4,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 5,
+          "teamA": "T7",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 30,
-        "T2": 35,
+        "T1": 32,
+        "T2": 30,
         "T3": 30,
         "T4": 29,
-        "T5": 30,
-        "T6": 31,
-        "T7": 34,
-        "T8": 30,
-        "T9": 33
+        "T5": 31,
+        "T6": 33,
+        "T7": 31,
+        "T8": 32,
+        "T9": 31
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -662,22 +1359,63 @@
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 2,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 3,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 4,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 5,
+          "teamA": "T8",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 31,
-        "T2": 30,
-        "T3": 29,
+        "T1": 30,
+        "T2": 32,
+        "T3": 30,
         "T4": 34,
-        "T5": 30,
+        "T5": 32,
         "T6": 34,
         "T7": 33,
-        "T8": 29,
+        "T8": 31,
         "T9": 30
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -690,25 +1428,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Green Jackets",
+      "kpWon": true,
       "pairingsPublished": false,
-      "pairings": [],
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 2,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 3,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 4,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 5,
+          "teamA": "T9",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
       "scores": {
-        "T1": 34,
-        "T2": 33,
+        "T1": 32,
+        "T2": 29,
         "T3": 32,
-        "T4": 30,
-        "T5": 31,
-        "T6": 32,
-        "T7": 35,
-        "T8": 31,
-        "T9": 35
+        "T4": 34,
+        "T5": 29,
+        "T6": 34,
+        "T7": 33,
+        "T8": 34,
+        "T9": 33
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     }
   ]
