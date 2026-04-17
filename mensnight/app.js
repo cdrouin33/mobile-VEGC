@@ -312,28 +312,26 @@ function calculateLeague(data){
           if (diffDelta !== 0) return diffDelta;
           return (teamState[team.id].weeklyPoints[a] || 0) - (teamState[team.id].weeklyPoints[b] || 0);
         })[0];
-        teamState[team.id].droppedWeekIds.add(droppedWeekId);
       }
-      const countedWeekIds = playedWeeks.filter(id => id !== droppedWeekId);
-      const countedPoints = round2(countedWeekIds.reduce((sum,id)=>sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
-      const rawPoints = round2(playedWeeks.reduce((sum,id)=>sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      const points = round2(playedWeeks.reduce((sum,id)=>sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
       standings.push({
         teamId: team.id,
         teamName: team.name,
         played: playedWeeks.length,
-        rawPoints,
-        countedPoints,
+        points,
+        rawPoints: points,
+        countedPoints: points,
         droppedWeekId,
         droppedGrossDiff: droppedWeekId ? teamState[team.id].weeklyGrossDiffs[droppedWeekId] : null
       });
     });
-    standings.sort((a,b) => b.countedPoints - a.countedPoints || b.rawPoints - a.rawPoints || a.teamName.localeCompare(b.teamName));
-    assignRank(standings, 'countedPoints');
+    standings.sort((a,b) => b.points - a.points || a.teamName.localeCompare(b.teamName));
+    assignRank(standings, 'points');
     miniSeasonStandings[ms.key] = standings;
 
     const pot = miniSeasonPots[ms.key] || 0;
     const payoutRowsForSeason = payoutRows(pot, data.settings.miniSeasonSplit, 3);
-    const miniSeasonAwardRows = assignTiedPayouts(standings, data.settings.miniSeasonSplit, pot, 'countedPoints');
+    const miniSeasonAwardRows = assignTiedPayouts(standings, data.settings.miniSeasonSplit, pot, 'points');
     miniSeasonPayoutRows[ms.key] = { baseRows: payoutRowsForSeason, awardRows: miniSeasonAwardRows };
 
     const completed = ms.weeks.every(weekId => {
@@ -353,9 +351,8 @@ function calculateLeague(data){
     .map(team => {
       const officialWeekIds = MINI_SEASONS.filter(ms => ms.official).flatMap(ms => ms.weeks).filter(weekId => teamState[team.id].weeklyResults[weekId]);
       if (!officialWeekIds.length) return null;
-      const countedWeekIds = officialWeekIds.filter(weekId => !teamState[team.id].droppedWeekIds.has(weekId));
-      const points = round2(countedWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
-      const grossPoints = round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      const points = round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      const grossPoints = points;
       const currentHdcp = teamState[team.id].appliedHandicaps.length ? teamState[team.id].appliedHandicaps[teamState[team.id].appliedHandicaps.length - 1] : 0;
       return {
         teamId: team.id,
@@ -496,220 +493,6 @@ function rankDeltaPhrase(delta){
   return 'held position';
 }
 
-
-function downloadFile(filename, content, type){
-  const blob = new Blob([content], { type });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function excelCell(value){
-  const str = String(value ?? '');
-  if (/^-?\d+(\.\d+)?$/.test(str)) return `<td>${str}</td>`;
-  return `<td>${escapeHTML(str)}</td>`;
-}
-
-function buildValidationRows(data, weekEntry){
-  const players = number(weekEntry.attendancePlayers);
-  const weeklyPlayerMoney = round2(players * number(data.settings.weeklyPayoutPerPlayer));
-  const kpPlayerMoney = round2(players * number(data.settings.kpPerPlayer));
-  const miniSeasonPlayerMoney = round2(players * number(data.settings.miniSeasonPerPlayer));
-  const weeklyExtra = round2(number(weekEntry.weeklyExtraMoney));
-  const miniExtra = round2(number(weekEntry.miniSeasonExtraMoney));
-  const yearEndExtra = round2(number(weekEntry.yearEndExtraMoney));
-  const square = round2(number(weekEntry.squareNetAmount));
-  const miniSquare = weekEntry.squareAllocation === 'mini-season' ? square : weekEntry.squareAllocation === 'split' ? round2(square / 2) : 0;
-  const yearEndSquare = weekEntry.squareAllocation === 'year-end' ? square : weekEntry.squareAllocation === 'split' ? round2(square - miniSquare) : 0;
-  const weeklyPool = round2(weekEntry.payouts.weeklyPool);
-  const weeklyPaid = round2((weekEntry.payouts.weeklyAwardRows || []).reduce((sum, row) => sum + number(row.amount), 0));
-  const miniAllocated = round2(weekEntry.payouts.miniSeasonAdd);
-  const yearEndAllocated = round2(weekEntry.payouts.yearEndAdd);
-  const kpPoolThisWeek = round2(weekEntry.payouts.kpPool);
-  const kpPaid = round2(weekEntry.kpWon ? weekEntry.payouts.kpPaid : 0);
-  const kpCarryForward = round2(weekEntry.payouts.kpCarryAfter);
-  const moneyIn = round2(weeklyPlayerMoney + kpPlayerMoney + miniSeasonPlayerMoney + weeklyExtra + miniExtra + yearEndExtra + square);
-  const moneyOut = round2(weeklyPaid + miniAllocated + yearEndAllocated + kpPaid + (weekEntry.kpWon ? 0 : kpCarryForward));
-  const difference = round2(moneyIn - moneyOut);
-  const isBalanced = Math.abs(difference) < 0.01;
-
-  return {
-    players,
-    weeklyPlayerMoney,
-    kpPlayerMoney,
-    miniSeasonPlayerMoney,
-    weeklyExtra,
-    miniExtra,
-    yearEndExtra,
-    square,
-    miniSquare,
-    yearEndSquare,
-    weeklyPool,
-    weeklyPaid,
-    miniAllocated,
-    yearEndAllocated,
-    kpPoolThisWeek,
-    kpPaid,
-    kpCarryForward,
-    moneyIn,
-    moneyOut,
-    difference,
-    isBalanced
-  };
-}
-
-function buildWeeklyAuditWorkbookHTML(data, weekIndex){
-  const calc = calculateLeague(data);
-  const week = calc.weekly.find(w => w.id === data.weeks[weekIndex].id);
-  if (!week) return '';
-  const miniSeason = getMiniSeasonByKey(week.miniSeasonKey);
-  const validation = buildValidationRows(data, week);
-
-  const rankingRows = week.results.map((row, idx) => {
-    const payout = week.payouts.weeklyAwardRows.find(item => item.teamId === row.teamId);
-    return `<tr>${[
-        idx + 1,
-        teamName(data, row.teamId),
-        row.gross,
-        row.handicap,
-        row.net,
-        row.points,
-        payout ? payout.displayPlace : '',
-        payout ? round2(payout.amount) : ''
-      ].map(excelCell).join('')}</tr>`;
-  }).join('');
-
-  const payoutRowsHtml = (week.payouts.weeklyAwardRows || []).map(row => {
-    const result = week.results.find(item => item.teamId === row.teamId);
-    return `<tr>${[
-        row.displayPlace,
-        teamName(data, row.teamId),
-        result ? result.net : '',
-        round2(row.amount)
-      ].map(excelCell).join('')}</tr>`;
-  }).join('');
-
-  const pairingsRows = (week.pairings || []).filter(pair => pair.teamA || pair.teamB).map(pair => `<tr>${[
-    pair.hole,
-    teamName(data, pair.teamA),
-    teamName(data, pair.teamB)
-  ].map(excelCell).join('')}</tr>`).join('');
-
-  const winners = week.results.slice(0, 3).map((row, idx) => {
-    const payout = week.payouts.weeklyAwardRows.find(item => item.teamId === row.teamId);
-    return `<tr>${[
-        idx + 1,
-        teamName(data, row.teamId),
-        row.net,
-        payout ? round2(payout.amount) : ''
-      ].map(excelCell).join('')}</tr>`;
-  }).join('');
-
-  const validationRows = [
-    ['Attendance Players', validation.players],
-    ['Weekly player contribution', validation.weeklyPlayerMoney],
-    ['KP player contribution', validation.kpPlayerMoney],
-    ['Mini season player contribution', validation.miniSeasonPlayerMoney],
-    ['Weekly extra money', validation.weeklyExtra],
-    ['Mini season extra money', validation.miniExtra],
-    ['Year-end extra money', validation.yearEndExtra],
-    ['Squares net amount', validation.square],
-    ['Squares to mini season', validation.miniSquare],
-    ['Squares to year-end', validation.yearEndSquare],
-    ['Weekly pot', validation.weeklyPool],
-    ['Weekly payouts paid', validation.weeklyPaid],
-    ['Mini season allocated', validation.miniAllocated],
-    ['Year-end allocated', validation.yearEndAllocated],
-    ['KP pool this week', validation.kpPoolThisWeek],
-    ['KP paid this week', validation.kpPaid],
-    ['KP carry forward', validation.kpCarryForward],
-    ['Total money in', validation.moneyIn],
-    ['Total money out + carry', validation.moneyOut],
-    ['Difference', validation.difference],
-    ['Validation', validation.isBalanced ? 'BALANCED' : 'CHECK NUMBERS']
-  ].map(row => `<tr>${row.map(excelCell).join('')}</tr>`).join('');
-
-  const metaRows = [
-    ['Course', data.settings.courseName],
-    ['League', data.settings.leagueName],
-    ['Week', week.id],
-    ['Date', fmtDate(week.date)],
-    ['Mini Season', miniSeason.label],
-    ['Week Status', week.status.label],
-    ['Pairings Published', week.pairingsPublished ? 'Yes' : 'No'],
-    ['KP Winner', week.kpWinner || 'Not won'],
-    ['KP Won?', week.kpWon ? 'Yes' : 'No'],
-    ['Hole-in-One Prize', week.holeInOnePrize || money(data.settings.holeInOneDefault)],
-    ['Meal Option', week.mealOption || ''],
-    ['Meal Price', week.mealPrice || ''],
-    ['Drink Special', week.drinkSpecial || ''],
-    ['Extra Note', week.extraNote || '']
-  ].map(row => `<tr>${row.map(excelCell).join('')}</tr>`).join('');
-
-  return `<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="application/vnd.ms-excel; charset=UTF-8">
-<title>Weekly Audit Report</title>
-<style>
-body { font-family: Arial, sans-serif; }
-table { border-collapse: collapse; width: 100%; margin-bottom: 18px; }
-th, td { border: 1px solid #888; padding: 6px 8px; text-align: left; }
-th { background: #e9e9e9; }
-h1, h2 { margin: 8px 0; }
-</style>
-</head>
-<body>
-  <h1>${escapeHTML(data.settings.leagueName)} — Weekly Audit Report</h1>
-  <h2>${escapeHTML(week.id)} — ${escapeHTML(fmtDate(week.date))}</h2>
-
-  <table>
-    <thead><tr><th colspan="2">Validation Summary</th></tr></thead>
-    <tbody>${validationRows}</tbody>
-  </table>
-
-  <table>
-    <thead><tr><th colspan="2">Week Summary</th></tr></thead>
-    <tbody>${metaRows}</tbody>
-  </table>
-
-  <table>
-    <thead><tr><th colspan="4">Top Finishers</th></tr><tr><th>Place</th><th>Team</th><th>Net</th><th>Payout</th></tr></thead>
-    <tbody>${winners || '<tr><td colspan="4">No completed scores yet.</td></tr>'}</tbody>
-  </table>
-
-  <table>
-    <thead><tr><th colspan="8">Scores and Results</th></tr><tr><th>Rank</th><th>Team</th><th>Gross</th><th>Handicap</th><th>Net</th><th>Points</th><th>Payout Place</th><th>Payout</th></tr></thead>
-    <tbody>${rankingRows || '<tr><td colspan="8">No completed scores yet.</td></tr>'}</tbody>
-  </table>
-
-  <table>
-    <thead><tr><th colspan="4">Weekly Payout Audit</th></tr><tr><th>Place</th><th>Team</th><th>Net</th><th>Amount</th></tr></thead>
-    <tbody>${payoutRowsHtml || '<tr><td colspan="4">No weekly payouts yet.</td></tr>'}</tbody>
-  </table>
-
-  <table>
-    <thead><tr><th colspan="3">Pairings</th></tr><tr><th>Hole</th><th>Team 1</th><th>Team 2</th></tr></thead>
-    <tbody>${pairingsRows || '<tr><td colspan="3">No pairings entered.</td></tr>'}</tbody>
-  </table>
-</body>
-</html>`;
-}
-
-function downloadWeeklyAuditReport(data, weekIndex){
-  const calc = calculateLeague(data);
-  const week = calc.weekly.find(w => w.id === data.weeks[weekIndex].id);
-  if (!week) return false;
-  const html = buildWeeklyAuditWorkbookHTML(data, weekIndex);
-  const filename = `mens-night-${week.id.toLowerCase()}-audit-report.xls`;
-  downloadFile(filename, html, 'application/vnd.ms-excel');
-  return true;
-}
-
 function buildWeeklyRecap(data, weekIndex){
   const calcAfter = calculateLeagueThroughWeek(data, weekIndex);
   const week = calcAfter.weekly.find(w => w.id === data.weeks[weekIndex].id);
@@ -757,7 +540,7 @@ function buildWeeklyRecap(data, weekIndex){
     if (completed) {
       miniText = `${miniSeason.label} is now wrapped up, with ${leader.teamName} finishing on top.`;
     } else if (runnerUp) {
-      const gap = round2(leader.countedPoints - runnerUp.countedPoints);
+      const gap = round2(leader.points - runnerUp.points);
       miniText = `${miniSeason.label} is still tight, with ${leader.teamName} leading by ${gap} point${gap === 1 ? '' : 's'} over ${runnerUp.teamName}.`;
     } else {
       miniText = `${miniSeason.label} is underway, with ${leader.teamName} setting the pace so far.`;
@@ -832,15 +615,19 @@ function renderPublic(data){
         const w = calc.weekly.find(entry => entry.id === weekId);
         return w && w.results.length > 0;
       });
+      const placementLabel = completed ? 'Winner' : 'Currently';
+      const placementRows = rows.map((row, index) => {
+        const team = standings[index]?.teamName || 'No rounds yet';
+        return `<div class="row-label"><span>${row.place}${ordinal(row.place)}</span><strong>${money(row.amount)} — ${escapeHTML(team)}</strong></div>`;
+      }).join('');
       return `<div class="card third breakdown-card">
         <div class="eyebrow">Payout Breakdown</div>
         <h2>${ms.label}</h2>
         <div class="subdued">${fmtDate(weekDates[0])} – ${fmtDate(weekDates[weekDates.length - 1])}</div>
         <div class="row-labels">
           <div class="row-label"><span>Current pot</span><strong>${money(calc.miniSeasonPots[ms.key] || 0)}</strong></div>
-          ${payoutLines(rows)}
-          <div class="row-label"><span>Drop score</span><strong>${ms.drop ? 'Drop worst of 4' : 'No'}</strong></div>
-          <div class="row-label"><span>${completed ? 'Winner' : 'Leader'}</span><strong>${standings[0]?.teamName || 'No rounds yet'}</strong></div>
+          ${placementRows}
+          <div class="row-label"><span>${placementLabel}</span><strong>${standings[0]?.teamName || 'No rounds yet'}</strong></div>
         </div>
       </div>`;
     }),
@@ -906,21 +693,21 @@ function renderPublic(data){
   $('preseasonStandings').innerHTML = `
     <h2>Mini Season 1 — Preseason Standings</h2>
     <p class="subdued">3 weeks. No dropped score. Counts for preseason payout and handicap building, but not the year-end race.</p>
-    ${tableHTML(['Rank','Team','Points','Dropped?'], calc.preseasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.countedPoints, row.droppedWeekId ? row.droppedWeekId : 'No']))}`;
+    ${tableHTML(['Rank','Team','Points','Drop Note'], calc.preseasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.points, row.droppedWeekId ? `Handicap note: ${row.droppedWeekId}` : '—']))}`;
 
   $('miniSeasonStandings').innerHTML = MINI_SEASONS.filter(ms => ms.key !== 'preseason').map(ms => {
     const standings = calc.miniSeasonStandings[ms.key] || [];
     return `<div class="card half">
       <h2>${ms.label}</h2>
-      <p class="subdued">Worst week is dropped once a team has at least 2 scores in this mini season. Dropped week is also excluded from year-end points.</p>
-      ${tableHTML(['Rank','Team','Counted Pts','Gross Pts','Dropped Week'], standings.map(row => [row.rank, escapeHTML(row.teamName), row.countedPoints, row.rawPoints, row.droppedWeekId || '—']))}
+      <p class="subdued">Weekly points always count. Any dropped week is tracked only as a handicap note and does not reduce mini-season or year-end points.</p>
+      ${tableHTML(['Rank','Team','Points','Handicap Drop Note'], standings.map(row => [row.rank, escapeHTML(row.teamName), row.points, row.droppedWeekId || '—']))}
     </div>`;
   }).join('');
 
   $('seasonStandings').innerHTML = `
     <h2>Official Season Standings</h2>
-    <p class="subdued">Only Mini Seasons 2–5 count here. Dropped mini-season weeks are also excluded from the year-end race.</p>
-    ${tableHTML(['Rank','Team','Points','Gross Pts','HDCP','Current Winnings $','Projected Year-End $'], calc.seasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.points, row.grossPoints, row.handicap, money(row.currentWinnings), money(row.projectedYearEnd)]))}`;
+    <p class="subdued">Only Mini Seasons 2–5 count here. Weekly points are based on net finishes and always stay in the year-end race.</p>
+    ${tableHTML(['Rank','Team','Points','HDCP','Current Winnings $','Projected Year-End $'], calc.seasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.points, row.handicap, money(row.currentWinnings), money(row.projectedYearEnd)]))}`;
 }
 
 function renderHelperBox(){
@@ -1081,7 +868,6 @@ function renderWeekEditorHTML(data, weekIndex, calc){
       <div class="toolbar">
         <button id="saveWeekBtn">Save This Week</button>
         <button id="exportBtn" class="gold">Export league-data.json</button>
-        <button id="weeklyAuditBtn" class="secondary">Generate Weekly Audit Report</button>
         <label class="button secondary" for="importJson">Import JSON</label>
         <input id="importJson" type="file" accept="application/json" class="hidden">
       </div>
@@ -1243,14 +1029,6 @@ function bindAdminEvents(data){
     $('saveStatus').textContent = `Exported league-data.json. Upload it to update the live site.`;
   };
 
-  $('weeklyAuditBtn').onclick = () => {
-    updateDataFromAdminInputs(data, weekIndex);
-    saveBackup(data, `Weekly audit report ${data.weeks[weekIndex].id}`);
-    saveLocal(data);
-    const ok = downloadWeeklyAuditReport(data, weekIndex);
-    renderAdmin(data);
-    $('saveStatus').textContent = ok ? `Weekly audit report downloaded for ${data.weeks[weekIndex].id}.` : 'Unable to generate weekly audit report for that week.';
-  };
 
   $('generateRecapBtn').onclick = () => {
     updateDataFromAdminInputs(data, weekIndex);
