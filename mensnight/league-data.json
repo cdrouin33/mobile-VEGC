@@ -23,12 +23,12 @@
       0.2,
       0.1
     ],
-    "preseasonMaxChange": 4,
+    "preseasonMaxChange": 5,
     "inSeasonMaxChange": 2,
-    "maxHandicap": 12,
-    "holeInOneDefault": 5000
+    "maxHandicap": 8,
+    "holeInOneDefault": "5000"
   },
-  "yearEndCollected": 0,
+  "yearEndCollected": 4000,
   "teams": [
     {
       "id": "T1",
@@ -164,45 +164,45 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
-          "hole": 1,
+          "hole": "1",
+          "teamA": "T8",
+          "teamB": "T3"
+        },
+        {
+          "hole": "2",
+          "teamA": "T7",
+          "teamB": "T9"
+        },
+        {
+          "hole": "4",
+          "teamA": "T4",
+          "teamB": "T1"
+        },
+        {
+          "hole": "5",
+          "teamA": "T6",
+          "teamB": "T5"
+        },
+        {
+          "hole": "9",
+          "teamA": "T2",
+          "teamB": ""
+        },
+        {
+          "hole": "6",
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "hole": "7",
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "hole": "8",
           "teamA": "",
           "teamB": ""
         }
@@ -218,10 +218,10 @@
         "T8": 35,
         "T9": 36
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Fish Tacos",
+      "mealPrice": "$12",
+      "drinkSpecial": "Sea Change Scud Beer 4 for $18",
+      "holeInOnePrize": "5000",
       "extraNote": ""
     },
     {
