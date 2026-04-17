@@ -25,10 +25,10 @@
     ],
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
-    "maxHandicap": 12,
-    "holeInOneDefault": 5000
+    "maxHandicap": 8,
+    "holeInOneDefault": "5000"
   },
-  "yearEndCollected": 0,
+  "yearEndCollected": 3600,
   "teams": [
     {
       "id": "T1",
@@ -1430,45 +1430,45 @@
       "squareAllocation": "split",
       "kpWinner": "Green Jackets",
       "kpWon": true,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
-          "hole": 1,
-          "teamA": "T1",
+          "hole": "1",
+          "teamA": "T9",
           "teamB": "T2"
         },
         {
-          "hole": 2,
+          "hole": "2",
+          "teamA": "T8",
+          "teamB": "T5"
+        },
+        {
+          "hole": "3",
           "teamA": "T3",
+          "teamB": "T7"
+        },
+        {
+          "hole": "4",
+          "teamA": "T1",
           "teamB": "T4"
         },
         {
-          "hole": 3,
-          "teamA": "T5",
-          "teamB": "T6"
-        },
-        {
-          "hole": 4,
-          "teamA": "T7",
-          "teamB": "T8"
-        },
-        {
-          "hole": 5,
-          "teamA": "T9",
+          "hole": "5",
+          "teamA": "T6",
           "teamB": ""
         },
         {
-          "hole": 6,
+          "hole": "6",
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 7,
+          "hole": "7",
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 8,
+          "hole": "8",
           "teamA": "",
           "teamB": ""
         }
