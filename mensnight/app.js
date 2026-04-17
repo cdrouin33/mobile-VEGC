@@ -631,16 +631,21 @@ function renderPublic(data){
         </div>
       </div>`;
     }),
-    `<div class="card third breakdown-card">
-      <div class="eyebrow">Payout Breakdown</div>
-      <h2>Year-End</h2>
-      <div class="subdued">Starts at $0 until real money is entered</div>
-      <div class="row-labels">
-        <div class="row-label"><span>Current purse</span><strong>${money(calc.yearEndPurse)}</strong></div>
-        ${payoutLines(calc.projectedYearEndRows)}
-        <div class="row-label"><span>Season Leader</span><strong>${calc.seasonStandings[0]?.teamName || 'Not available yet'}</strong></div>
-      </div>
-    </div>`
+    (() => {
+      const projectedRows = calc.projectedYearEndRows.map((row, index) => {
+        const team = calc.seasonStandings[index]?.teamName || 'Not available yet';
+        return `<div class="row-label"><span>${row.place}${ordinal(row.place)}</span><strong>${money(row.amount)} — ${escapeHTML(team)}</strong></div>`;
+      }).join('');
+      return `<div class="card third breakdown-card">
+        <div class="eyebrow">Payout Breakdown</div>
+        <h2>Year-End</h2>
+        <div class="subdued">Starts at $0 until real money is entered</div>
+        <div class="row-labels">
+          <div class="row-label"><span>Current purse</span><strong>${money(calc.yearEndPurse)}</strong></div>
+          ${projectedRows}
+        </div>
+      </div>`;
+    })()
   ].join('');
 
   const infoWeek = calc.publicPairingsWeek || calc.latestWeek;
@@ -690,17 +695,19 @@ function renderPublic(data){
     <p class="subdued">${latest ? `Results from ${latest.id} — ${fmtDate(latest.date)}.` : 'No completed week yet.'}</p>
     ${latest ? tableHTML(['Place','Team','Gross','HDCP','Net','Points'], latest.results.slice(0,10).map((row, idx) => [idx + 1, escapeHTML(teamName(data, row.teamId)), row.gross, row.handicap, row.net, row.points])) : '<div class="note">No weekly scores entered yet.</div>'}`;
 
+  const preseasonWinningsMap = Object.fromEntries((calc.miniSeasonPayoutRows.preseason?.awardRows || []).map(row => [row.teamId, row.amount]));
   $('preseasonStandings').innerHTML = `
     <h2>Mini Season 1 — Preseason Standings</h2>
-    <p class="subdued">3 weeks. No dropped score. Counts for preseason payout and handicap building, but not the year-end race.</p>
-    ${tableHTML(['Rank','Team','Points','Drop Note'], calc.preseasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.points, row.droppedWeekId ? `Handicap note: ${row.droppedWeekId}` : '—']))}`;
+    <p class="subdued">3 weeks. Counts for preseason payout and handicap building, but not the year-end race.</p>
+    ${tableHTML(['Rank','Team','Points','Winnings'], calc.preseasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.points, money(preseasonWinningsMap[row.teamId] || 0)]))}`;
 
   $('miniSeasonStandings').innerHTML = MINI_SEASONS.filter(ms => ms.key !== 'preseason').map(ms => {
     const standings = calc.miniSeasonStandings[ms.key] || [];
+    const winningsMap = Object.fromEntries((calc.miniSeasonPayoutRows[ms.key]?.awardRows || []).map(row => [row.teamId, row.amount]));
     return `<div class="card half">
       <h2>${ms.label}</h2>
-      <p class="subdued">Weekly points always count. Any dropped week is tracked only as a handicap note and does not reduce mini-season or year-end points.</p>
-      ${tableHTML(['Rank','Team','Points','Handicap Drop Note'], standings.map(row => [row.rank, escapeHTML(row.teamName), row.points, row.droppedWeekId || '—']))}
+      <p class="subdued">Weekly points always count. Winnings shown here are the current mini-season payout positions only.</p>
+      ${tableHTML(['Rank','Team','Points','Winnings'], standings.map(row => [row.rank, escapeHTML(row.teamName), row.points, money(winningsMap[row.teamId] || 0)]))}
     </div>`;
   }).join('');
 

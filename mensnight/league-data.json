@@ -32,97 +32,97 @@
   "teams": [
     {
       "id": "T1",
-      "name": "Rough Riders",
+      "name": "Team 1",
       "players": [
-        "Rough Riders P1",
-        "Rough Riders P2",
-        "Rough Riders P3",
-        "Rough Riders P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T2",
-      "name": "Tap-In Bandits",
+      "name": "Team 2",
       "players": [
-        "Tap-In Bandits P1",
-        "Tap-In Bandits P2",
-        "Tap-In Bandits P3",
-        "Tap-In Bandits P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T3",
-      "name": "Prairie Hackers",
+      "name": "Team 3",
       "players": [
-        "Prairie Hackers P1",
-        "Prairie Hackers P2",
-        "Prairie Hackers P3",
-        "Prairie Hackers P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T4",
-      "name": "Pin Seekers",
+      "name": "Team 4",
       "players": [
-        "Pin Seekers P1",
-        "Pin Seekers P2",
-        "Pin Seekers P3",
-        "Pin Seekers P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T5",
-      "name": "Fairway Kings",
+      "name": "Team 5",
       "players": [
-        "Fairway Kings P1",
-        "Fairway Kings P2",
-        "Fairway Kings P3",
-        "Fairway Kings P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T6",
-      "name": "Bogey Boys",
+      "name": "Team 6",
       "players": [
-        "Bogey Boys P1",
-        "Bogey Boys P2",
-        "Bogey Boys P3",
-        "Bogey Boys P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T7",
-      "name": "Sand Savers",
+      "name": "Team 7",
       "players": [
-        "Sand Savers P1",
-        "Sand Savers P2",
-        "Sand Savers P3",
-        "Sand Savers P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T8",
-      "name": "Green Jackets",
+      "name": "Team 8",
       "players": [
-        "Green Jackets P1",
-        "Green Jackets P2",
-        "Green Jackets P3",
-        "Green Jackets P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T9",
-      "name": "Mulligan Crew",
+      "name": "Team 9",
       "players": [
-        "Mulligan Crew P1",
-        "Mulligan Crew P2",
-        "Mulligan Crew P3",
-        "Mulligan Crew P4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T10",
-      "name": "",
+      "name": "Team 10",
       "players": [
         "",
         "",
@@ -132,7 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "",
+      "name": "Team 11",
       "players": [
         "",
         "",
@@ -142,7 +142,7 @@
     },
     {
       "id": "T12",
-      "name": "",
+      "name": "Team 12",
       "players": [
         "",
         "",
@@ -156,11 +156,11 @@
       "id": "W1",
       "date": "2026-05-05",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -207,17 +207,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 29,
-        "T6": 33,
-        "T7": 34,
-        "T8": 35,
-        "T9": 36
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -228,11 +218,11 @@
       "id": "W2",
       "date": "2026-05-12",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -279,17 +269,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 31,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 31,
-        "T6": 32,
-        "T7": 33,
-        "T8": 33,
-        "T9": 34
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -300,14 +280,14 @@
       "id": "W3",
       "date": "2026-05-19",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Fairway Kings",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
@@ -351,17 +331,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 31,
-        "T2": 30,
-        "T3": 33,
-        "T4": 33,
-        "T5": 30,
-        "T6": 33,
-        "T7": 33,
-        "T8": 33,
-        "T9": 34
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -372,11 +342,11 @@
       "id": "W4",
       "date": "2026-05-26",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -423,17 +393,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 29,
-        "T3": 31,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 34,
-        "T8": 35,
-        "T9": 36
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -444,14 +404,14 @@
       "id": "W5",
       "date": "2026-06-02",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Tap-In Bandits",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
@@ -495,17 +455,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 31,
-        "T6": 34,
-        "T7": 34,
-        "T8": 34,
-        "T9": 34
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -516,11 +466,11 @@
       "id": "W6",
       "date": "2026-06-09",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -567,17 +517,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 32,
-        "T2": 30,
-        "T3": 33,
-        "T4": 31,
-        "T5": 32,
-        "T6": 32,
-        "T7": 33,
-        "T8": 33,
-        "T9": 35
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -588,11 +528,11 @@
       "id": "W7",
       "date": "2026-06-16",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -639,17 +579,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 32,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 32,
-        "T6": 33,
-        "T7": 32,
-        "T8": 33,
-        "T9": 32
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -660,14 +590,14 @@
       "id": "W8",
       "date": "2026-06-23",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Pin Seekers",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
@@ -711,17 +641,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 31,
-        "T4": 29,
-        "T5": 32,
-        "T6": 33,
-        "T7": 34,
-        "T8": 35,
-        "T9": 35
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -732,11 +652,11 @@
       "id": "W9",
       "date": "2026-06-30",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -783,17 +703,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 31,
-        "T2": 31,
-        "T3": 31,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 32,
-        "T8": 33,
-        "T9": 32
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -804,11 +714,11 @@
       "id": "W10",
       "date": "2026-07-07",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -855,17 +765,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 31,
-        "T2": 33,
-        "T3": 32,
-        "T4": 33,
-        "T5": 32,
-        "T6": 32,
-        "T7": 31,
-        "T8": 34,
-        "T9": 35
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -876,14 +776,14 @@
       "id": "W11",
       "date": "2026-07-14",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Rough Riders",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
@@ -927,17 +827,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 29,
-        "T3": 32,
-        "T4": 32,
-        "T5": 33,
-        "T6": 33,
-        "T7": 31,
-        "T8": 32,
-        "T9": 32
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -948,11 +838,11 @@
       "id": "W12",
       "date": "2026-07-21",
       "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -999,17 +889,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 33,
-        "T6": 34,
-        "T7": 29,
-        "T8": 34,
-        "T9": 35
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -1020,11 +900,11 @@
       "id": "W13",
       "date": "2026-07-28",
       "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -1071,17 +951,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 32,
-        "T2": 33,
-        "T3": 31,
-        "T4": 32,
-        "T5": 31,
-        "T6": 31,
-        "T7": 31,
-        "T8": 32,
-        "T9": 34
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -1092,14 +962,14 @@
       "id": "W14",
       "date": "2026-08-04",
       "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Green Jackets",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
@@ -1143,17 +1013,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 32,
-        "T2": 31,
-        "T3": 31,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 32,
-        "T8": 33,
-        "T9": 32
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -1164,11 +1024,11 @@
       "id": "W15",
       "date": "2026-08-11",
       "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -1215,17 +1075,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 31,
-        "T2": 32,
-        "T3": 32,
-        "T4": 32,
-        "T5": 31,
-        "T6": 31,
-        "T7": 33,
-        "T8": 32,
-        "T9": 33
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -1236,14 +1086,14 @@
       "id": "W16",
       "date": "2026-08-18",
       "miniSeasonKey": "ms5",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "Prairie Hackers",
-      "kpWon": true,
+      "kpWinner": "",
+      "kpWon": false,
       "pairingsPublished": false,
       "pairings": [
         {
@@ -1287,17 +1137,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 29,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 33,
-        "T8": 34,
-        "T9": 35
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -1308,11 +1148,11 @@
       "id": "W17",
       "date": "2026-08-25",
       "miniSeasonKey": "ms5",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -1359,17 +1199,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 31,
-        "T2": 32,
-        "T3": 32,
-        "T4": 32,
-        "T5": 32,
-        "T6": 31,
-        "T7": 32,
-        "T8": 32,
-        "T9": 31
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -1380,11 +1210,11 @@
       "id": "W18",
       "date": "2026-09-01",
       "miniSeasonKey": "ms5",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -1431,17 +1261,7 @@
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 32,
-        "T2": 33,
-        "T3": 31,
-        "T4": 31,
-        "T5": 32,
-        "T6": 34,
-        "T7": 32,
-        "T8": 32,
-        "T9": 35
-      },
+      "scores": {},
       "mealOption": "",
       "mealPrice": "",
       "drinkSpecial": "",
@@ -1452,11 +1272,11 @@
       "id": "W19",
       "date": "2026-09-08",
       "miniSeasonKey": "ms5",
-      "attendancePlayers": 36,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 0,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
