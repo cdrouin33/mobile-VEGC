@@ -23,7 +23,7 @@
       0.2,
       0.1
     ],
-    "preseasonMaxChange": 6,
+    "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
     "maxHandicap": 8,
     "holeInOneDefault": "5000"
@@ -32,122 +32,92 @@
   "teams": [
     {
       "id": "T1",
-      "name": "Rough Riders",
+      "name": "Fairway Kings",
       "players": [
-        "Rough Riders P1",
-        "Rough Riders P2",
-        "Rough Riders P3",
-        "Rough Riders P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T2",
-      "name": "Tap-In Bandits",
+      "name": "Rough Riders",
       "players": [
-        "Tap-In Bandits P1",
-        "Tap-In Bandits P2",
-        "Tap-In Bandits P3",
-        "Tap-In Bandits P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T3",
-      "name": "Prairie Hackers",
+      "name": "Pin Seekers",
       "players": [
-        "Prairie Hackers P1",
-        "Prairie Hackers P2",
-        "Prairie Hackers P3",
-        "Prairie Hackers P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T4",
-      "name": "Pin Seekers",
+      "name": "Bogey Boys",
       "players": [
-        "Pin Seekers P1",
-        "Pin Seekers P2",
-        "Pin Seekers P3",
-        "Pin Seekers P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T5",
-      "name": "Fairway Kings",
+      "name": "Green Jackets",
       "players": [
-        "Fairway Kings P1",
-        "Fairway Kings P2",
-        "Fairway Kings P3",
-        "Fairway Kings P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T6",
-      "name": "Bogey Boys",
+      "name": "Sand Savers",
       "players": [
-        "Bogey Boys P1",
-        "Bogey Boys P2",
-        "Bogey Boys P3",
-        "Bogey Boys P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T7",
-      "name": "Sand Savers",
+      "name": "Mulligan Crew",
       "players": [
-        "Sand Savers P1",
-        "Sand Savers P2",
-        "Sand Savers P3",
-        "Sand Savers P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T8",
-      "name": "Green Jackets",
+      "name": "Tap-In Bandits",
       "players": [
-        "Green Jackets P1",
-        "Green Jackets P2",
-        "Green Jackets P3",
-        "Green Jackets P4"
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     },
     {
       "id": "T9",
-      "name": "Mulligan Crew",
+      "name": "Prairie Hackers",
       "players": [
-        "Mulligan Crew P1",
-        "Mulligan Crew P2",
-        "Mulligan Crew P3",
-        "Mulligan Crew P4"
-      ]
-    },
-    {
-      "id": "T10",
-      "name": "",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T11",
-      "name": "",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T12",
-      "name": "",
-      "players": [
-        "",
-        "",
-        "",
-        ""
+        "Player 1",
+        "Player 2",
+        "Player 3",
+        "Player 4"
       ]
     }
   ],
@@ -164,31 +134,1255 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
           "hole": "1",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T1",
+          "teamB": "T2"
         },
         {
           "hole": "2",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T3",
+          "teamB": "T4"
         },
         {
           "hole": "3",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T5",
+          "teamB": "T6"
         },
         {
           "hole": "4",
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": "5",
+          "teamA": "T9",
+          "teamB": ""
+        },
+        {
+          "hole": "6",
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "5",
+          "hole": "7",
           "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": "8",
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 32,
+        "T2": 29,
+        "T3": 33,
+        "T4": 32,
+        "T5": 32,
+        "T6": 32,
+        "T7": 32,
+        "T8": 35,
+        "T9": 34
+      },
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W2",
+      "date": "2026-05-12",
+      "miniSeasonKey": "preseason",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "Rough Riders",
+      "kpWon": true,
+      "pairingsPublished": true,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 2,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 3,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 4,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 5,
+          "teamA": "T1",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 32,
+        "T2": 32,
+        "T3": 32,
+        "T4": 29,
+        "T5": 30,
+        "T6": 30,
+        "T7": 32,
+        "T8": 33,
+        "T9": 35
+      },
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W3",
+      "date": "2026-05-19",
+      "miniSeasonKey": "preseason",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": true,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 2,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 3,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 4,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 5,
+          "teamA": "T2",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 30,
+        "T2": 31,
+        "T3": 30,
+        "T4": 34,
+        "T5": 33,
+        "T6": 34,
+        "T7": 33,
+        "T8": 34,
+        "T9": 35
+      },
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W4",
+      "date": "2026-05-26",
+      "miniSeasonKey": "ms2",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 2,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 3,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 4,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 5,
+          "teamA": "T3",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 33,
+        "T2": 29,
+        "T3": 32,
+        "T4": 31,
+        "T5": 33,
+        "T6": 30,
+        "T7": 32,
+        "T8": 35,
+        "T9": 35
+      },
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W5",
+      "date": "2026-06-02",
+      "miniSeasonKey": "ms2",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "Bogey Boys",
+      "kpWon": true,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 2,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 3,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 4,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 5,
+          "teamA": "T4",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 31,
+        "T2": 30,
+        "T3": 32,
+        "T4": 29,
+        "T5": 33,
+        "T6": 34,
+        "T7": 34,
+        "T8": 32,
+        "T9": 33
+      },
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W6",
+      "date": "2026-06-09",
+      "miniSeasonKey": "ms2",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 2,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 3,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 4,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 5,
+          "teamA": "T5",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 30,
+        "T2": 29,
+        "T3": 30,
+        "T4": 33,
+        "T5": 30,
+        "T6": 32,
+        "T7": 33,
+        "T8": 31,
+        "T9": 30
+      },
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W7",
+      "date": "2026-06-16",
+      "miniSeasonKey": "ms2",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "Fairway Kings",
+      "kpWon": true,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 2,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 3,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 4,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 5,
+          "teamA": "T6",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 34,
+        "T2": 31,
+        "T3": 32,
+        "T4": 33,
+        "T5": 29,
+        "T6": 33,
+        "T7": 35,
+        "T8": 30,
+        "T9": 35
+      },
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W8",
+      "date": "2026-06-23",
+      "miniSeasonKey": "ms3",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 2,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 3,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 4,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 5,
+          "teamA": "T7",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 32,
+        "T2": 29,
+        "T3": 29,
+        "T4": 32,
+        "T5": 32,
+        "T6": 33,
+        "T7": 31,
+        "T8": 35,
+        "T9": 34
+      },
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W9",
+      "date": "2026-06-30",
+      "miniSeasonKey": "ms3",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 2,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 3,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 4,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 5,
+          "teamA": "T8",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 32,
+        "T2": 29,
+        "T3": 31,
+        "T4": 29,
+        "T5": 33,
+        "T6": 34,
+        "T7": 31,
+        "T8": 35,
+        "T9": 33
+      },
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W10",
+      "date": "2026-07-07",
+      "miniSeasonKey": "ms3",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "Prairie Hackers",
+      "kpWon": true,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 2,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 3,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 4,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 5,
+          "teamA": "T9",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 30,
+        "T2": 29,
+        "T3": 30,
+        "T4": 31,
+        "T5": 31,
+        "T6": 33,
+        "T7": 33,
+        "T8": 31,
+        "T9": 33
+      },
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W11",
+      "date": "2026-07-14",
+      "miniSeasonKey": "ms3",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 2,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 3,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 4,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 5,
+          "teamA": "T1",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 30,
+        "T2": 33,
+        "T3": 31,
+        "T4": 31,
+        "T5": 29,
+        "T6": 33,
+        "T7": 35,
+        "T8": 34,
+        "T9": 30
+      },
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W12",
+      "date": "2026-07-21",
+      "miniSeasonKey": "ms4",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 2,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 3,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 4,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 5,
+          "teamA": "T2",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 32,
+        "T2": 29,
+        "T3": 31,
+        "T4": 33,
+        "T5": 32,
+        "T6": 32,
+        "T7": 33,
+        "T8": 32,
+        "T9": 33
+      },
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W13",
+      "date": "2026-07-28",
+      "miniSeasonKey": "ms4",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "Tap-In Bandits",
+      "kpWon": true,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 2,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 3,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 4,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 5,
+          "teamA": "T3",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 29,
+        "T2": 32,
+        "T3": 32,
+        "T4": 29,
+        "T5": 32,
+        "T6": 32,
+        "T7": 31,
+        "T8": 31,
+        "T9": 35
+      },
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W14",
+      "date": "2026-08-04",
+      "miniSeasonKey": "ms4",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 2,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 3,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 4,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 5,
+          "teamA": "T4",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 30,
+        "T2": 29,
+        "T3": 30,
+        "T4": 33,
+        "T5": 32,
+        "T6": 32,
+        "T7": 34,
+        "T8": 30,
+        "T9": 34
+      },
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W15",
+      "date": "2026-08-11",
+      "miniSeasonKey": "ms4",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "Sand Savers",
+      "kpWon": true,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T6",
+          "teamB": "T7"
+        },
+        {
+          "hole": 2,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 3,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 4,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 5,
+          "teamA": "T5",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 30,
+        "T2": 31,
+        "T3": 31,
+        "T4": 30,
+        "T5": 29,
+        "T6": 33,
+        "T7": 33,
+        "T8": 31,
+        "T9": 34
+      },
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W16",
+      "date": "2026-08-18",
+      "miniSeasonKey": "ms5",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T7",
+          "teamB": "T8"
+        },
+        {
+          "hole": 2,
+          "teamA": "T9",
+          "teamB": "T1"
+        },
+        {
+          "hole": 3,
+          "teamA": "T2",
+          "teamB": "T3"
+        },
+        {
+          "hole": 4,
+          "teamA": "T4",
+          "teamB": "T5"
+        },
+        {
+          "hole": 5,
+          "teamA": "T6",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 33,
+        "T2": 29,
+        "T3": 32,
+        "T4": 31,
+        "T5": 32,
+        "T6": 32,
+        "T7": 34,
+        "T8": 34,
+        "T9": 35
+      },
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W17",
+      "date": "2026-08-25",
+      "miniSeasonKey": "ms5",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
+      "pairings": [
+        {
+          "hole": 1,
+          "teamA": "T8",
+          "teamB": "T9"
+        },
+        {
+          "hole": 2,
+          "teamA": "T1",
+          "teamB": "T2"
+        },
+        {
+          "hole": 3,
+          "teamA": "T3",
+          "teamB": "T4"
+        },
+        {
+          "hole": 4,
+          "teamA": "T5",
+          "teamB": "T6"
+        },
+        {
+          "hole": 5,
+          "teamA": "T7",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
+        }
+      ],
+      "scores": {
+        "T1": 32,
+        "T2": 30,
+        "T3": 30,
+        "T4": 29,
+        "T5": 31,
+        "T6": 33,
+        "T7": 31,
+        "T8": 32,
+        "T9": 31
+      },
+      "mealOption": "Steak Sandwich",
+      "mealPrice": "$17",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
+      "extraNote": ""
+    },
+    {
+      "id": "W18",
+      "date": "2026-09-01",
+      "miniSeasonKey": "ms5",
+      "attendancePlayers": 36,
+      "weeklyExtraMoney": 0,
+      "miniSeasonExtraMoney": 0,
+      "yearEndExtraMoney": 0,
+      "squareNetAmount": 100,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": true,
+      "pairings": [
+        {
+          "hole": "1",
+          "teamA": "T9",
+          "teamB": "T8"
+        },
+        {
+          "hole": "2",
+          "teamA": "T3",
+          "teamB": "T2"
+        },
+        {
+          "hole": "3",
+          "teamA": "T1",
+          "teamB": "T5"
+        },
+        {
+          "hole": "4",
+          "teamA": "T7",
+          "teamB": "T4"
+        },
+        {
+          "hole": "5",
+          "teamA": "T6",
           "teamB": ""
         },
         {
@@ -209,1243 +1403,19 @@
       ],
       "scores": {
         "T1": 30,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 29,
-        "T6": 33,
-        "T7": 34,
-        "T8": 35,
-        "T9": 36
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W2",
-      "date": "2026-05-12",
-      "miniSeasonKey": "preseason",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 31,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 31,
-        "T6": 32,
-        "T7": 33,
-        "T8": 33,
-        "T9": 34
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W3",
-      "date": "2026-05-19",
-      "miniSeasonKey": "preseason",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "Fairway Kings",
-      "kpWon": true,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 31,
-        "T2": 30,
-        "T3": 33,
-        "T4": 33,
-        "T5": 30,
-        "T6": 33,
-        "T7": 33,
-        "T8": 33,
-        "T9": 34
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W4",
-      "date": "2026-05-26",
-      "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 30,
-        "T2": 29,
-        "T3": 31,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 34,
-        "T8": 35,
-        "T9": 36
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W5",
-      "date": "2026-06-02",
-      "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "Tap-In Bandits",
-      "kpWon": true,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 31,
-        "T6": 34,
-        "T7": 34,
-        "T8": 34,
-        "T9": 34
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W6",
-      "date": "2026-06-09",
-      "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 32,
-        "T2": 30,
-        "T3": 33,
-        "T4": 31,
-        "T5": 32,
-        "T6": 32,
-        "T7": 33,
-        "T8": 33,
-        "T9": 35
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W7",
-      "date": "2026-06-16",
-      "miniSeasonKey": "ms2",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 32,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 32,
-        "T6": 33,
-        "T7": 32,
-        "T8": 33,
-        "T9": 32
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W8",
-      "date": "2026-06-23",
-      "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "Pin Seekers",
-      "kpWon": true,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 31,
-        "T4": 29,
-        "T5": 32,
-        "T6": 33,
-        "T7": 34,
-        "T8": 35,
-        "T9": 35
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W9",
-      "date": "2026-06-30",
-      "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 31,
-        "T2": 31,
-        "T3": 31,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 32,
-        "T8": 33,
-        "T9": 32
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W10",
-      "date": "2026-07-07",
-      "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 31,
-        "T2": 33,
-        "T3": 32,
-        "T4": 33,
-        "T5": 32,
-        "T6": 32,
-        "T7": 31,
-        "T8": 34,
-        "T9": 35
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W11",
-      "date": "2026-07-14",
-      "miniSeasonKey": "ms3",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "Rough Riders",
-      "kpWon": true,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 30,
-        "T2": 29,
-        "T3": 32,
-        "T4": 32,
-        "T5": 33,
-        "T6": 33,
-        "T7": 31,
-        "T8": 32,
-        "T9": 32
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W12",
-      "date": "2026-07-21",
-      "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 32,
-        "T4": 32,
-        "T5": 33,
-        "T6": 34,
-        "T7": 29,
-        "T8": 34,
-        "T9": 35
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W13",
-      "date": "2026-07-28",
-      "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 32,
-        "T2": 33,
-        "T3": 31,
-        "T4": 32,
-        "T5": 31,
-        "T6": 31,
-        "T7": 31,
-        "T8": 32,
-        "T9": 34
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W14",
-      "date": "2026-08-04",
-      "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "Green Jackets",
-      "kpWon": true,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 32,
-        "T2": 31,
-        "T3": 31,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 32,
-        "T8": 33,
-        "T9": 32
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W15",
-      "date": "2026-08-11",
-      "miniSeasonKey": "ms4",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 31,
         "T2": 32,
-        "T3": 32,
-        "T4": 32,
-        "T5": 31,
-        "T6": 31,
-        "T7": 33,
-        "T8": 32,
-        "T9": 33
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W16",
-      "date": "2026-08-18",
-      "miniSeasonKey": "ms5",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "Prairie Hackers",
-      "kpWon": true,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 30,
-        "T2": 31,
-        "T3": 29,
-        "T4": 31,
-        "T5": 32,
-        "T6": 33,
-        "T7": 33,
-        "T8": 34,
-        "T9": 35
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W17",
-      "date": "2026-08-25",
-      "miniSeasonKey": "ms5",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 31,
-        "T2": 32,
-        "T3": 32,
-        "T4": 32,
-        "T5": 32,
-        "T6": 31,
-        "T7": 32,
-        "T8": 32,
-        "T9": 31
-      },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
-    },
-    {
-      "id": "W18",
-      "date": "2026-09-01",
-      "miniSeasonKey": "ms5",
-      "attendancePlayers": 36,
-      "weeklyExtraMoney": 0,
-      "miniSeasonExtraMoney": 0,
-      "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
-      "pairings": [
-        {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
-        }
-      ],
-      "scores": {
-        "T1": 32,
-        "T2": 33,
-        "T3": 31,
-        "T4": 31,
+        "T3": 30,
+        "T4": 34,
         "T5": 32,
         "T6": 34,
-        "T7": 32,
-        "T8": 32,
-        "T9": 35
+        "T7": 33,
+        "T8": 31,
+        "T9": 30
       },
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "mealOption": "Taco in a Bag",
+      "mealPrice": "$12",
+      "drinkSpecial": "$5 Highballs",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     },
     {
@@ -1458,56 +1428,66 @@
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
-      "pairingsPublished": false,
+      "kpWinner": "Green Jackets",
+      "kpWon": true,
+      "pairingsPublished": true,
       "pairings": [
         {
-          "hole": 1,
+          "hole": "1",
+          "teamA": "T9",
+          "teamB": "T2"
+        },
+        {
+          "hole": "2",
+          "teamA": "T8",
+          "teamB": "T5"
+        },
+        {
+          "hole": "3",
+          "teamA": "T3",
+          "teamB": "T7"
+        },
+        {
+          "hole": "4",
+          "teamA": "T1",
+          "teamB": "T4"
+        },
+        {
+          "hole": "5",
+          "teamA": "T6",
+          "teamB": ""
+        },
+        {
+          "hole": "6",
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 2,
+          "hole": "7",
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
-        },
-        {
-          "hole": 8,
+          "hole": "8",
           "teamA": "",
           "teamB": ""
         }
       ],
-      "scores": {},
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
+      "scores": {
+        "T1": 32,
+        "T2": 29,
+        "T3": 32,
+        "T4": 34,
+        "T5": 29,
+        "T6": 34,
+        "T7": 33,
+        "T8": 34,
+        "T9": 33
+      },
+      "mealOption": "Burger & Fries",
+      "mealPrice": "$15",
+      "drinkSpecial": "$4 Domestic Draft",
+      "holeInOnePrize": "$5,000",
       "extraNote": ""
     }
   ]
