@@ -223,6 +223,29 @@ function calculateLeague(data){
   let officialSeasonYearEndExtras = 0;
   const miniSeasonPots = Object.fromEntries(MINI_SEASONS.map(ms => [ms.key, 0]));
 
+  function getHandicapDifferentials(teamId, throughWeekIndexExclusive){
+    const kept = [];
+    MINI_SEASONS.forEach(ms => {
+      const playedWeekIds = ms.weeks
+        .map(weekId => ({ weekId, index: data.weeks.findIndex(w => w.id === weekId) }))
+        .filter(entry => entry.index !== -1 && entry.index < throughWeekIndexExclusive && teamState[teamId].weeklyGrossDiffs[entry.weekId] !== undefined)
+        .map(entry => entry.weekId);
+      if (!playedWeekIds.length) return;
+      let dropWeekId = null;
+      if (ms.drop && playedWeekIds.length >= 2) {
+        dropWeekId = playedWeekIds.slice().sort((a,b) => {
+          const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
+          if (diffDelta !== 0) return diffDelta;
+          return (teamState[teamId].weeklyPoints[a] || 0) - (teamState[teamId].weeklyPoints[b] || 0);
+        })[0];
+      }
+      playedWeekIds.forEach(weekId => {
+        if (weekId !== dropWeekId) kept.push(teamState[teamId].weeklyGrossDiffs[weekId]);
+      });
+    });
+    return kept;
+  }
+
   data.weeks.forEach((week, weekIndex) => {
     const miniSeason = getMiniSeasonByKey(week.miniSeasonKey);
     const teamsWithScores = teams
@@ -231,12 +254,16 @@ function calculateLeague(data){
     const bestGross = teamsWithScores.length ? Math.min(...teamsWithScores.map(t => t.gross)) : null;
     const baselineByTeam = {};
     const minAvgDiff = (() => {
-      const avgs = teams.map(team => teamState[team.id].differentials.length ? avg(teamState[team.id].differentials) : 0);
+      const avgs = teams.map(team => {
+        const diffs = getHandicapDifferentials(team.id, weekIndex);
+        return diffs.length ? avg(diffs) : 0;
+      });
       return avgs.length ? Math.min(...avgs) : 0;
     })();
 
     teams.forEach(team => {
-      const priorAvg = teamState[team.id].differentials.length ? avg(teamState[team.id].differentials) : 0;
+      const diffs = getHandicapDifferentials(team.id, weekIndex);
+      const priorAvg = diffs.length ? avg(diffs) : 0;
       baselineByTeam[team.id] = Math.max(0, priorAvg - minAvgDiff);
     });
 
