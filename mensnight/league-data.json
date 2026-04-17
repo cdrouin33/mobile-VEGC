@@ -1440,17 +1440,17 @@
         {
           "hole": "2",
           "teamA": "T8",
-          "teamB": "T5"
+          "teamB": "T1"
         },
         {
           "hole": "3",
           "teamA": "T3",
-          "teamB": "T7"
+          "teamB": "T4"
         },
         {
           "hole": "4",
-          "teamA": "T1",
-          "teamB": "T4"
+          "teamA": "T5",
+          "teamB": "T7"
         },
         {
           "hole": "5",
@@ -1488,7 +1488,7 @@
       "mealPrice": "$15",
       "drinkSpecial": "$4 Domestic Draft",
       "holeInOnePrize": "$5,000",
-      "extraNote": ""
+      "extraNote": "Buy Your Square Raffle for Your Chance to Win a $750 Scotty Cameron Putter or Por-Ship Gift Card.  Purchase as many Squares as you want Only $20 Per Square"
     }
   ]
 }
