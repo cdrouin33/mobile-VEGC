@@ -3,10 +3,10 @@
     "courseName": "Vegreville Kinsmen Golf Club",
     "leagueName": "2026 Mens Night League",
     "adminPassword": "mens2026",
-    "weeklyPayoutPerPlayer": 7.5,
-    "kpPerPlayer": 2.5,
-    "miniSeasonPerPlayer": 5,
-    "seasonBuyInPerPlayer": 100,
+    "weeklyPayoutPerPlayer": 8,
+    "kpPerPlayer": 2,
+    "miniSeasonPerPlayer": 0,
+    "seasonBuyInPerPlayer": 60,
     "weeklySplit": [
       0.5,
       0.3,
@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "5000"
   },
-  "yearEndCollected": 3600,
+  "yearEndCollected": 2880,
   "teams": [
     {
       "id": "T1",
@@ -1426,7 +1426,7 @@
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
+      "squareNetAmount": 250,
       "squareAllocation": "split",
       "kpWinner": "Green Jackets",
       "kpWon": true,
@@ -1435,22 +1435,22 @@
         {
           "hole": "1",
           "teamA": "T9",
-          "teamB": "T2"
+          "teamB": "T8"
         },
         {
           "hole": "2",
-          "teamA": "T8",
-          "teamB": "T1"
+          "teamA": "T3",
+          "teamB": "T2"
         },
         {
           "hole": "3",
-          "teamA": "T3",
-          "teamB": "T4"
+          "teamA": "T5",
+          "teamB": "T7"
         },
         {
           "hole": "4",
-          "teamA": "T5",
-          "teamB": "T7"
+          "teamA": "T1",
+          "teamB": "T4"
         },
         {
           "hole": "5",
