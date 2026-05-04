@@ -26,7 +26,7 @@
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
     "maxHandicap": 8,
-    "holeInOneDefault": "N/A"
+    "holeInOneDefault": "5000"
   },
   "yearEndCollected": 0,
   "teams": [
@@ -178,9 +178,9 @@
         }
       ],
       "scores": {},
-      "mealOption": "Ceasar Salad, Demi-Glaze Meatballs, Roasted Potatoes and Vegetables",
-      "mealPrice": "20",
-      "drinkSpecial": "VKGC Lager Pitcher $25, Scud Ultra Dry 4 for $18",
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
       "holeInOnePrize": "",
       "extraNote": ""
     },
