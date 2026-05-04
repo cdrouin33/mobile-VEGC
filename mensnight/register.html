@@ -351,29 +351,25 @@
 
       const formData = new FormData(form);
 
-      fetch(scriptURL, {
-        method: "POST",
-        body: formData
-      })
-      .then(function() {
-        setStatus("Team registered successfully! Redirecting to payment...", "success");
-        form.reset();
+    fetch(scriptURL, {
+  method: "POST",
+  mode: "no-cors",
+  body: formData
+});
 
-        if (paymentURL && paymentURL !== "PASTE_TEEON_PAYMENT_LINK_HERE") {
-          setTimeout(function() {
-            window.location.href = paymentURL;
-          }, 1000);
-        } else {
-          setStatus("Team registered successfully! Payment link still needs to be added.", "success");
-        }
-      })
-      .catch(function() {
-        setStatus("Something went wrong. Please try again or contact the pro shop.", "error");
-      })
-      .finally(function() {
-        submitButton.disabled = false;
-        submitButton.textContent = "Register Team";
-      });
+setStatus("Team registered successfully! Redirecting to payment...", "success");
+form.reset();
+
+if (paymentURL && paymentURL !== "PASTE_TEEON_PAYMENT_LINK_HERE") {
+  setTimeout(function() {
+    window.location.href = paymentURL;
+  }, 1000);
+} else {
+  setStatus("Team registered successfully! Payment link still needs to be added.", "success");
+}
+
+submitButton.disabled = false;
+submitButton.textContent = "Register Team & Continue to Payment";
     });
   </script>
 </body>
