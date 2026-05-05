@@ -28,96 +28,106 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 240,
+  "yearEndCollected": 1920,
   "teams": [
     {
       "id": "T1",
-      "name": "Fairway Kings",
+      "name": "Pappy Putters",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T2",
-      "name": "Rough Riders",
+      "name": "PTSD",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T3",
-      "name": "Pin Seekers",
+      "name": "",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T4",
-      "name": "Bogey Boys",
+      "name": "",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T5",
-      "name": "Green Jackets",
+      "name": "",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T6",
-      "name": "Sand Savers",
+      "name": "",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T7",
-      "name": "Mulligan Crew",
+      "name": "",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T8",
-      "name": "Tap-In Bandits",
+      "name": "",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
       ]
     },
     {
       "id": "T9",
-      "name": "Prairie Hackers",
+      "name": "Alternate 2",
       "players": [
-        "Player 1",
-        "Player 2",
-        "Player 3",
-        "Player 4"
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "T10",
+      "name": "Alternate 1",
+      "players": [
+        "",
+        "",
+        "",
+        ""
       ]
     }
   ],
@@ -138,13 +148,13 @@
       "pairings": [
         {
           "hole": "1",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T1",
+          "teamB": "T9"
         },
         {
           "hole": "2",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T2",
+          "teamB": "T10"
         },
         {
           "hole": "3",
