@@ -26,9 +26,9 @@
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
     "maxHandicap": 8,
-    "holeInOneDefault": "5000"
+    "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 0,
+  "yearEndCollected": 1920,
   "teams": [
     {
       "id": "T1",
@@ -126,11 +126,11 @@
       "id": "W1",
       "date": "2026-05-05",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 0,
+      "attendancePlayers": 30,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 0,
+      "squareNetAmount": 100,
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
@@ -178,11 +178,11 @@
         }
       ],
       "scores": {},
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
+      "mealOption": "Ceasar Salad, Demi-Glaze Meatballs, Roasted Potatoes and Vegetables",
+      "mealPrice": "20",
+      "drinkSpecial": "VKGC Lager Pitcher $25, Scud Ultra Dry 4 for $18",
       "holeInOnePrize": "",
-      "extraNote": ""
+      "extraNote": "This Week will Play as a 4 Man Scramble from the White Tees.  All Teams will Start with a 0 Handicap and then adjusted accordingly for all future weeks.  Square Raffle Drive for $900 Callaway Driver up for Grabs $20 Per Square.  Buy in the Proshop.  Meal Voucher also for purchase in Proshop for $20"
     },
     {
       "id": "W2",
