@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 1920,
+  "yearEndCollected": 240,
   "teams": [
     {
       "id": "T1",
@@ -131,7 +131,7 @@
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
-      "squareAllocation": "split",
+      "squareAllocation": "mini-season",
       "kpWinner": "",
       "kpWon": false,
       "pairingsPublished": false,
