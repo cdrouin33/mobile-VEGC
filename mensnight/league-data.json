@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 1920,
+  "yearEndCollected": 1440,
   "teams": [
     {
       "id": "T1",
@@ -122,7 +122,7 @@
     },
     {
       "id": "T10",
-      "name": "Alternate 1",
+      "name": "Sokalski",
       "players": [
         "",
         "",
@@ -132,7 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "Alternate 2",
+      "name": "James",
       "players": [
         "",
         "",
@@ -206,8 +206,9 @@
         "T7": 34,
         "T8": 36,
         "T9": 33,
-        "T10": 38,
-        "T11": 40
+        "T10": 42,
+        "T11": 38,
+        "T1": 38
       },
       "mealOption": "Ceasar Salad, Demi-Glaze Meatballs, Roasted Potatoes and Vegetables",
       "mealPrice": "20",
