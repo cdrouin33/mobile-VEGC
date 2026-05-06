@@ -52,7 +52,7 @@
     },
     {
       "id": "T3",
-      "name": "",
+      "name": "Napa",
       "players": [
         "",
         "",
@@ -62,7 +62,7 @@
     },
     {
       "id": "T4",
-      "name": "",
+      "name": "UFA",
       "players": [
         "",
         "",
@@ -72,7 +72,7 @@
     },
     {
       "id": "T5",
-      "name": "",
+      "name": "Komarniski",
       "players": [
         "",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "id": "T6",
-      "name": "",
+      "name": "Kuchik",
       "players": [
         "",
         "",
@@ -92,7 +92,7 @@
     },
     {
       "id": "T7",
-      "name": "",
+      "name": "Brad O",
       "players": [
         "",
         "",
@@ -102,7 +102,7 @@
     },
     {
       "id": "T8",
-      "name": "",
+      "name": "Severly Handicap",
       "players": [
         "",
         "",
@@ -112,7 +112,7 @@
     },
     {
       "id": "T9",
-      "name": "Alternate 2",
+      "name": "The Boys",
       "players": [
         "",
         "",
@@ -129,6 +129,16 @@
         "",
         ""
       ]
+    },
+    {
+      "id": "T11",
+      "name": "Alternate 2",
+      "players": [
+        "",
+        "",
+        "",
+        ""
+      ]
     }
   ],
   "weeks": [
@@ -136,44 +146,44 @@
       "id": "W1",
       "date": "2026-05-05",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 30,
+      "attendancePlayers": 38,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "mini-season",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Scott  T",
+      "kpWon": true,
       "pairingsPublished": false,
       "pairings": [
         {
           "hole": "1",
           "teamA": "T1",
-          "teamB": "T9"
+          "teamB": "T3"
         },
         {
           "hole": "2",
           "teamA": "T2",
-          "teamB": "T10"
+          "teamB": "T5"
         },
         {
           "hole": "3",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T4",
+          "teamB": "T6"
         },
         {
           "hole": "4",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T7",
+          "teamB": "T8"
         },
         {
           "hole": "5",
-          "teamA": "",
-          "teamB": ""
+          "teamA": "T9",
+          "teamB": "T10"
         },
         {
           "hole": "6",
-          "teamA": "",
+          "teamA": "T11",
           "teamB": ""
         },
         {
@@ -187,7 +197,18 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T2": 40,
+        "T3": 33,
+        "T4": 34,
+        "T5": 33,
+        "T6": 31,
+        "T7": 34,
+        "T8": 36,
+        "T9": 33,
+        "T10": 38,
+        "T11": 40
+      },
       "mealOption": "Ceasar Salad, Demi-Glaze Meatballs, Roasted Potatoes and Vegetables",
       "mealPrice": "20",
       "drinkSpecial": "VKGC Lager Pitcher $25, Scud Ultra Dry 4 for $18",
