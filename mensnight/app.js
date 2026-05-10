@@ -641,10 +641,81 @@ function payoutLines(rows, teamLookup){
 }
 
 
-function buildWeeklyAuditHTML(data, weekIndex){
+function getNextWeekHandicapPrepRows(data, calc, weekIndex){
+  const nextWeek = data.weeks[weekIndex + 1];
+  const teams = activeTeams(data);
+  if (!nextWeek) {
+    return teams.map(team => [team.name, 'Season complete', '', '']);
+  }
+
+  const previousHandicapForTeam = (teamId) => {
+    for (let i = weekIndex; i >= 0; i--) {
+      const week = calc.weekly[i];
+      const result = week?.results?.find(row => row.teamId === teamId);
+      if (result) return result.handicap;
+    }
+    return 0;
+  };
+
+  const weeklyGrossDiffForTeam = (teamId, weekId) => {
+    const week = calc.weekly.find(entry => entry.id === weekId);
+    return week?.results?.find(row => row.teamId === teamId)?.grossDiff;
+  };
+
+  const weeklyPointsForTeam = (teamId, weekId) => {
+    const week = calc.weekly.find(entry => entry.id === weekId);
+    return week?.results?.find(row => row.teamId === teamId)?.points || 0;
+  };
+
+  const handicapDifferentials = (teamId, throughWeekIndexExclusive) => {
+    const kept = [];
+    MINI_SEASONS.forEach(ms => {
+      const playedWeekIds = ms.weeks
+        .map(weekId => ({ weekId, index: data.weeks.findIndex(w => w.id === weekId) }))
+        .filter(entry => entry.index !== -1 && entry.index < throughWeekIndexExclusive && weeklyGrossDiffForTeam(teamId, entry.weekId) !== undefined)
+        .map(entry => entry.weekId);
+      if (!playedWeekIds.length) return;
+      let dropWeekId = null;
+      if (ms.drop && playedWeekIds.length >= 2) {
+        dropWeekId = playedWeekIds.slice().sort((a,b) => {
+          const diffDelta = weeklyGrossDiffForTeam(teamId, b) - weeklyGrossDiffForTeam(teamId, a);
+          if (diffDelta !== 0) return diffDelta;
+          return weeklyPointsForTeam(teamId, a) - weeklyPointsForTeam(teamId, b);
+        })[0];
+      }
+      playedWeekIds.forEach(weekId => {
+        if (weekId !== dropWeekId) kept.push(weeklyGrossDiffForTeam(teamId, weekId));
+      });
+    });
+    return kept;
+  };
+
+  const nextWeekIndex = weekIndex + 1;
+  const averages = teams.map(team => {
+    const diffs = handicapDifferentials(team.id, nextWeekIndex);
+    return diffs.length ? avg(diffs) : 0;
+  });
+  const minAvgDiff = averages.length ? Math.min(...averages) : 0;
+  const cap = nextWeekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
+
+  return teams
+    .map(team => {
+      const diffs = handicapDifferentials(team.id, nextWeekIndex);
+      const priorAvg = diffs.length ? avg(diffs) : 0;
+      const rawTarget = Math.round(clamp(Math.max(0, priorAvg - minAvgDiff), 0, data.settings.maxHandicap));
+      const previousHdcp = previousHandicapForTeam(team.id);
+      const low = Math.max(0, previousHdcp - cap);
+      const high = Math.min(number(data.settings.maxHandicap), previousHdcp + cap);
+      const nextHdcp = nextWeekIndex === 0 ? 0 : clamp(rawTarget, low, high);
+      return [team.name, nextWeek.id, previousHdcp, nextHdcp];
+    })
+    .sort((a,b) => String(a[0]).localeCompare(String(b[0])));
+}
+
+function buildWeeklyAuditTables(data, weekIndex){
   const calc = calculateLeague(data);
   const week = calc.weekly.find(w => w.id === data.weeks[weekIndex].id);
-  if (!week) return '';
+  if (!week) return [];
   const miniSeason = getMiniSeasonByKey(week.miniSeasonKey);
   const totalPlayerContrib = round2(number(week.attendancePlayers) * (number(data.settings.weeklyPayoutPerPlayer) + number(data.settings.kpPerPlayer) + number(data.settings.miniSeasonPerPlayer)));
   const totalMoneyIn = round2(totalPlayerContrib + number(week.weeklyExtraMoney) + number(week.miniSeasonExtraMoney) + number(week.yearEndExtraMoney) + number(week.squareNetAmount));
@@ -653,45 +724,79 @@ function buildWeeklyAuditHTML(data, weekIndex){
   const heldForFuture = round2(number(week.payouts.miniSeasonAdd) + number(week.payouts.yearEndAdd) + number(week.payouts.kpCarryAfter));
   const totalMoneyOut = round2(weeklyPaid + kpPaid + heldForFuture);
   const variance = round2(totalMoneyIn - totalMoneyOut);
-  const pairingsRows = (week.pairings || []).filter(p => p.teamA || p.teamB).map(p => `<tr><td>${escapeHTML(String(p.hole ?? ''))}</td><td>${escapeHTML(teamName(data, p.teamA))}</td><td>${escapeHTML(teamName(data, p.teamB))}</td></tr>`).join('') || '<tr><td colspan="3">No pairings entered.</td></tr>';
-  const scoreRows = (week.results || []).map((row, idx) => `<tr><td>${idx + 1}</td><td>${escapeHTML(teamName(data, row.teamId))}</td><td>${row.gross}</td><td>${row.handicap}</td><td>${row.net}</td><td>${row.points}</td></tr>`).join('') || '<tr><td colspan="6">No scores entered.</td></tr>';
-  const payoutRowsHtml = (week.payouts.weeklyAwardRows || []).map(row => `<tr><td>${escapeHTML(row.displayPlace)}</td><td>${escapeHTML(teamName(data, row.teamId))}</td><td>${money(row.amount)}</td></tr>`).join('') || '<tr><td colspan="3">No weekly payouts calculated yet.</td></tr>';
-  return `<!doctype html>
-<html><head><meta charset="utf-8"><style>body{font-family:Arial,sans-serif;font-size:12px}h1,h2{margin:0 0 8px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid #999;padding:6px;text-align:left}.good{font-weight:bold;color:green}.bad{font-weight:bold;color:#a00}</style></head><body>
-<h1>Mens Night Weekly Audit Report</h1>
-<table>
-<tr><th>Week</th><td>${escapeHTML(week.id)}</td><th>Date</th><td>${escapeHTML(fmtDate(week.date))}</td></tr>
-<tr><th>Mini Season</th><td>${escapeHTML(miniSeason.label)}</td><th>Attendance</th><td>${week.attendancePlayers}</td></tr>
-<tr><th>KP Winner</th><td>${escapeHTML(week.kpWinner || (week.kpWon ? 'Won this week' : 'Not won'))}</td><th>Hole-In-One Prize</th><td>${escapeHTML(week.holeInOnePrize || money(data.settings.holeInOneDefault))}</td></tr>
-</table>
-<h2>Validation Summary</h2>
-<table>
-<tr><th>Total Player Contributions</th><td>${money(totalPlayerContrib)}</td></tr>
-<tr><th>Weekly Extra Money</th><td>${money(week.weeklyExtraMoney)}</td></tr>
-<tr><th>Mini Season Extra Money</th><td>${money(week.miniSeasonExtraMoney)}</td></tr>
-<tr><th>Year-End Extra Money</th><td>${money(week.yearEndExtraMoney)}</td></tr>
-<tr><th>Squares</th><td>${money(week.squareNetAmount)}</td></tr>
-<tr><th>Total Money In</th><td>${money(totalMoneyIn)}</td></tr>
-<tr><th>Weekly Paid Out</th><td>${money(weeklyPaid)}</td></tr>
-<tr><th>KP Paid Out</th><td>${money(kpPaid)}</td></tr>
-<tr><th>Held for Mini Season / Year-End / Carryover</th><td>${money(heldForFuture)}</td></tr>
-<tr><th>Total Money Out / Held</th><td>${money(totalMoneyOut)}</td></tr>
-<tr><th>Variance</th><td class="${Math.abs(variance) < 0.01 ? 'good' : 'bad'}">${money(variance)}</td></tr>
-</table>
-<h2>Scores</h2><table><tr><th>Place</th><th>Team</th><th>Gross</th><th>HDCP</th><th>Net</th><th>Points</th></tr>${scoreRows}</table>
-<h2>Weekly Payouts</h2><table><tr><th>Place</th><th>Team</th><th>Amount</th></tr>${payoutRowsHtml}</table>
-<h2>Pairings</h2><table><tr><th>Hole</th><th>Team 1</th><th>Team 2</th></tr>${pairingsRows}</table>
-</body></html>`;
+  const pairingsRows = (week.pairings || []).filter(p => p.teamA || p.teamB).map(p => [String(p.hole ?? ''), teamName(data, p.teamA), teamName(data, p.teamB)]);
+  const scoreRows = (week.results || []).map((row, idx) => [idx + 1, teamName(data, row.teamId), row.gross, row.handicap, row.net, row.points]);
+  const payoutRows = (week.payouts.weeklyAwardRows || []).map(row => [row.displayPlace, teamName(data, row.teamId), money(row.amount)]);
+  const nextHandicapRows = getNextWeekHandicapPrepRows(data, calc, weekIndex);
+
+  return [
+    { title: 'Mens Night Weekly Audit Report', rows: [
+      ['Week', week.id, 'Date', fmtDate(week.date)],
+      ['Mini Season', miniSeason.label, 'Attendance', week.attendancePlayers],
+      ['KP Winner', week.kpWinner || (week.kpWon ? 'Won this week' : 'Not won'), 'Hole-In-One Prize', week.holeInOnePrize || money(data.settings.holeInOneDefault)]
+    ]},
+    { title: 'Validation Summary', rows: [
+      ['Total Player Contributions', money(totalPlayerContrib)],
+      ['Weekly Extra Money', money(week.weeklyExtraMoney)],
+      ['Mini Season Extra Money', money(week.miniSeasonExtraMoney)],
+      ['Year-End Extra Money', money(week.yearEndExtraMoney)],
+      ['Squares', money(week.squareNetAmount)],
+      ['Total Money In', money(totalMoneyIn)],
+      ['Weekly Paid Out', money(weeklyPaid)],
+      ['KP Paid Out', money(kpPaid)],
+      ['Held for Mini Season / Year-End / Carryover', money(heldForFuture)],
+      ['Total Money Out / Held', money(totalMoneyOut)],
+      ['Variance', money(variance)]
+    ]},
+    { title: 'Scores', headers: ['Place','Team','Gross','HDCP','Net','Points'], rows: scoreRows.length ? scoreRows : [['No scores entered.','','','','','']] },
+    { title: 'Weekly Payouts', headers: ['Place','Team','Amount'], rows: payoutRows.length ? payoutRows : [['No weekly payouts calculated yet.','','']] },
+    { title: 'Next Week Handicap Prep', headers: ['Team','Next Week','Previous HDCP','Next Week HDCP'], rows: nextHandicapRows },
+    { title: 'Pairings', headers: ['Hole','Team 1','Team 2'], rows: pairingsRows.length ? pairingsRows : [['No pairings entered.','','']] }
+  ];
+}
+
+function buildWeeklyAuditHTML(data, weekIndex){
+  const tables = buildWeeklyAuditTables(data, weekIndex);
+  const tableHtml = tables.map(section => {
+    const headerRow = section.headers ? `<tr>${section.headers.map(h => `<th>${escapeHTML(h)}</th>`).join('')}</tr>` : '';
+    const bodyRows = section.rows.map(row => `<tr>${row.map(cell => `<td>${escapeHTML(cell)}</td>`).join('')}</tr>`).join('');
+    return `<h2>${escapeHTML(section.title)}</h2><table>${headerRow}${bodyRows}</table>`;
+  }).join('');
+  return `<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:Arial,sans-serif;font-size:12px}h2{margin:10px 0 8px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid #999;padding:6px;text-align:left}</style></head><body>${tableHtml}</body></html>`;
+}
+
+function spreadsheetXmlCell(value){
+  const raw = value === undefined || value === null ? '' : String(value);
+  const isNumeric = raw !== '' && !raw.startsWith('$') && !Number.isNaN(Number(raw));
+  const type = isNumeric ? 'Number' : 'String';
+  const safe = raw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return `<Cell><Data ss:Type="${type}">${safe}</Data></Cell>`;
+}
+
+function spreadsheetXmlWorksheet(name, tables){
+  const rows = [];
+  tables.forEach((section, sectionIndex) => {
+    if (sectionIndex > 0) rows.push('<Row/>');
+    rows.push(`<Row><Cell ss:StyleID="Header"><Data ss:Type="String">${section.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</Data></Cell></Row>`);
+    if (section.headers) rows.push(`<Row>${section.headers.map(spreadsheetXmlCell).join('')}</Row>`);
+    section.rows.forEach(row => rows.push(`<Row>${row.map(spreadsheetXmlCell).join('')}</Row>`));
+  });
+  const sheetName = name.replace(/[\/?*:\[\]]/g, ' ').slice(0, 31);
+  return `<Worksheet ss:Name="${sheetName}"><Table>${rows.join('')}</Table></Worksheet>`;
 }
 
 function downloadWeeklyAuditReport(data, weekIndex){
   const week = data.weeks[weekIndex];
-  const html = buildWeeklyAuditHTML(data, weekIndex);
-  const blob = new Blob([html], { type: 'application/vnd.ms-excel' });
+  const worksheets = data.weeks
+    .slice(0, weekIndex + 1)
+    .map((w, idx) => spreadsheetXmlWorksheet(`${w.id} Audit`, buildWeeklyAuditTables(data, idx)))
+    .join('');
+  const workbook = `<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40"><Styles><Style ss:ID="Header"><Font ss:Bold="1"/><Interior ss:Color="#D9EAD3" ss:Pattern="Solid"/></Style></Styles>${worksheets}</Workbook>`;
+  const blob = new Blob([workbook], { type: 'application/vnd.ms-excel' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `mens-night-${week.id.toLowerCase()}-audit-report.xls`;
+  a.download = `mens-night-through-${week.id.toLowerCase()}-audit-report.xls`;
   a.click();
   URL.revokeObjectURL(url);
 }
