@@ -889,14 +889,14 @@ function renderPublic(data){
   $('preseasonStandings').innerHTML = `
     <h2>Mini Season 1 — Preseason Standings</h2>
     <p class="subdued">3 weeks. No dropped score. Counts for preseason payout and handicap building, but not the year-end race.</p>
-    ${tableHTML(['Rank','Team','Points','Potential Winnings (Including Weekly Payouts)'], calc.preseasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.points, money(row.winningsIncludingWeekly || 0)]))}`;
+    ${tableHTML(['Rank','Team','Points','Winnings (Including Weekly Payouts)'], calc.preseasonStandings.map(row => [row.rank, escapeHTML(row.teamName), row.points, money(row.winningsIncludingWeekly || 0)]))}`;
 
   $('miniSeasonStandings').innerHTML = MINI_SEASONS.filter(ms => ms.key !== 'preseason').map(ms => {
     const standings = calc.miniSeasonStandings[ms.key] || [];
     return `<div class="card half">
       <h2>${ms.label}</h2>
       <p class="subdued">Weekly points always count. Winnings shown here are the current mini-season payout positions plus any weekly payouts earned during this mini season.</p>
-      ${tableHTML(['Rank','Team','Points','Potential Winnings (Including Weekly Payouts)'], standings.map(row => [row.rank, escapeHTML(row.teamName), row.points, money(row.winningsIncludingWeekly || 0)]))}
+      ${tableHTML(['Rank','Team','Points','Winnings (Including Weekly Payouts)'], standings.map(row => [row.rank, escapeHTML(row.teamName), row.points, money(row.winningsIncludingWeekly || 0)]))}
     </div>`;
   }).join('');
 
