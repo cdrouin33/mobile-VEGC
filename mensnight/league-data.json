@@ -174,7 +174,7 @@
       "squareAllocation": "mini-season",
       "kpWinner": "Scott  T",
       "kpWon": true,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
           "hole": "1",
@@ -244,7 +244,7 @@
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 0,
+      "squareNetAmount": 50,
       "squareAllocation": "mini-season",
       "kpWinner": "",
       "kpWon": false,
@@ -292,7 +292,7 @@
         }
       ],
       "scores": {},
-      "mealOption": "Garden Salad, Vegetable Spring Rolls, Honey Glazed Roasted Ham, Roasted Potatoes & Vegetables",
+      "mealOption": "Garden Salad, Vegetable Spring Rolls, Chicken Parmesean, Roasted Potatoes & Vegetables",
       "mealPrice": "$20",
       "drinkSpecial": "$25 Pitchers of VKGC Lager",
       "holeInOnePrize": "N/A",
