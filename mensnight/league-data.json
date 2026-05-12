@@ -6,7 +6,7 @@
     "weeklyPayoutPerPlayer": 6,
     "kpPerPlayer": 2,
     "miniSeasonPerPlayer": 2,
-    "seasonBuyInPerPlayer": 60,
+    "seasonBuyInPerPlayer": 59.97,
     "weeklySplit": [
       0.5,
       0.3,
@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 1680,
+  "yearEndCollected": 1920,
   "teams": [
     {
       "id": "T1",
@@ -142,7 +142,17 @@
     },
     {
       "id": "T12",
-      "name": "Clam Diggers",
+      "name": "ClamDiggers",
+      "players": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "T13",
+      "name": "Shankaholics",
       "players": [
         "",
         "",
@@ -203,7 +213,7 @@
         },
         {
           "hole": "8",
-          "teamA": "",
+          "teamA": "T13",
           "teamB": ""
         }
       ],
@@ -220,7 +230,7 @@
         "T11": 38,
         "T1": 38
       },
-      "mealOption": "Ceasar Salad, Demi-Glaze Meatballs, Roasted Potatoes and Vegetables",
+      "mealOption": "Ceasar Salad, Chicken Parmeseam, Roasted Potatoes and Vegetables",
       "mealPrice": "20",
       "drinkSpecial": "VKGC Lager Pitcher $25, Scud Ultra Dry 4 for $18",
       "holeInOnePrize": "",
