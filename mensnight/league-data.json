@@ -6,7 +6,7 @@
     "weeklyPayoutPerPlayer": 6,
     "kpPerPlayer": 2,
     "miniSeasonPerPlayer": 2,
-    "seasonBuyInPerPlayer": 59.97,
+    "seasonBuyInPerPlayer": 60,
     "weeklySplit": [
       0.5,
       0.3,
@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 1920,
+  "yearEndCollected": 1440,
   "teams": [
     {
       "id": "T1",
@@ -72,7 +72,7 @@
     },
     {
       "id": "T5",
-      "name": "Grip it & Sip it",
+      "name": "Komarniski",
       "players": [
         "",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "id": "T6",
-      "name": "Blood Farts",
+      "name": "Kuchik",
       "players": [
         "",
         "",
@@ -102,7 +102,7 @@
     },
     {
       "id": "T8",
-      "name": "Severly Handicaped",
+      "name": "Severly Handicap",
       "players": [
         "",
         "",
@@ -132,27 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "B. James",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T12",
-      "name": "ClamDiggers",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T13",
-      "name": "Shankaholics",
+      "name": "James",
       "players": [
         "",
         "",
@@ -174,7 +154,7 @@
       "squareAllocation": "mini-season",
       "kpWinner": "Scott  T",
       "kpWon": true,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
           "hole": "1",
@@ -189,22 +169,22 @@
         {
           "hole": "3",
           "teamA": "T4",
-          "teamB": "T7"
+          "teamB": "T6"
         },
         {
           "hole": "4",
-          "teamA": "T6",
-          "teamB": "T10"
+          "teamA": "T7",
+          "teamB": "T8"
         },
         {
           "hole": "5",
-          "teamA": "T8",
-          "teamB": "T11"
+          "teamA": "T9",
+          "teamB": "T10"
         },
         {
           "hole": "6",
-          "teamA": "T9",
-          "teamB": "T12"
+          "teamA": "T11",
+          "teamB": ""
         },
         {
           "hole": "7",
@@ -213,7 +193,7 @@
         },
         {
           "hole": "8",
-          "teamA": "T13",
+          "teamA": "",
           "teamB": ""
         }
       ],
@@ -230,7 +210,7 @@
         "T11": 38,
         "T1": 38
       },
-      "mealOption": "Ceasar Salad, Chicken Parmeseam, Roasted Potatoes and Vegetables",
+      "mealOption": "Ceasar Salad, Demi-Glaze Meatballs, Roasted Potatoes and Vegetables",
       "mealPrice": "20",
       "drinkSpecial": "VKGC Lager Pitcher $25, Scud Ultra Dry 4 for $18",
       "holeInOnePrize": "",
@@ -244,59 +224,59 @@
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 50,
-      "squareAllocation": "mini-season",
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T4",
-          "teamB": "T6"
-        },
-        {
-          "hole": "2",
-          "teamA": "T2",
-          "teamB": "T5"
-        },
-        {
-          "hole": "3",
-          "teamA": "T1",
-          "teamB": "T3"
-        },
-        {
-          "hole": "4",
-          "teamA": "T7",
-          "teamB": "T10"
-        },
-        {
-          "hole": "5",
-          "teamA": "T8",
-          "teamB": "T11"
-        },
-        {
-          "hole": "9",
-          "teamA": "T9",
-          "teamB": "T12"
-        },
-        {
-          "hole": "7",
+          "hole": 1,
           "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "Garden Salad, Chicken Parmesan, Roasted Potatoes & Vegetables",
-      "mealPrice": "$20",
-      "drinkSpecial": "$25 Pitchers of VKGC Lager",
-      "holeInOnePrize": "N/A",
-      "extraNote": "This Week Will be Played as a 4 Man Scramble from the Blue Tees. Handicaps have been updated from last week and Net Scores will Count this week."
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
+      "extraNote": ""
     },
     {
       "id": "W3",
