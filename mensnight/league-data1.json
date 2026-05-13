@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 1920,
+  "yearEndCollected": 1440,
   "teams": [
     {
       "id": "T1",
@@ -139,36 +139,6 @@
         "",
         ""
       ]
-    },
-    {
-      "id": "T12",
-      "name": "Shankoholics",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T13",
-      "name": "Clam Diggers",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "id": "T14",
-      "name": "Weeder",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
     }
   ],
   "weeks": [
@@ -250,76 +220,61 @@
       "id": "W2",
       "date": "2026-05-12",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 64,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 50,
-      "squareAllocation": "mini-season",
-      "kpWinner": "Double D",
-      "kpWon": true,
-      "pairingsPublished": true,
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
+      "kpWinner": "",
+      "kpWon": false,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T1",
-          "teamB": "T4"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T2",
-          "teamB": "T5"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T3",
-          "teamB": "T8"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T6",
-          "teamB": "T10"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T7",
-          "teamB": "T9"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T11",
-          "teamB": "T13"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "7",
-          "teamA": "T12",
-          "teamB": "T14"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
+          "hole": 8,
           "teamA": "",
           "teamB": ""
         }
       ],
-      "scores": {
-        "T1": 34,
-        "T2": 34,
-        "T3": 32,
-        "T4": 31,
-        "T5": 30,
-        "T6": 31,
-        "T7": 31,
-        "T8": 36,
-        "T9": 31,
-        "T10": 35,
-        "T11": 31,
-        "T12": 36,
-        "T13": 33,
-        "T14": 42
-      },
-      "mealOption": "Parmesean Chicken",
-      "mealPrice": "$20",
-      "drinkSpecial": "VKGC Lager Pitchers for $25",
+      "scores": {},
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
       "holeInOnePrize": "",
       "extraNote": ""
     },
