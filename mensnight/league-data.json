@@ -72,7 +72,7 @@
     },
     {
       "id": "T5",
-      "name": "Komarniski",
+      "name": "Grip it & Sip it",
       "players": [
         "",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "id": "T6",
-      "name": "Kuchik",
+      "name": "Blood Farts",
       "players": [
         "",
         "",
@@ -132,7 +132,7 @@
     },
     {
       "id": "T11",
-      "name": "James",
+      "name": "Lefties",
       "players": [
         "",
         "",
@@ -206,9 +206,9 @@
         "T7": 34,
         "T8": 36,
         "T9": 33,
-        "T10": 42,
-        "T11": 38,
-        "T1": 38
+        "T10": 40,
+        "T11": 40,
+        "T1": 40
       },
       "mealOption": "Ceasar Salad, Demi-Glaze Meatballs, Roasted Potatoes and Vegetables",
       "mealPrice": "20",
