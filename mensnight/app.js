@@ -641,6 +641,72 @@ function payoutLines(rows, teamLookup){
 }
 
 
+
+function calculateNextWeekHandicaps(data, weekIndex){
+  const teams = activeTeams(data);
+  const calc = calculateLeague(data);
+  const nextWeekIndex = weekIndex + 1;
+  const nextWeek = data.weeks[nextWeekIndex];
+  if (!nextWeek) return [];
+
+  const teamState = Object.fromEntries(teams.map(team => [team.id, {
+    appliedHandicaps: [],
+    weeklyGrossDiffs: {},
+    weeklyPoints: {},
+  }]));
+
+  calc.weekly.slice(0, nextWeekIndex).forEach(week => {
+    (week.results || []).forEach(row => {
+      if (!teamState[row.teamId]) return;
+      teamState[row.teamId].appliedHandicaps.push(row.handicap);
+      teamState[row.teamId].weeklyGrossDiffs[week.id] = row.grossDiff;
+      teamState[row.teamId].weeklyPoints[week.id] = row.points;
+    });
+  });
+
+  function getHandicapDifferentials(teamId, throughWeekIndexExclusive){
+    const kept = [];
+    MINI_SEASONS.forEach(ms => {
+      const playedWeekIds = ms.weeks
+        .map(weekId => ({ weekId, index: data.weeks.findIndex(w => w.id === weekId) }))
+        .filter(entry => entry.index !== -1 && entry.index < throughWeekIndexExclusive && teamState[teamId].weeklyGrossDiffs[entry.weekId] !== undefined)
+        .map(entry => entry.weekId);
+      if (!playedWeekIds.length) return;
+      let dropWeekId = null;
+      if (ms.drop && playedWeekIds.length >= 2) {
+        dropWeekId = playedWeekIds.slice().sort((a,b) => {
+          const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
+          if (diffDelta !== 0) return diffDelta;
+          return (teamState[teamId].weeklyPoints[a] || 0) - (teamState[teamId].weeklyPoints[b] || 0);
+        })[0];
+      }
+      playedWeekIds.forEach(weekId => {
+        if (weekId !== dropWeekId) kept.push(teamState[teamId].weeklyGrossDiffs[weekId]);
+      });
+    });
+    return kept;
+  }
+
+  const avgDiffs = teams.map(team => {
+    const diffs = getHandicapDifferentials(team.id, nextWeekIndex);
+    return diffs.length ? avg(diffs) : 0;
+  });
+  const minAvgDiff = avgDiffs.length ? Math.min(...avgDiffs) : 0;
+
+  return teams.map(team => {
+    const diffs = getHandicapDifferentials(team.id, nextWeekIndex);
+    const priorAvg = diffs.length ? avg(diffs) : 0;
+    const baseline = Math.max(0, priorAvg - minAvgDiff);
+    const previousHdcp = teamState[team.id].appliedHandicaps.length ? teamState[team.id].appliedHandicaps[teamState[team.id].appliedHandicaps.length - 1] : 0;
+    const rawTarget = Math.round(clamp(baseline, 0, data.settings.maxHandicap));
+    const cap = nextWeekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
+    const low = Math.max(0, previousHdcp - cap);
+    const high = Math.min(number(data.settings.maxHandicap), previousHdcp + cap);
+    const handicap = nextWeekIndex === 0 ? 0 : clamp(rawTarget, low, high);
+    return { teamId: team.id, teamName: team.name, nextWeekId: nextWeek.id, handicap };
+  }).sort((a,b) => a.teamName.localeCompare(b.teamName));
+}
+
 function buildWeeklyAuditHTML(data, weekIndex){
   const calc = calculateLeague(data);
   const week = calc.weekly.find(w => w.id === data.weeks[weekIndex].id);
@@ -656,6 +722,7 @@ function buildWeeklyAuditHTML(data, weekIndex){
   const pairingsRows = (week.pairings || []).filter(p => p.teamA || p.teamB).map(p => `<tr><td>${escapeHTML(String(p.hole ?? ''))}</td><td>${escapeHTML(teamName(data, p.teamA))}</td><td>${escapeHTML(teamName(data, p.teamB))}</td></tr>`).join('') || '<tr><td colspan="3">No pairings entered.</td></tr>';
   const scoreRows = (week.results || []).map((row, idx) => `<tr><td>${idx + 1}</td><td>${escapeHTML(teamName(data, row.teamId))}</td><td>${row.gross}</td><td>${row.handicap}</td><td>${row.net}</td><td>${row.points}</td></tr>`).join('') || '<tr><td colspan="6">No scores entered.</td></tr>';
   const payoutRowsHtml = (week.payouts.weeklyAwardRows || []).map(row => `<tr><td>${escapeHTML(row.displayPlace)}</td><td>${escapeHTML(teamName(data, row.teamId))}</td><td>${money(row.amount)}</td></tr>`).join('') || '<tr><td colspan="3">No weekly payouts calculated yet.</td></tr>';
+  const nextHandicapRows = calculateNextWeekHandicaps(data, weekIndex).map(row => `<tr><td>${escapeHTML(row.teamName)}</td><td>${escapeHTML(row.nextWeekId)}</td><td>${row.handicap}</td></tr>`).join('') || '<tr><td colspan="3">No following week available.</td></tr>';
   return `<!doctype html>
 <html><head><meta charset="utf-8"><style>body{font-family:Arial,sans-serif;font-size:12px}h1,h2{margin:0 0 8px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid #999;padding:6px;text-align:left}.good{font-weight:bold;color:green}.bad{font-weight:bold;color:#a00}</style></head><body>
 <h1>Mens Night Weekly Audit Report</h1>
@@ -681,6 +748,7 @@ function buildWeeklyAuditHTML(data, weekIndex){
 <h2>Scores</h2><table><tr><th>Place</th><th>Team</th><th>Gross</th><th>HDCP</th><th>Net</th><th>Points</th></tr>${scoreRows}</table>
 <h2>Weekly Payouts</h2><table><tr><th>Place</th><th>Team</th><th>Amount</th></tr>${payoutRowsHtml}</table>
 <h2>Pairings</h2><table><tr><th>Hole</th><th>Team 1</th><th>Team 2</th></tr>${pairingsRows}</table>
+<h2>Next Week Handicap Prep</h2><table><tr><th>Team</th><th>Week</th><th>Handicap</th></tr>${nextHandicapRows}</table>
 </body></html>`;
 }
 
