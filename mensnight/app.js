@@ -256,8 +256,8 @@ function calculateLeague(data){
     const minAvgDiff = (() => {
       const avgs = teams.map(team => {
         const diffs = getHandicapDifferentials(team.id, weekIndex);
-        return diffs.length ? avg(diffs) : 0;
-      });
+        return diffs.length ? avg(diffs) : null;
+      }).filter(value => Number.isFinite(value));
       return avgs.length ? Math.min(...avgs) : 0;
     })();
 
@@ -689,8 +689,8 @@ function calculateNextWeekHandicaps(data, weekIndex){
 
   const avgDiffs = teams.map(team => {
     const diffs = getHandicapDifferentials(team.id, nextWeekIndex);
-    return diffs.length ? avg(diffs) : 0;
-  });
+    return diffs.length ? avg(diffs) : null;
+  }).filter(value => Number.isFinite(value));
   const minAvgDiff = avgDiffs.length ? Math.min(...avgDiffs) : 0;
 
   return teams.map(team => {
