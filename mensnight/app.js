@@ -752,9 +752,101 @@ function buildWeeklyAuditHTML(data, weekIndex){
 </body></html>`;
 }
 
+function sanitizeExcelSheetName(name){
+  const cleaned = String(name || 'Sheet').replace(/[\\/?*\[\]:]/g, ' ').replace(/\s+/g, ' ').trim();
+  return (cleaned || 'Sheet').slice(0, 31);
+}
+
+function extractBodyContent(html){
+  const match = String(html || '').match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  return match ? match[1] : html;
+}
+
+function buildMiniSeasonSummaryHTML(data, calc, miniSeason, throughWeekIndex){
+  const playedWeeks = miniSeason.weeks
+    .map(weekId => ({ weekId, weekIndex: data.weeks.findIndex(w => w.id === weekId) }))
+    .filter(entry => entry.weekIndex !== -1 && entry.weekIndex <= throughWeekIndex)
+    .map(entry => calc.weekly.find(w => w.id === entry.weekId))
+    .filter(week => week && week.results && week.results.length);
+
+  if (!playedWeeks.length) return '';
+
+  const teams = calc.teams.filter(team => playedWeeks.some(week => week.results.some(row => row.teamId === team.id)));
+  const headerWeeks = playedWeeks.map(week => `
+    <th>${escapeHTML(week.id)} Gross</th>
+    <th>${escapeHTML(week.id)} HDCP</th>
+    <th>${escapeHTML(week.id)} Net</th>
+    <th>${escapeHTML(week.id)} Points</th>
+    <th>${escapeHTML(week.id)} Weekly Winnings</th>`).join('');
+
+  const rows = teams.map(team => {
+    let totalPoints = 0;
+    let totalWinnings = 0;
+    const weekCells = playedWeeks.map(week => {
+      const result = week.results.find(row => row.teamId === team.id);
+      const payout = (week.payouts.weeklyAwardRows || []).find(row => row.teamId === team.id);
+      const winnings = payout ? number(payout.amount) : 0;
+      if (result) totalPoints += number(result.points);
+      totalWinnings += winnings;
+      return `
+        <td>${result ? result.gross : ''}</td>
+        <td>${result ? result.handicap : ''}</td>
+        <td>${result ? result.net : ''}</td>
+        <td>${result ? result.points : ''}</td>
+        <td>${result ? money(winnings) : ''}</td>`;
+    }).join('');
+    return `<tr><td>${escapeHTML(team.name)}</td>${weekCells}<td>${round2(totalPoints)}</td><td>${money(totalWinnings)}</td></tr>`;
+  }).join('') || '<tr><td>No scores entered for this mini season yet.</td></tr>';
+
+  return `
+<h1>${escapeHTML(miniSeason.label)} Summary</h1>
+<table>
+<tr><th>Team</th>${headerWeeks}<th>Total Points</th><th>Total Weekly Winnings</th></tr>
+${rows}
+</table>`;
+}
+
+function buildMultiSheetAuditWorkbookHTML(data, weekIndex){
+  const calc = calculateLeague(data);
+  const weeklyAuditBody = extractBodyContent(buildWeeklyAuditHTML(data, weekIndex));
+  const sheets = [{ name: 'Weekly Audit', body: weeklyAuditBody }];
+
+  MINI_SEASONS.forEach(ms => {
+    const body = buildMiniSeasonSummaryHTML(data, calc, ms, weekIndex);
+    if (body) sheets.push({ name: ms.short || ms.label, body });
+  });
+
+  const worksheetXml = sheets.map(sheet => `
+        <x:ExcelWorksheet>
+          <x:Name>${escapeHTML(sanitizeExcelSheetName(sheet.name))}</x:Name>
+          <x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions>
+        </x:ExcelWorksheet>`).join('');
+
+  const sheetBodies = sheets.map((sheet, idx) => `
+<div class="sheet"${idx ? ' style="page-break-before:always"' : ''}>
+${sheet.body}
+</div>`).join('');
+
+  return `<!doctype html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<style>body{font-family:Arial,sans-serif;font-size:12px}h1,h2{margin:0 0 8px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid #999;padding:6px;text-align:left}.good{font-weight:bold;color:green}.bad{font-weight:bold;color:#a00}</style>
+<!--[if gte mso 9]><xml>
+  <x:ExcelWorkbook>
+    <x:ExcelWorksheets>${worksheetXml}
+    </x:ExcelWorksheets>
+  </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+${sheetBodies}
+</body></html>`;
+}
+
 function downloadWeeklyAuditReport(data, weekIndex){
   const week = data.weeks[weekIndex];
-  const html = buildWeeklyAuditHTML(data, weekIndex);
+  const html = buildMultiSheetAuditWorkbookHTML(data, weekIndex);
   const blob = new Blob([html], { type: 'application/vnd.ms-excel' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
