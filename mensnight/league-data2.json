@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 2400,
+  "yearEndCollected": 1920,
   "teams": [
     {
       "id": "T1",
@@ -169,16 +169,6 @@
         "",
         ""
       ]
-    },
-    {
-      "id": "T15",
-      "name": "Call me Caddy",
-      "players": [
-        "",
-        "",
-        "",
-        ""
-      ]
     }
   ],
   "weeks": [
@@ -246,7 +236,7 @@
         "T7": 34,
         "T8": 36,
         "T9": 33,
-        "T10": 40,
+        "T10": 38,
         "T11": 36,
         "T1": 40
       },
@@ -268,7 +258,7 @@
       "squareAllocation": "mini-season",
       "kpWinner": "Double D",
       "kpWon": true,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
           "hole": "1",
@@ -278,36 +268,36 @@
         {
           "hole": "2",
           "teamA": "T2",
-          "teamB": "T6"
+          "teamB": "T5"
         },
         {
           "hole": "3",
           "teamA": "T3",
-          "teamB": "T7"
+          "teamB": "T8"
         },
         {
           "hole": "4",
-          "teamA": "T5",
-          "teamB": "T9"
+          "teamA": "T6",
+          "teamB": "T10"
         },
         {
           "hole": "5",
-          "teamA": "T8",
-          "teamB": "T10"
+          "teamA": "T7",
+          "teamB": "T9"
         },
         {
           "hole": "6",
           "teamA": "T11",
-          "teamB": "T12"
+          "teamB": "T13"
         },
         {
           "hole": "7",
-          "teamA": "T13",
-          "teamB": "T15"
+          "teamA": "T12",
+          "teamB": "T14"
         },
         {
           "hole": "8",
-          "teamA": "T14",
+          "teamA": "",
           "teamB": ""
         }
       ],
@@ -337,63 +327,63 @@
       "id": "W3",
       "date": "2026-05-19",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 60,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
-      "squareAllocation": "mini-season",
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T7"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T2",
-          "teamB": "T1"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T4",
-          "teamB": "T8"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T5",
-          "teamB": "T3"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T9",
-          "teamB": "T11"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T10",
-          "teamB": "T12"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T13",
-          "teamB": "T15"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T14",
+          "hole": 8,
+          "teamA": "",
           "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "BBQ Ribs, Roasted Potatoes and Vegetables",
-      "mealPrice": "$25",
-      "drinkSpecial": "4 for 18$ Scud Sea Changer Ultra Dry",
-      "holeInOnePrize": "N/A",
-      "extraNote": "Teams Must be Registered and Paid in order to Claim Mini Season Winnings.  This Week will be a 4 Man Scramble from the Blue Tees. Regular Season Begins Next Week"
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
+      "extraNote": ""
     },
     {
       "id": "W4",
