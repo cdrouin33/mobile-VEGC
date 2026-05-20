@@ -28,7 +28,7 @@
     "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 2400,
+  "yearEndCollected": 3600,
   "teams": [
     {
       "id": "T1",
@@ -92,7 +92,7 @@
     },
     {
       "id": "T7",
-      "name": "Brad O",
+      "name": "XXX Stiff Shafts",
       "players": [
         "",
         "",
@@ -122,7 +122,7 @@
     },
     {
       "id": "T10",
-      "name": "Sokalski",
+      "name": "Peanuts",
       "players": [
         "",
         "",
@@ -162,7 +162,7 @@
     },
     {
       "id": "T14",
-      "name": "Weeder",
+      "name": "Short Circuit",
       "players": [
         "",
         "",
@@ -337,14 +337,14 @@
       "id": "W3",
       "date": "2026-05-19",
       "miniSeasonKey": "preseason",
-      "attendancePlayers": 60,
+      "attendancePlayers": 48,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
       "squareAllocation": "mini-season",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Roberts Stenberger",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -388,7 +388,22 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 37,
+        "T2": 37,
+        "T3": 35,
+        "T4": 34,
+        "T5": 36,
+        "T6": 30,
+        "T7": 32,
+        "T8": 35,
+        "T9": 34,
+        "T10": 37,
+        "T11": 33,
+        "T12": 37,
+        "T13": 32,
+        "T14": 38
+      },
       "mealOption": "Caesar Salad, Spring Rolls, Maple Glazed Ham, Stuffed Chicken, Roasted Potatoes",
       "mealPrice": "$25",
       "drinkSpecial": "4 for 18$ Scud Sea Change Ultra Dry",
