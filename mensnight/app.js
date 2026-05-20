@@ -640,6 +640,14 @@ function payoutLines(rows, teamLookup){
   }).join('');
 }
 
+function payoutAwardLines(rows, data){
+  if (!rows || !rows.length) return '';
+  return rows.map(row => {
+    const placeText = row.displayPlace || `${row.place}${ordinal(row.place)}`;
+    return `<div class="row-label"><span>${escapeHTML(placeText)} — ${escapeHTML(teamName(data, row.teamId))}</span><strong>${money(row.amount)}</strong></div>`;
+  }).join('');
+}
+
 
 
 function calculateNextWeekHandicaps(data, weekIndex){
@@ -872,14 +880,14 @@ function renderPublic(data){
         const w = calc.weekly.find(entry => entry.id === weekId);
         return w && w.results.length > 0;
       });
-      const payoutTeams = Object.fromEntries((payoutInfo.awardRows || []).map(row => [row.place, teamName(data, row.teamId)]));
+      const awardRows = payoutInfo.awardRows || [];
       return `<div class="card third breakdown-card">
         <div class="eyebrow">Payout Breakdown</div>
         <h2>${ms.label}</h2>
         <div class="subdued">${fmtDate(weekDates[0])} – ${fmtDate(weekDates[weekDates.length - 1])}</div>
         <div class="row-labels">
           <div class="row-label"><span>Current pot</span><strong>${money(calc.miniSeasonPots[ms.key] || 0)}</strong></div>
-          ${payoutLines(rows, payoutTeams)}
+          ${awardRows.length ? payoutAwardLines(awardRows, data) : payoutLines(rows)}
         </div>
       </div>`;
     }),
