@@ -414,63 +414,63 @@
       "id": "W4",
       "date": "2026-05-26",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 60,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "mini-season",
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T13",
-          "teamB": "T6"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T10",
-          "teamB": "T12"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T4",
-          "teamB": "T5"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T7",
-          "teamB": "T8"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T9",
-          "teamB": "T11"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T2",
-          "teamB": "T14"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T3",
-          "teamB": "T15"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T1",
+          "hole": 8,
+          "teamA": "",
           "teamB": ""
         }
       ],
       "scores": {},
       "mealOption": "",
-      "mealPrice": "$20",
-      "drinkSpecial": "4 for $18 Scud Ultra Dry, Water Hazards $6.25",
+      "mealPrice": "",
+      "drinkSpecial": "",
       "holeInOnePrize": "",
-      "extraNote": "This is the First Night of The Full League Season.  It will be played as a 4 Man scramble from the White Tees.  All team scores now count towards Mini Season & Year End Money Race."
+      "extraNote": ""
     },
     {
       "id": "W5",
