@@ -112,7 +112,7 @@
     },
     {
       "id": "T9",
-      "name": "The Boys",
+      "name": "Soft & Short",
       "players": [
         "",
         "",
@@ -122,7 +122,7 @@
     },
     {
       "id": "T10",
-      "name": "Peanuts",
+      "name": "Morning Wood",
       "players": [
         "",
         "",
@@ -414,7 +414,7 @@
       "id": "W4",
       "date": "2026-05-26",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 60,
+      "attendancePlayers": 57,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
@@ -465,7 +465,23 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 32,
+        "T2": 36,
+        "T3": 35,
+        "T4": 32,
+        "T5": 32,
+        "T6": 32,
+        "T7": 32,
+        "T8": 37,
+        "T9": 33,
+        "T10": 36,
+        "T11": 35,
+        "T12": 38,
+        "T13": 31,
+        "T14": 39,
+        "T15": 42
+      },
       "mealOption": "Penne Alfredo, Grilled Chicken Breast, Garlic Bread, Garden Salad",
       "mealPrice": "$20",
       "drinkSpecial": "4 for $18 Scud Ultra Dry, Water Hazards $6.25",

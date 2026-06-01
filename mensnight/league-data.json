@@ -503,52 +503,52 @@
       "pairingsPublished": false,
       "pairings": [
         {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
+          "hole": "1",
+          "teamA": "T6",
+          "teamB": "T9"
         },
         {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
+          "hole": "2",
+          "teamA": "T13",
+          "teamB": "T4"
         },
         {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
+          "hole": "3",
+          "teamA": "T5",
+          "teamB": "T7"
         },
         {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
+          "hole": "4",
+          "teamA": "T2",
+          "teamB": "T1"
         },
         {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
+          "hole": "5",
+          "teamA": "T10",
+          "teamB": "T8"
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
+          "hole": "6",
+          "teamA": "T11",
+          "teamB": "T3"
         },
         {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
+          "hole": "7",
+          "teamA": "T14",
+          "teamB": "T15"
         },
         {
-          "hole": 8,
-          "teamA": "",
+          "hole": "8",
+          "teamA": "T12",
           "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
+      "mealOption": "Smash Burger Fries or Salad",
+      "mealPrice": "$20",
+      "drinkSpecial": "4 for $18 Scud Ultra Dry, VKGC Lager Pitchers $25",
       "holeInOnePrize": "",
-      "extraNote": ""
+      "extraNote": "Due to weather Men's Night week 5 is still pending until course conditions are fully assessed.  Please check back for updates"
     },
     {
       "id": "W6",
