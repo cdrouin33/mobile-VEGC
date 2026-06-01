@@ -500,7 +500,7 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
           "hole": "1",
