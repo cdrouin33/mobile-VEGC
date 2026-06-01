@@ -373,10 +373,7 @@ function calculateLeague(data){
     });
     miniSeasonPayoutRows[ms.key] = { baseRows: payoutRowsForSeason, awardRows: miniSeasonAwardRows };
 
-    const completed = ms.weeks.every(weekId => {
-      const w = weekly.find(entry => entry.id === weekId);
-      return w && w.results.length > 0;
-    });
+    const completed = isMiniSeasonCompleteByProgress(weekly, ms);
     if (completed) {
       miniSeasonAwardRows.forEach(row => {
         if (teamState[row.teamId]) teamState[row.teamId].currentWinnings += row.amount;
@@ -491,6 +488,19 @@ function findLatestWeekWithData(weekly){
   return [...weekly].reverse().find(w => w.results.length || w.pairingsPublished || weekHasPairings(w) || w.attendancePlayers || w.mealOption || w.drinkSpecial) || null;
 }
 
+function isMiniSeasonCompleteByProgress(weekly, miniSeason){
+  if (!miniSeason) return false;
+  const playedSeasonWeeks = miniSeason.weeks
+    .map(weekId => weekly.find(entry => entry.id === weekId))
+    .filter(entry => entry && entry.results.length > 0);
+  if (!playedSeasonWeeks.length) return false;
+  const latestWeek = findLatestWeekWithData(weekly);
+  if (!latestWeek) return false;
+  const latestIndex = weekly.findIndex(entry => entry.id === latestWeek.id);
+  const lastSeasonIndex = Math.max(...miniSeason.weeks.map(weekId => weekly.findIndex(entry => entry.id === weekId)).filter(index => index >= 0));
+  return latestIndex >= lastSeasonIndex;
+}
+
 
 function blankFutureWeek(week){
   return {
@@ -570,10 +580,7 @@ function buildWeeklyRecap(data, weekIndex){
   if (miniStandings.length) {
     const leader = miniStandings[0];
     const runnerUp = miniStandings[1];
-    const completed = miniSeason.weeks.every(weekId => {
-      const entry = calcAfter.weekly.find(w => w.id === weekId);
-      return entry && entry.results.length > 0;
-    });
+    const completed = isMiniSeasonCompleteByProgress(calcAfter.weekly, miniSeason);
     if (completed) {
       miniText = `${miniSeason.label} is now wrapped up, with ${leader.teamName} finishing on top.`;
     } else if (runnerUp) {
@@ -876,10 +883,7 @@ function renderPublic(data){
       const payoutInfo = calc.miniSeasonPayoutRows[ms.key];
       const rows = payoutInfo.baseRows;
       const standings = calc.miniSeasonStandings[ms.key] || [];
-      const completed = ms.weeks.every(weekId => {
-        const w = calc.weekly.find(entry => entry.id === weekId);
-        return w && w.results.length > 0;
-      });
+      const completed = isMiniSeasonCompleteByProgress(calc.weekly, ms);
       const awardRows = payoutInfo.awardRows || [];
       return `<div class="card third breakdown-card">
         <div class="eyebrow">Payout Breakdown</div>
