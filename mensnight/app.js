@@ -98,6 +98,24 @@ function getMiniSeasonByKey(key){ return MINI_SEASONS.find(s => s.key === key); 
 function getWeek(data, weekId){ return data.weeks.find(w => w.id === weekId); }
 function weekHasScores(week){ return Object.values(week.scores || {}).some(v => String(v).trim() !== ''); }
 function weekHasPairings(week){ return (week.pairings || []).some(p => p.teamA || p.teamB); }
+function weekHasPublicUpdate(week){
+  return !!(
+    (week.results || []).length ||
+    week.pairingsPublished ||
+    week.attendancePlayers ||
+    week.weeklyExtraMoney ||
+    week.miniSeasonExtraMoney ||
+    week.yearEndExtraMoney ||
+    week.squareNetAmount ||
+    week.mealOption ||
+    week.mealPrice ||
+    week.drinkSpecial ||
+    week.holeInOnePrize ||
+    week.extraNote ||
+    week.kpWinner ||
+    week.kpWon
+  );
+}
 
 function normalizeData(incoming){
   const data = clone(DEFAULT_DATA);
@@ -413,6 +431,7 @@ function calculateLeague(data){
   const latestWeek = findLatestWeekWithData(weekly) || weekly[0];
   const latestCompletedWeek = [...weekly].reverse().find(w => w.results.length) || null;
   const publicPairingsWeek = [...weekly].reverse().find(w => w.pairingsPublished && weekHasPairings(w)) || weekly[0];
+  const latestPublicWeek = [...weekly].reverse().find(w => weekHasPublicUpdate(w)) || publicPairingsWeek || weekly[0];
 
   return {
     teams,
@@ -428,6 +447,7 @@ function calculateLeague(data){
     latestWeek,
     latestCompletedWeek,
     publicPairingsWeek,
+    latestPublicWeek,
     kpCarry,
   };
 }
@@ -485,7 +505,7 @@ function awardPoints(results){
 }
 
 function findLatestWeekWithData(weekly){
-  return [...weekly].reverse().find(w => w.results.length || w.pairingsPublished || weekHasPairings(w) || w.attendancePlayers || w.mealOption || w.drinkSpecial) || null;
+  return [...weekly].reverse().find(w => weekHasPublicUpdate(w) || weekHasPairings(w)) || null;
 }
 
 function isMiniSeasonCompleteByProgress(weekly, miniSeason){
@@ -906,7 +926,7 @@ function renderPublic(data){
     </div>`
   ].join('');
 
-  const infoWeek = calc.publicPairingsWeek || calc.latestWeek;
+  const infoWeek = calc.latestPublicWeek || calc.publicPairingsWeek || calc.latestWeek;
   $('weeklyInfo').innerHTML = `
     <div class="eyebrow">This Week at Mens Night</div>
     <h2>${fmtDate(infoWeek.date)}</h2>
@@ -946,7 +966,7 @@ function renderPublic(data){
   $('pairingsSection').innerHTML = `
     <div class="section-title"><h2>Weekly Pairings</h2><span class="badge ${computeStatus(infoWeek).className}">${computeStatus(infoWeek).label}</span></div>
     <p class="subdued">Showing ${fmtDate(infoWeek.date)} · ${getMiniSeasonByKey(infoWeek.miniSeasonKey).label}</p>
-    ${weekHasPairings(infoWeek) ? tableHTML(['Hole','Team 1','Team 2'], infoWeek.pairings.filter(p => p.teamA || p.teamB).map(p => [escapeHTML(String(p.hole ?? '')), escapeHTML(teamName(data, p.teamA)), escapeHTML(teamName(data, p.teamB))])) : '<div class="note">Pairings not published yet.</div>'}`;
+    ${(infoWeek.pairingsPublished && weekHasPairings(infoWeek)) ? tableHTML(['Hole','Team 1','Team 2'], infoWeek.pairings.filter(p => p.teamA || p.teamB).map(p => [escapeHTML(String(p.hole ?? '')), escapeHTML(teamName(data, p.teamA)), escapeHTML(teamName(data, p.teamB))])) : '<div class="note">Pairings not published yet.</div>'}`;
 
   $('leaderboardSection').innerHTML = `
     <h2>Last Week Leaderboard</h2>
