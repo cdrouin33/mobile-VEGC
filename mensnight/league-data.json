@@ -562,55 +562,55 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
+          "hole": "1",
+          "teamA": "T6",
+          "teamB": "T4"
         },
         {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
+          "hole": "2",
+          "teamA": "T13",
+          "teamB": "T7"
         },
         {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
+          "hole": "3",
+          "teamA": "T5",
+          "teamB": "T9"
         },
         {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
+          "hole": "4",
+          "teamA": "T11",
+          "teamB": "T3"
         },
         {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
+          "hole": "5",
+          "teamA": "T1",
+          "teamB": "T8"
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
+          "hole": "6",
+          "teamA": "T14",
+          "teamB": "T2"
         },
         {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
+          "hole": "8",
+          "teamA": "T15",
+          "teamB": "T12"
         },
         {
-          "hole": 8,
-          "teamA": "",
+          "hole": "9",
+          "teamA": "T10",
           "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
+      "mealOption": "Mushroom Alfredo Penne, Roasted Chicken, Roasted Potatoes & Garden Salad",
+      "mealPrice": "$20",
+      "drinkSpecial": "VKGC Pitchers $25, Water Hazards",
       "holeInOnePrize": "",
-      "extraNote": ""
+      "extraNote": "4 Man Scramble will be Played from the White Tees this week with some Surprise Tee Locations.  KP Was carried over from last week and sits at over $200 for this week.  Meal  Prizes can be Purchased in The Pro-shop ahead of Tee Off"
     },
     {
       "id": "W7",
