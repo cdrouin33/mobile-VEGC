@@ -554,14 +554,14 @@
       "id": "W6",
       "date": "2026-06-09",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 0,
+      "attendancePlayers": 56,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Neil Soldan",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -605,7 +605,23 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 36,
+        "T2": 37,
+        "T3": 33,
+        "T4": 32,
+        "T5": 32,
+        "T6": 31,
+        "T7": 32,
+        "T8": 32,
+        "T9": 34,
+        "T10": 40,
+        "T11": 33,
+        "T12": 37,
+        "T13": 37,
+        "T14": 37,
+        "T15": 40
+      },
       "mealOption": "Mushroom Alfredo Penne, Roasted Chicken, Roasted Potatoes & Garden Salad",
       "mealPrice": "$20",
       "drinkSpecial": "VKGC Pitchers $25, Water Hazards",
