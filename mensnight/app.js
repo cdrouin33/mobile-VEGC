@@ -14,25 +14,6 @@ const MINI_SEASONS = [
   { key: 'ms5', label: 'Mini Season 5', short: 'Mini Season 5', official: true, weeks: ['W16','W17','W18','W19'], drop: true }
 ];
 
-
-const WEEK7_RULE_START_INDEX = 6; // W7 and later only
-const LEGACY_MAX_HANDICAP_BEFORE_WEEK7 = 8;
-const WEEK7_FORWARD_MAX_HANDICAP = 7;
-
-function maxHandicapForWeekIndex(data, weekIndex){
-  return weekIndex >= WEEK7_RULE_START_INDEX ? WEEK7_FORWARD_MAX_HANDICAP : LEGACY_MAX_HANDICAP_BEFORE_WEEK7;
-}
-
-
-function minPlayedScoresBeforeHandicapDrop(miniSeason){
-  return miniSeason.key === 'preseason' ? 2 : 3;
-}
-
-function shouldDropForHandicap(miniSeason, throughWeekIndexExclusive){
-  if (miniSeason.drop) return true;
-  return miniSeason.key === 'preseason' && throughWeekIndexExclusive >= WEEK7_RULE_START_INDEX;
-}
-
 const DEFAULT_DATA = {
   settings: {
     courseName: 'Vegreville Kinsmen Golf Club',
@@ -269,7 +250,7 @@ function calculateLeague(data){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= minPlayedScoresBeforeHandicapDrop(ms)) {
+      if (ms.drop && playedWeekIds.length >= 2) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
@@ -306,11 +287,10 @@ function calculateLeague(data){
 
     const results = teamsWithScores.map(item => {
       const previousHdcp = teamState[item.teamId].appliedHandicaps.length ? teamState[item.teamId].appliedHandicaps[teamState[item.teamId].appliedHandicaps.length - 1] : 0;
-      const maxHandicap = maxHandicapForWeekIndex(data, weekIndex);
-      const rawTarget = Math.round(clamp(baselineByTeam[item.teamId], 0, maxHandicap));
+      const rawTarget = Math.round(clamp(baselineByTeam[item.teamId], 0, data.settings.maxHandicap));
       const cap = weekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
       const low = Math.max(0, previousHdcp - cap);
-      const high = Math.min(maxHandicap, previousHdcp + cap);
+      const high = Math.min(number(data.settings.maxHandicap), previousHdcp + cap);
       const handicap = weekIndex === 0 ? 0 : clamp(rawTarget, low, high);
       const grossDiff = bestGross === null ? 0 : Math.max(0, item.gross - bestGross);
       const net = item.gross - handicap;
@@ -728,7 +708,7 @@ function calculateNextWeekHandicaps(data, weekIndex){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= minPlayedScoresBeforeHandicapDrop(ms)) {
+      if (ms.drop && playedWeekIds.length >= 2) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
@@ -753,11 +733,10 @@ function calculateNextWeekHandicaps(data, weekIndex){
     const priorAvg = diffs.length ? avg(diffs) : 0;
     const baseline = Math.max(0, priorAvg - minAvgDiff);
     const previousHdcp = teamState[team.id].appliedHandicaps.length ? teamState[team.id].appliedHandicaps[teamState[team.id].appliedHandicaps.length - 1] : 0;
-    const maxHandicap = maxHandicapForWeekIndex(data, nextWeekIndex);
-    const rawTarget = Math.round(clamp(baseline, 0, maxHandicap));
+    const rawTarget = Math.round(clamp(baseline, 0, data.settings.maxHandicap));
     const cap = nextWeekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
     const low = Math.max(0, previousHdcp - cap);
-    const high = Math.min(maxHandicap, previousHdcp + cap);
+    const high = Math.min(number(data.settings.maxHandicap), previousHdcp + cap);
     const handicap = nextWeekIndex === 0 ? 0 : clamp(rawTarget, low, high);
     return { teamId: team.id, teamName: team.name, nextWeekId: nextWeek.id, handicap };
   }).sort((a,b) => a.teamName.localeCompare(b.teamName));
