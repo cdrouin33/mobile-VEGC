@@ -16,11 +16,16 @@ const MINI_SEASONS = [
 
 
 const WEEK7_RULE_START_INDEX = 6; // W7 and later only
+const LEGACY_MAX_HANDICAP_BEFORE_WEEK7 = 8;
 const WEEK7_FORWARD_MAX_HANDICAP = 7;
 
 function maxHandicapForWeekIndex(data, weekIndex){
-  const legacyMax = number(data.settings.maxHandicap) || 8;
-  return weekIndex >= WEEK7_RULE_START_INDEX ? WEEK7_FORWARD_MAX_HANDICAP : legacyMax;
+  return weekIndex >= WEEK7_RULE_START_INDEX ? WEEK7_FORWARD_MAX_HANDICAP : LEGACY_MAX_HANDICAP_BEFORE_WEEK7;
+}
+
+
+function minPlayedScoresBeforeHandicapDrop(miniSeason){
+  return miniSeason.key === 'preseason' ? 2 : 3;
 }
 
 function shouldDropForHandicap(miniSeason, throughWeekIndexExclusive){
@@ -264,7 +269,7 @@ function calculateLeague(data){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= 2) {
+      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= minPlayedScoresBeforeHandicapDrop(ms)) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
@@ -723,7 +728,7 @@ function calculateNextWeekHandicaps(data, weekIndex){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= 2) {
+      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= minPlayedScoresBeforeHandicapDrop(ms)) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
