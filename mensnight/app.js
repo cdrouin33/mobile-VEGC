@@ -680,10 +680,11 @@ function payoutAwardLines(rows, data){
 
 
 const WEEK7_RULE_START_INDEX = 6; // Week 7 and later only
+const HISTORICAL_MAX_HANDICAP = 8; // Weeks 1-6 are locked so saved admin settings cannot recalculate history
 const WEEK7_FORWARD_MAX_HANDICAP = 7;
 
 function maxHandicapForWeek(data, weekIndex){
-  return weekIndex >= WEEK7_RULE_START_INDEX ? WEEK7_FORWARD_MAX_HANDICAP : number(data.settings.maxHandicap);
+  return weekIndex >= WEEK7_RULE_START_INDEX ? WEEK7_FORWARD_MAX_HANDICAP : HISTORICAL_MAX_HANDICAP;
 }
 
 function shouldDropWeekForNextPrepHandicap(ms, playedWeekIds, nextWeekIndex){
