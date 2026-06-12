@@ -15,18 +15,17 @@ const MINI_SEASONS = [
 ];
 
 
-const WEEK7_RULE_START_INDEX = 6; // W7 and later
-const LEGACY_MAX_HANDICAP_BEFORE_WEEK7 = 8;
+const WEEK7_RULE_START_INDEX = 6; // W7 and later only
+const WEEK7_FORWARD_MAX_HANDICAP = 7;
 
 function maxHandicapForWeekIndex(data, weekIndex){
-  const configuredMax = number(data.settings.maxHandicap) || 7;
-  return weekIndex >= WEEK7_RULE_START_INDEX
-    ? configuredMax
-    : Math.max(configuredMax, LEGACY_MAX_HANDICAP_BEFORE_WEEK7);
+  const legacyMax = number(data.settings.maxHandicap) || 8;
+  return weekIndex >= WEEK7_RULE_START_INDEX ? WEEK7_FORWARD_MAX_HANDICAP : legacyMax;
 }
 
-function shouldDropWeekForHandicap(miniSeason, throughWeekIndexExclusive){
-  return miniSeason.drop || (miniSeason.key === 'preseason' && throughWeekIndexExclusive >= WEEK7_RULE_START_INDEX);
+function shouldDropForHandicap(miniSeason, throughWeekIndexExclusive){
+  if (miniSeason.drop) return true;
+  return miniSeason.key === 'preseason' && throughWeekIndexExclusive >= WEEK7_RULE_START_INDEX;
 }
 
 const DEFAULT_DATA = {
@@ -43,7 +42,7 @@ const DEFAULT_DATA = {
     yearEndSplit: [0.4, 0.3, 0.2, 0.1],
     preseasonMaxChange: 4,
     inSeasonMaxChange: 2,
-    maxHandicap: 7,
+    maxHandicap: 12,
     holeInOneDefault: 5000,
   },
   yearEndCollected: 0,
@@ -265,7 +264,7 @@ function calculateLeague(data){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (shouldDropWeekForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= 2) {
+      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= 2) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
@@ -724,7 +723,7 @@ function calculateNextWeekHandicaps(data, weekIndex){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (shouldDropWeekForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= 2) {
+      if (shouldDropForHandicap(ms, throughWeekIndexExclusive) && playedWeekIds.length >= 2) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
