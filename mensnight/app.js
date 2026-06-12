@@ -250,7 +250,7 @@ function calculateLeague(data){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (ms.drop && playedWeekIds.length >= 2) {
+      if (ms.drop && playedWeekIds.length >= 3) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
@@ -287,10 +287,11 @@ function calculateLeague(data){
 
     const results = teamsWithScores.map(item => {
       const previousHdcp = teamState[item.teamId].appliedHandicaps.length ? teamState[item.teamId].appliedHandicaps[teamState[item.teamId].appliedHandicaps.length - 1] : 0;
-      const rawTarget = Math.round(clamp(baselineByTeam[item.teamId], 0, data.settings.maxHandicap));
+      const maxHandicap = maxHandicapForWeek(data, weekIndex);
+      const rawTarget = Math.round(clamp(baselineByTeam[item.teamId], 0, maxHandicap));
       const cap = weekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
       const low = Math.max(0, previousHdcp - cap);
-      const high = Math.min(number(data.settings.maxHandicap), previousHdcp + cap);
+      const high = Math.min(maxHandicap, previousHdcp + cap);
       const handicap = weekIndex === 0 ? 0 : clamp(rawTarget, low, high);
       const grossDiff = bestGross === null ? 0 : Math.max(0, item.gross - bestGross);
       const net = item.gross - handicap;
@@ -677,6 +678,19 @@ function payoutAwardLines(rows, data){
 
 
 
+
+const WEEK7_RULE_START_INDEX = 6; // Week 7 and later only
+const WEEK7_FORWARD_MAX_HANDICAP = 7;
+
+function maxHandicapForWeek(data, weekIndex){
+  return weekIndex >= WEEK7_RULE_START_INDEX ? WEEK7_FORWARD_MAX_HANDICAP : number(data.settings.maxHandicap);
+}
+
+function shouldDropWeekForNextPrepHandicap(ms, playedWeekIds, nextWeekIndex){
+  if (ms.key === 'preseason') return false;
+  return ms.drop && playedWeekIds.length >= 3;
+}
+
 function calculateNextWeekHandicaps(data, weekIndex){
   const teams = activeTeams(data);
   const calc = calculateLeague(data);
@@ -708,7 +722,7 @@ function calculateNextWeekHandicaps(data, weekIndex){
         .map(entry => entry.weekId);
       if (!playedWeekIds.length) return;
       let dropWeekId = null;
-      if (ms.drop && playedWeekIds.length >= 2) {
+      if (shouldDropWeekForNextPrepHandicap(ms, playedWeekIds, nextWeekIndex)) {
         dropWeekId = playedWeekIds.slice().sort((a,b) => {
           const diffDelta = teamState[teamId].weeklyGrossDiffs[b] - teamState[teamId].weeklyGrossDiffs[a];
           if (diffDelta !== 0) return diffDelta;
@@ -733,10 +747,11 @@ function calculateNextWeekHandicaps(data, weekIndex){
     const priorAvg = diffs.length ? avg(diffs) : 0;
     const baseline = Math.max(0, priorAvg - minAvgDiff);
     const previousHdcp = teamState[team.id].appliedHandicaps.length ? teamState[team.id].appliedHandicaps[teamState[team.id].appliedHandicaps.length - 1] : 0;
-    const rawTarget = Math.round(clamp(baseline, 0, data.settings.maxHandicap));
+    const maxHandicap = maxHandicapForWeek(data, nextWeekIndex);
+    const rawTarget = Math.round(clamp(baseline, 0, maxHandicap));
     const cap = nextWeekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
     const low = Math.max(0, previousHdcp - cap);
-    const high = Math.min(number(data.settings.maxHandicap), previousHdcp + cap);
+    const high = Math.min(maxHandicap, previousHdcp + cap);
     const handicap = nextWeekIndex === 0 ? 0 : clamp(rawTarget, low, high);
     return { teamId: team.id, teamName: team.name, nextWeekId: nextWeek.id, handicap };
   }).sort((a,b) => a.teamName.localeCompare(b.teamName));
@@ -1026,8 +1041,11 @@ function renderAdmin(data){
   $('adminTitle').textContent = `${data.settings.courseName} — Admin`;
   renderHelperBox();
   const app = $('adminApp');
-  const currentWeekIndex = Number(app.dataset.weekIndex || 0);
-  const selectedWeekIndex = clamp(currentWeekIndex, 0, data.weeks.length - 1);
+  const latestCompletedIndex = calc.latestCompletedWeek ? data.weeks.findIndex(week => week.id === calc.latestCompletedWeek.id) : 0;
+  const defaultWeekIndex = latestCompletedIndex >= 0 ? latestCompletedIndex : 0;
+  const storedWeekIndex = app.dataset.weekIndex;
+  const currentWeekIndex = storedWeekIndex === undefined ? defaultWeekIndex : Number(storedWeekIndex);
+  const selectedWeekIndex = clamp(Number.isFinite(currentWeekIndex) ? currentWeekIndex : defaultWeekIndex, 0, data.weeks.length - 1);
   const selectedWeek = data.weeks[selectedWeekIndex];
   const selectedStatus = computeStatus(selectedWeek);
 
