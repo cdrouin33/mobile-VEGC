@@ -25,7 +25,7 @@
     ],
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 2,
-    "maxHandicap": 7,
+    "maxHandicap": 8,
     "holeInOneDefault": "N/A"
   },
   "yearEndCollected": 3600,
@@ -636,59 +636,59 @@
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 50,
-      "squareAllocation": "mini-season",
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T9"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T4",
-          "teamB": "T5"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T10",
-          "teamB": "T12"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T7",
-          "teamB": "T13"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T4",
-          "teamB": "T5"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T11",
-          "teamB": "T8"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T3",
-          "teamB": "T1"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T15",
+          "hole": 8,
+          "teamA": "",
           "teamB": ""
         }
       ],
       "scores": {},
       "mealOption": "",
-      "mealPrice": "$20",
-      "drinkSpecial": "$25 VKGC Pitchers, 4 for 18 Scud Ultra Dry",
+      "mealPrice": "",
+      "drinkSpecial": "",
       "holeInOnePrize": "",
-      "extraNote": "This Week will be Played as a 4 Man Scramble from the White Tees. Both Weekly and Mini Season Payouts will Happen this Evening so Stick around for Supper and Prizes.  Please note all Players in Attendance must Pay $10 Prize Buy in Weekly"
+      "extraNote": ""
     },
     {
       "id": "W8",
