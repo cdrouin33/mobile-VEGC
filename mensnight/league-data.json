@@ -632,7 +632,7 @@
       "id": "W7",
       "date": "2026-06-16",
       "miniSeasonKey": "ms2",
-      "attendancePlayers": 0,
+      "attendancePlayers": 52,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
@@ -683,7 +683,23 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 35,
+        "T2": 34,
+        "T3": 29,
+        "T4": 29,
+        "T5": 32,
+        "T6": 32,
+        "T7": 34,
+        "T8": 34,
+        "T9": 31,
+        "T10": 38,
+        "T11": 33,
+        "T12": 42,
+        "T13": 32,
+        "T14": 34,
+        "T15": 42
+      },
       "mealOption": "Veggie Spring Rolls, Grilled Chicken, Roasted Cauliflower, Fries & Gravy",
       "mealPrice": "$20",
       "drinkSpecial": "$25 VKGC Pitchers, 4 for 18 Scud Ultra Dry",
