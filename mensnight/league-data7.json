@@ -718,55 +718,55 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T1"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T3",
-          "teamB": "T15"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T10",
-          "teamB": "T4"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T2",
-          "teamB": "T5"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T13",
-          "teamB": "T12"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T14",
-          "teamB": "T8"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T9",
-          "teamB": "T7"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T11",
+          "hole": 8,
+          "teamA": "",
           "teamB": ""
         }
       ],
       "scores": {},
       "mealOption": "",
-      "mealPrice": "$20",
-      "drinkSpecial": "Pitchers of VKGC Lager $25",
+      "mealPrice": "",
+      "drinkSpecial": "",
       "holeInOnePrize": "",
-      "extraNote": "This Week will Be played as a 4 Man Scramble from the Blue Tees.  Big Thank You to Joshua Rova Custom Landscaping & Aesthetic Construction 780-887-9175 for Sponsoring this Weeks Hole Prize.  Please also note that all golfers are required to Pay $10 Prizes Fee Weekly. Thank You"
+      "extraNote": ""
     },
     {
       "id": "W9",
