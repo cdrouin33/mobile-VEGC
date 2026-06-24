@@ -710,7 +710,7 @@
       "id": "W8",
       "date": "2026-06-23",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 0,
+      "attendancePlayers": 65,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
@@ -761,7 +761,23 @@
           "teamB": ""
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 35,
+        "T2": 36,
+        "T3": 33,
+        "T4": 32,
+        "T5": 34,
+        "T6": 35,
+        "T7": 32,
+        "T8": 34,
+        "T9": 35,
+        "T10": 42,
+        "T11": 33,
+        "T12": 36,
+        "T13": 34,
+        "T14": 35,
+        "T15": 41
+      },
       "mealOption": "Caesar Salad, Roasted Potatoes  Vegetables, Pork Tenderloin & GRavy",
       "mealPrice": "$20",
       "drinkSpecial": "Pitchers of VKGC Lager $25",
