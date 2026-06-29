@@ -792,59 +792,59 @@
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "mini-season",
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T3"
-        },
-        {
-          "hole": "2",
-          "teamA": "T1",
-          "teamB": "T14"
-        },
-        {
-          "hole": "3",
-          "teamA": "T2",
-          "teamB": "T12"
-        },
-        {
-          "hole": "4",
-          "teamA": "T10",
-          "teamB": "T15"
-        },
-        {
-          "hole": "5",
-          "teamA": "T5",
-          "teamB": "T7"
-        },
-        {
-          "hole": "6",
-          "teamA": "T13",
-          "teamB": "T4"
-        },
-        {
-          "hole": "8",
-          "teamA": "T11",
+          "hole": 1,
+          "teamA": "",
           "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T8",
-          "teamB": "T9"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
+        },
+        {
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
         }
       ],
       "scores": {},
       "mealOption": "",
-      "mealPrice": "$20",
-      "drinkSpecial": "VKGC Lager $25 Pitchers, Alley Kay Water Hazaeds $7",
-      "holeInOnePrize": "500L of Fuel Sponsored by UFA (Hole 9)",
-      "extraNote": "This week will be played as a 4 man scramble from the white tees.  Thank you to Joshua Rova for Sponsoring additional Hole Prizes and to UFA for Hole #9 Hole in One Sponsor for 500L of Fuel"
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
+      "extraNote": ""
     },
     {
       "id": "W10",
