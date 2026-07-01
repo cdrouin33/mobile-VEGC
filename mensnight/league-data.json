@@ -788,14 +788,14 @@
       "id": "W9",
       "date": "2026-06-30",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 0,
+      "attendancePlayers": 64,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 100,
       "squareAllocation": "mini-season",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Mike Henry",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -839,7 +839,23 @@
           "teamB": "T9"
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 33,
+        "T2": 32,
+        "T3": 32,
+        "T4": 29,
+        "T5": 34,
+        "T6": 28,
+        "T7": 34,
+        "T8": 35,
+        "T9": 33,
+        "T10": 33,
+        "T11": 34,
+        "T12": 36,
+        "T13": 32,
+        "T14": 35,
+        "T15": 36
+      },
       "mealOption": "Caesar Salad, Grilled Chicken w/ Mushroom Sauce, Roasted Potatoes and Veggies",
       "mealPrice": "$20",
       "drinkSpecial": "VKGC Lager $25 Pitchers, 4 for 18$ Scud Cooler Packs",
