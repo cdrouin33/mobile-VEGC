@@ -24,7 +24,7 @@
       0.1
     ],
     "preseasonMaxChange": 4,
-    "inSeasonMaxChange": 2,
+    "inSeasonMaxChange": 4,
     "maxHandicap": 7,
     "holeInOneDefault": "N/A"
   },
@@ -173,6 +173,16 @@
     {
       "id": "T15",
       "name": "The Bogeymen",
+      "players": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "T16",
+      "name": "Under Balls",
       "players": [
         "",
         "",
