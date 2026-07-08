@@ -876,14 +876,14 @@
       "id": "W10",
       "date": "2026-07-07",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 0,
+      "attendancePlayers": 60,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Duane Bubuc",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -909,7 +909,7 @@
         {
           "hole": "5",
           "teamA": "T15",
-          "teamB": ""
+          "teamB": "T16"
         },
         {
           "hole": "6",
@@ -927,7 +927,24 @@
           "teamB": "T7"
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 33,
+        "T2": 31,
+        "T3": 33,
+        "T4": 31,
+        "T5": 31,
+        "T6": 31,
+        "T7": 33,
+        "T8": 35,
+        "T9": 37,
+        "T10": 33,
+        "T11": 34,
+        "T12": 39,
+        "T13": 36,
+        "T14": 39,
+        "T15": 40,
+        "T16": 40
+      },
       "mealOption": "Caesar Salad, Beef Lasagna, Roasted Vegetable & Garlic Bread",
       "mealPrice": "$20",
       "drinkSpecial": "VKGC Lager Pitchers $25, 4 for 18$ SCUD Ultra Dry",
