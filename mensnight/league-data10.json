@@ -28,7 +28,7 @@
     "maxHandicap": 7,
     "holeInOneDefault": "N/A"
   },
-  "yearEndCollected": 3840,
+  "yearEndCollected": 3600,
   "teams": [
     {
       "id": "T1",
@@ -963,55 +963,55 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T4"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T8",
-          "teamB": "T12"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T14",
-          "teamB": "T15"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T1",
-          "teamB": "T9"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T7",
-          "teamB": "T11"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T3",
-          "teamB": "T16"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T13",
-          "teamB": "T5"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T2",
-          "teamB": "T10"
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
         }
       ],
       "scores": {},
       "mealOption": "",
-      "mealPrice": "$20",
+      "mealPrice": "",
       "drinkSpecial": "",
       "holeInOnePrize": "",
-      "extraNote": "This week will be played as a 4 man scramble from the Blue Tees. Thank you to Joshua Rova for Sponsoring This Weeks Hole Prizes. Thank to UFA and Century 21 Alta for Sponsoring Hole in One Prizes on Hole #6 & #9"
+      "extraNote": ""
     },
     {
       "id": "W12",
