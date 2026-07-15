@@ -955,14 +955,14 @@
       "id": "W11",
       "date": "2026-07-14",
       "miniSeasonKey": "ms3",
-      "attendancePlayers": 0,
+      "attendancePlayers": 64,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Danny Mulek",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -1006,7 +1006,23 @@
           "teamB": "T10"
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 37,
+        "T2": 34,
+        "T3": 36,
+        "T4": 29,
+        "T5": 31,
+        "T6": 29,
+        "T7": 33,
+        "T8": 33,
+        "T9": 36,
+        "T10": 35,
+        "T11": 32,
+        "T12": 36,
+        "T13": 31,
+        "T14": 36,
+        "T15": 45
+      },
       "mealOption": "Meatballs, Mashed Potatoes  Gravy, Caesar Salad, Roasted Vegetables",
       "mealPrice": "$20",
       "drinkSpecial": "4 for 18$ Scud Ultra Dry, VKGC Lager Pitchers $25",
