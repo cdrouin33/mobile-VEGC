@@ -26,7 +26,7 @@
     "preseasonMaxChange": 4,
     "inSeasonMaxChange": 4,
     "maxHandicap": 7,
-    "holeInOneDefault": "500L of Fuel & $1,000 Cash"
+    "holeInOneDefault": "N/A"
   },
   "yearEndCollected": 3840,
   "teams": [
@@ -1041,53 +1041,53 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T7"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T10",
-          "teamB": "T14"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T1",
-          "teamB": "T11"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T2",
-          "teamB": "T15"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T3",
-          "teamB": "T4"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T13",
-          "teamB": "T9"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T12",
-          "teamB": "T16"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T5",
-          "teamB": "T8"
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
         }
       ],
       "scores": {},
       "mealOption": "",
-      "mealPrice": "$20",
-      "drinkSpecial": "VKGC Lager Pitcher Happy Hour $25",
+      "mealPrice": "",
+      "drinkSpecial": "",
       "holeInOnePrize": "",
       "extraNote": ""
     },
