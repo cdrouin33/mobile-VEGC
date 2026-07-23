@@ -1033,7 +1033,7 @@
       "id": "W12",
       "date": "2026-07-21",
       "miniSeasonKey": "ms4",
-      "attendancePlayers": 0,
+      "attendancePlayers": 62,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
@@ -1084,7 +1084,23 @@
           "teamB": "T8"
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 35,
+        "T2": 36,
+        "T3": 32,
+        "T4": 32,
+        "T5": 32,
+        "T6": 32,
+        "T7": 33,
+        "T8": 34,
+        "T9": 31,
+        "T10": 35,
+        "T11": 30,
+        "T12": 36,
+        "T13": 29,
+        "T14": 36,
+        "T15": 45
+      },
       "mealOption": "Chicken & Mushroom Sauce, Caesar Salad, Roasted Potatoes & Vegetables w/Gravy",
       "mealPrice": "$20",
       "drinkSpecial": "VKGC Lager Pitcher Happy Hour $25",
