@@ -1115,59 +1115,59 @@
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
-      "squareNetAmount": 100,
-      "squareAllocation": "mini-season",
+      "squareNetAmount": 0,
+      "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": true,
+      "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T12"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T16",
-          "teamB": "T9"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T7",
-          "teamB": "T15"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T10",
-          "teamB": "T8"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T14",
-          "teamB": "T1"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T5",
-          "teamB": "T11"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "7",
-          "teamA": "T4",
-          "teamB": "T2"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T3",
-          "teamB": "T13"
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "Caesar Sald, Meatballs & Gravy, Roasted Potatoes and Vegetables",
-      "mealPrice": "$20",
-      "drinkSpecial": "VKGC Lager Pitcher $25, Water Hazard $6.25",
-      "holeInOnePrize": "500L of Fuel & $1000 Cash",
-      "extraNote": "This week will be played from the blue tees.  Teams have been paired based on the current year end standings.  Thank you again to Josh Rova for this weeks Hole Prizes and to UFA & Century 21 Alta for Hole #6 & #9 Hole in One Prizes."
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
+      "extraNote": ""
     },
     {
       "id": "W14",
