@@ -1199,52 +1199,52 @@
       "pairingsPublished": false,
       "pairings": [
         {
-          "hole": "1",
-          "teamA": "T6",
-          "teamB": "T5"
+          "hole": 1,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "2",
-          "teamA": "T8",
-          "teamB": "T13"
+          "hole": 2,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "3",
-          "teamA": "T1",
-          "teamB": "T2"
+          "hole": 3,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "4",
-          "teamA": "T14",
-          "teamB": "T4"
+          "hole": 4,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "5",
-          "teamA": "T7",
-          "teamB": "T9"
+          "hole": 5,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "6",
-          "teamA": "T15",
-          "teamB": "T16"
+          "hole": 6,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "8",
-          "teamA": "T10",
-          "teamB": "T11"
+          "hole": 7,
+          "teamA": "",
+          "teamB": ""
         },
         {
-          "hole": "9",
-          "teamA": "T3",
-          "teamB": "T12"
+          "hole": 8,
+          "teamA": "",
+          "teamB": ""
         }
       ],
       "scores": {},
-      "mealOption": "Spring Rolls, Mushroom Chicken, Caesar Saled, Roasted Potatoes & Vegetables",
-      "mealPrice": "$20",
-      "drinkSpecial": "4 for 18$ Scud Cooler Pack",
-      "holeInOnePrize": "500L of Fuel or $1000 Cash",
-      "extraNote": "This Week will be a 4 Man Scramble Played from the White Tees,  Special Thanks to Joshua Rova, UFA & Century 21 Alta for Sponsoring Hole in One and Proximity Prizes.  Next Week Mini Season Wrap up next week will feature Live Music by Damian Radcliffe"
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
+      "extraNote": ""
     },
     {
       "id": "W15",
