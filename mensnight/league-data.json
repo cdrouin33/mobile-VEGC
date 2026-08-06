@@ -1188,14 +1188,14 @@
       "id": "W14",
       "date": "2026-08-04",
       "miniSeasonKey": "ms4",
-      "attendancePlayers": 0,
+      "attendancePlayers": 60,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Dean Brooks",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -1239,7 +1239,23 @@
           "teamB": "T12"
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 32,
+        "T2": 35,
+        "T3": 32,
+        "T4": 33,
+        "T5": 31,
+        "T6": 31,
+        "T7": 29,
+        "T8": 36,
+        "T9": 35,
+        "T10": 37,
+        "T11": 31,
+        "T12": 36,
+        "T13": 34,
+        "T14": 37,
+        "T15": 42
+      },
       "mealOption": "Pasta Salad, Roasted Potatoes & Vegetables, BBQ Pork Back Ribs",
       "mealPrice": "$20",
       "drinkSpecial": "4 for 18$ Scud Cooler Pack",
