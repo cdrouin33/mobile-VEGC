@@ -1352,55 +1352,55 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
+          "hole": "1",
+          "teamA": "T6",
+          "teamB": "T9"
         },
         {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
+          "hole": "2",
+          "teamA": "T14",
+          "teamB": "T12"
         },
         {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
+          "hole": "3",
+          "teamA": "T3",
+          "teamB": "T13"
         },
         {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
+          "hole": "4",
+          "teamA": "T4",
+          "teamB": "T11"
         },
         {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
+          "hole": "5",
+          "teamA": "T2",
+          "teamB": "T8"
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
+          "hole": "6",
+          "teamA": "T1",
+          "teamB": "T10"
         },
         {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
+          "hole": "8",
+          "teamA": "T5",
+          "teamB": "T7"
         },
         {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
+          "hole": "9",
+          "teamA": "T15",
+          "teamB": "T16"
         }
       ],
       "scores": {},
       "mealOption": "",
-      "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
+      "mealPrice": "$20",
+      "drinkSpecial": "Alley Kat Casual Waters $6.75",
+      "holeInOnePrize": "500L of Fuel & $1,000 Cash",
+      "extraNote": "Congratulations to all Week 15 Winners - 1st Place Morning Wood, 2nd Place Lefties, Soft & Short, Short Circuit. Long Putt Winner Trevor Semeniuk, KP Winner AJ Dumais.  Big Congrats to Mini Season 4 Winners 1st Place Lefties, 2nd Short Circuit, 3rd Grip it & Sip It"
     },
     {
       "id": "W17",
