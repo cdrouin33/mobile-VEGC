@@ -1266,14 +1266,14 @@
       "id": "W15",
       "date": "2026-08-11",
       "miniSeasonKey": "ms4",
-      "attendancePlayers": 0,
+      "attendancePlayers": 60,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "AJ Dumain",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -1317,7 +1317,23 @@
           "teamB": "T16"
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 36,
+        "T2": 34,
+        "T3": 32,
+        "T4": 32,
+        "T5": 29,
+        "T6": 31,
+        "T7": 33,
+        "T8": 36,
+        "T9": 30,
+        "T10": 32,
+        "T11": 29,
+        "T12": 36,
+        "T13": 32,
+        "T14": 33,
+        "T15": 40
+      },
       "mealOption": "Garden Salad, Garlic Bread, Roasted Potatoes & Vegetables, Gravy and Demi Glazed Meatballs",
       "mealPrice": "$20",
       "drinkSpecial": "VKGC Lager Pitchers $22",
