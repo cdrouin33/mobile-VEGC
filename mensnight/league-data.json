@@ -1416,7 +1416,7 @@
       "mealPrice": "$20",
       "drinkSpecial": "Alley Kat Casual Waters on Special $6.25",
       "holeInOnePrize": "500L of Fuel & $1,000 Cash",
-      "extraNote": "Congratulations to all Week 16 Winners - # way Tie for First Place 1. XXX Stiff Shafts, Pappy Putters, PTSD.  Buckle up for the final weeks on Mens Night and Big Time Year End Payouts.  This week will be played as a 4 Man Scramble from the Blue Tees"
+      "extraNote": "Congratulations to all Week 16 Winners - 3 way Tie for First Place 1. XXX Stiff Shafts, Pappy Putters, PTSD.  Buckle up for the final weeks on Mens Night and Big Time Year End Payouts.  This week will be played as a 4 Man Scramble from the Blue Tees"
     },
     {
       "id": "W17",
@@ -1430,55 +1430,55 @@
       "squareAllocation": "split",
       "kpWinner": "",
       "kpWon": false,
-      "pairingsPublished": false,
+      "pairingsPublished": true,
       "pairings": [
         {
-          "hole": 1,
-          "teamA": "",
-          "teamB": ""
+          "hole": "1",
+          "teamA": "T6",
+          "teamB": "T3"
         },
         {
-          "hole": 2,
-          "teamA": "",
-          "teamB": ""
+          "hole": "2",
+          "teamA": "T12",
+          "teamB": "T2"
         },
         {
-          "hole": 3,
-          "teamA": "",
-          "teamB": ""
+          "hole": "3",
+          "teamA": "T1",
+          "teamB": "T8"
         },
         {
-          "hole": 4,
-          "teamA": "",
-          "teamB": ""
+          "hole": "4",
+          "teamA": "T4",
+          "teamB": "T7"
         },
         {
-          "hole": 5,
-          "teamA": "",
-          "teamB": ""
+          "hole": "5",
+          "teamA": "T10",
+          "teamB": "T14"
         },
         {
-          "hole": 6,
-          "teamA": "",
-          "teamB": ""
+          "hole": "6",
+          "teamA": "T5",
+          "teamB": "T11"
         },
         {
-          "hole": 7,
-          "teamA": "",
-          "teamB": ""
+          "hole": "8",
+          "teamA": "T9",
+          "teamB": "T13"
         },
         {
-          "hole": 8,
-          "teamA": "",
-          "teamB": ""
+          "hole": "9",
+          "teamA": "T15",
+          "teamB": "T16"
         }
       ],
       "scores": {},
       "mealOption": "",
       "mealPrice": "",
-      "drinkSpecial": "",
-      "holeInOnePrize": "",
-      "extraNote": ""
+      "drinkSpecial": "Alley Kat Casual Water $6.25",
+      "holeInOnePrize": "500L Fuel & $1000 Cash",
+      "extraNote": "Congratulations to all Week 16 Winners - 3 way Tie for First Place 1. XXX Stiff Shafts, Pappy Putters, PTSD.  Buckle up for the final weeks on Mens Night and Big Time Year End Payouts.  This week will be played as a 4 Man Scramble from the Blue Tees"
     },
     {
       "id": "W18",
