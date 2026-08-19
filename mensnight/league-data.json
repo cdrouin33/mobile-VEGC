@@ -1344,7 +1344,7 @@
       "id": "W16",
       "date": "2026-08-18",
       "miniSeasonKey": "ms5",
-      "attendancePlayers": 0,
+      "attendancePlayers": 64,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
@@ -1395,12 +1395,28 @@
           "teamB": "T16"
         }
       ],
-      "scores": {},
-      "mealOption": "Caesar Salad, Roasted Chicken, Full Fixings Poutine Bar",
+      "scores": {
+        "T1": 31,
+        "T2": 31,
+        "T3": 31,
+        "T4": 31,
+        "T5": 31,
+        "T6": 29,
+        "T7": 28,
+        "T8": 33,
+        "T9": 30,
+        "T10": 34,
+        "T11": 34,
+        "T12": 40,
+        "T13": 33,
+        "T14": 37,
+        "T15": 41
+      },
+      "mealOption": "",
       "mealPrice": "$20",
       "drinkSpecial": "Alley Kat Casual Waters on Special $6.25",
       "holeInOnePrize": "500L of Fuel & $1,000 Cash",
-      "extraNote": "Congratulations to all Week 15 Winners - 1st Place Morning Wood, 2nd Place Lefties, Soft & Short, Short Circuit. Long Putt Winner Trevor Semeniuk, KP Winner AJ Dumais.  Big Congrats to Mini Season 4 Winners 1st Place Lefties, 2nd Short Circuit, 3rd Grip it & Sip It.  This week will be played as a 4 Man Scramble from the White Tees"
+      "extraNote": "Congratulations to all Week 16 Winners - # way Tie for First Place 1. XXX Stiff Shafts, Pappy Putters, PTSD.  Buckle up for the final weeks on Mens Night and Big Time Year End Payouts.  This week will be played as a 4 Man Scramble from the Blue Tees"
     },
     {
       "id": "W17",
