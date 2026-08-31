@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mens Night League Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container hero-shell">
+      <div>
+        <div class="eyebrow">Vegreville Kinsmen Golf Club</div>
+        <h1 id="adminTitle">Mens Night League Admin</h1>
+        <p>Private weekly setup, pairings, score entry, payout control, and JSON publishing.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-stack">
+    <section id="gate" class="card gate-card">
+      <h2>Admin Login</h2>
+      <p class="note">This is a light front-end lock for convenience only. Anyone with access to the files could inspect the code.</p>
+      <label for="adminPasswordInput">Password</label>
+      <input id="adminPasswordInput" type="password" placeholder="Enter admin password">
+      <div class="toolbar top-gap">
+        <button id="unlockBtn">Unlock Admin</button>
+      </div>
+      <p id="gateStatus" class="footer-note"></p>
+    </section>
+
+    <section id="adminPanel" class="hidden main-stack">
+      <div class="card helper-card" id="helperBox"></div>
+      <div class="toolbar spread save-toolbar">
+        <div id="saveStatus" class="footer-note"></div>
+        <div class="toolbar">
+          <button id="lockBtn" class="secondary">Lock Admin</button>
+        </div>
+      </div>
+      <div id="adminApp" class="main-stack"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>window.MensNightLeague.initAdmin();</script>
+</body>
+</html>
