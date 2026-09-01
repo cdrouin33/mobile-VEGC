@@ -1551,11 +1551,11 @@
         }
       ],
       "scores": {},
-      "mealOption": "Pasta Salad, Bacon Wrapped Meat Loaf, Roasted Potatoes and Vegetables",
-      "mealPrice": "$20",
-      "drinkSpecial": "Alley Kat Casual Water $6.25",
-      "holeInOnePrize": "500L of Fuel & $1000 Cash",
-      "extraNote": "This Week will be Played as a 4 Man Scramble from the Blue Tees.  Thank you to Century 21 Alta and UFA for This Weeks Hole in One Prizes"
+      "mealOption": "",
+      "mealPrice": "",
+      "drinkSpecial": "",
+      "holeInOnePrize": "",
+      "extraNote": ""
     },
     {
       "id": "W19",

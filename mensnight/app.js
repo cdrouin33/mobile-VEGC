@@ -103,6 +103,27 @@ function applyCommissionerHandicapOverride(weekId, teamId, calculatedHandicap){
   if (weekId === 'W18' && (teamId === 'T1' || teamId === 'T2')) return 3; // Pappy Putters, PTSD
   return calculatedHandicap;
 }
+
+// Official year-end point totals are frozen through completed Week 17.
+// Future weeks add to these totals without recalculating the already-played season.
+const OFFICIAL_SEASON_POINTS_THROUGH_W17 = {
+  T1: 122.5,  // Pappy Putters
+  T2: 143.0,  // PTSD
+  T3: 105.5,  // Napa
+  T4: 111.5,  // UFA
+  T5: 108.5,  // Grip it & Sip it
+  T6: 97.0,   // Blood Farts
+  T7: 89.5,   // XXX Stiff Shafts
+  T8: 105.0,  // Severly Handicap
+  T9: 93.0,   // Soft & Short
+  T10: 118.0, // Morning Wood
+  T11: 110.0, // Lefties
+  T12: 89.0,  // Shankoholics
+  T13: 100.0, // Clam Diggers
+  T14: 124.5, // Short Circuit
+  T15: 28.0,  // The Bogeymen
+  T16: 1.0    // Under Balls
+};
 function weekHasScores(week){ return Object.values(week.scores || {}).some(v => String(v).trim() !== ''); }
 function weekHasPairings(week){ return (week.pairings || []).some(p => p.teamA || p.teamB); }
 function weekHasPublicUpdate(week){
@@ -414,7 +435,11 @@ function calculateLeague(data){
     .map(team => {
       const officialWeekIds = MINI_SEASONS.filter(ms => ms.official).flatMap(ms => ms.weeks).filter(weekId => teamState[team.id].weeklyResults[weekId]);
       if (!officialWeekIds.length) return null;
-      const points = round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      const frozenThroughW17 = OFFICIAL_SEASON_POINTS_THROUGH_W17[team.id];
+      const futureOfficialWeekIds = officialWeekIds.filter(id => id === 'W18' || id === 'W19');
+      const points = Number.isFinite(frozenThroughW17)
+        ? round2(frozenThroughW17 + futureOfficialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0))
+        : round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
       const currentHdcp = teamState[team.id].appliedHandicaps.length ? teamState[team.id].appliedHandicaps[teamState[team.id].appliedHandicaps.length - 1] : 0;
       return {
         teamId: team.id,
