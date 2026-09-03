@@ -1499,14 +1499,14 @@
       "id": "W18",
       "date": "2026-09-01",
       "miniSeasonKey": "ms5",
-      "attendancePlayers": 0,
+      "attendancePlayers": 60,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
       "squareNetAmount": 0,
       "squareAllocation": "split",
-      "kpWinner": "",
-      "kpWon": false,
+      "kpWinner": "Cal Drouin",
+      "kpWon": true,
       "pairingsPublished": true,
       "pairings": [
         {
@@ -1550,7 +1550,23 @@
           "teamB": "T3"
         }
       ],
-      "scores": {},
+      "scores": {
+        "T1": 35,
+        "T2": 34,
+        "T3": 33,
+        "T4": 30,
+        "T5": 31,
+        "T6": 32,
+        "T7": 30,
+        "T8": 36,
+        "T9": 31,
+        "T10": 33,
+        "T11": 32,
+        "T12": 35,
+        "T13": 31,
+        "T14": 35,
+        "T15": 40
+      },
       "mealOption": "Pasta Salad, Bacon Wrapped Meat Loaf, Roasted Potatoes and Vegetables",
       "mealPrice": "$20",
       "drinkSpecial": "Alley Kat Casual Water $6.25",
