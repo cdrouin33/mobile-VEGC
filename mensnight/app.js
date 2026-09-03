@@ -97,33 +97,13 @@ function teamName(data, teamId){ const team = data.teams.find(t => t.id === team
 function getMiniSeasonByKey(key){ return MINI_SEASONS.find(s => s.key === key); }
 function getWeek(data, weekId){ return data.weeks.find(w => w.id === weekId); }
 
-// Temporary Week 18 commissioner handicap overrides.
-// These apply only to W18 and do not alter historical scores, standings, or other teams.
-function applyCommissionerHandicapOverride(weekId, teamId, calculatedHandicap){
-  if (weekId === 'W18' && (teamId === 'T1' || teamId === 'T2')) return 3; // Pappy Putters, PTSD
-  return calculatedHandicap;
+// Handicap policy effective with Week 18:
+// W1-W3 preseason scores remain visible as history, but no longer influence
+// any handicap calculated for W18 or later.
+const PRESEASON_HANDICAP_RETIRE_WEEK_INDEX = 17; // zero-based index of W18
+function includeMiniSeasonForHandicap(ms, throughWeekIndexExclusive){
+  return !(ms.key === 'preseason' && throughWeekIndexExclusive >= PRESEASON_HANDICAP_RETIRE_WEEK_INDEX);
 }
-
-// Official year-end point totals are frozen through completed Week 17.
-// Future weeks add to these totals without recalculating the already-played season.
-const OFFICIAL_SEASON_POINTS_THROUGH_W17 = {
-  T1: 122.5,  // Pappy Putters
-  T2: 143.0,  // PTSD
-  T3: 105.5,  // Napa
-  T4: 111.5,  // UFA
-  T5: 108.5,  // Grip it & Sip it
-  T6: 97.0,   // Blood Farts
-  T7: 89.5,   // XXX Stiff Shafts
-  T8: 105.0,  // Severly Handicap
-  T9: 93.0,   // Soft & Short
-  T10: 118.0, // Morning Wood
-  T11: 110.0, // Lefties
-  T12: 89.0,  // Shankoholics
-  T13: 100.0, // Clam Diggers
-  T14: 124.5, // Short Circuit
-  T15: 28.0,  // The Bogeymen
-  T16: 1.0    // Under Balls
-};
 function weekHasScores(week){ return Object.values(week.scores || {}).some(v => String(v).trim() !== ''); }
 function weekHasPairings(week){ return (week.pairings || []).some(p => p.teamA || p.teamB); }
 function weekHasPublicUpdate(week){
@@ -272,6 +252,7 @@ function calculateLeague(data){
   function getHandicapDifferentials(teamId, throughWeekIndexExclusive){
     const kept = [];
     MINI_SEASONS.forEach(ms => {
+      if (!includeMiniSeasonForHandicap(ms, throughWeekIndexExclusive)) return;
       const playedWeekIds = ms.weeks
         .map(weekId => ({ weekId, index: data.weeks.findIndex(w => w.id === weekId) }))
         .filter(entry => entry.index !== -1 && entry.index < throughWeekIndexExclusive && teamState[teamId].weeklyGrossDiffs[entry.weekId] !== undefined)
@@ -320,8 +301,7 @@ function calculateLeague(data){
       const cap = weekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
       const low = Math.max(0, previousHdcp - cap);
       const high = Math.min(maxHandicap, previousHdcp + cap);
-      const calculatedHandicap = weekIndex === 0 ? 0 : clamp(rawTarget, low, high);
-      const handicap = applyCommissionerHandicapOverride(week.id, item.teamId, calculatedHandicap);
+      const handicap = weekIndex === 0 ? 0 : clamp(rawTarget, low, high);
       const grossDiff = bestGross === null ? 0 : Math.max(0, item.gross - bestGross);
       const net = item.gross - handicap;
       return { teamId: item.teamId, gross: item.gross, grossDiff, handicap, net, points: 0 };
@@ -435,11 +415,7 @@ function calculateLeague(data){
     .map(team => {
       const officialWeekIds = MINI_SEASONS.filter(ms => ms.official).flatMap(ms => ms.weeks).filter(weekId => teamState[team.id].weeklyResults[weekId]);
       if (!officialWeekIds.length) return null;
-      const frozenThroughW17 = OFFICIAL_SEASON_POINTS_THROUGH_W17[team.id];
-      const futureOfficialWeekIds = officialWeekIds.filter(id => id === 'W18' || id === 'W19');
-      const points = Number.isFinite(frozenThroughW17)
-        ? round2(frozenThroughW17 + futureOfficialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0))
-        : round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      const points = round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
       const currentHdcp = teamState[team.id].appliedHandicaps.length ? teamState[team.id].appliedHandicaps[teamState[team.id].appliedHandicaps.length - 1] : 0;
       return {
         teamId: team.id,
@@ -750,6 +726,7 @@ function calculateNextWeekHandicaps(data, weekIndex){
   function getHandicapDifferentials(teamId, throughWeekIndexExclusive){
     const kept = [];
     MINI_SEASONS.forEach(ms => {
+      if (!includeMiniSeasonForHandicap(ms, throughWeekIndexExclusive)) return;
       const playedWeekIds = ms.weeks
         .map(weekId => ({ weekId, index: data.weeks.findIndex(w => w.id === weekId) }))
         .filter(entry => entry.index !== -1 && entry.index < throughWeekIndexExclusive && teamState[teamId].weeklyGrossDiffs[entry.weekId] !== undefined)
@@ -786,8 +763,7 @@ function calculateNextWeekHandicaps(data, weekIndex){
     const cap = nextWeekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
     const low = Math.max(0, previousHdcp - cap);
     const high = Math.min(maxHandicap, previousHdcp + cap);
-    const calculatedHandicap = nextWeekIndex === 0 ? 0 : clamp(rawTarget, low, high);
-    const handicap = applyCommissionerHandicapOverride(nextWeek.id, team.id, calculatedHandicap);
+    const handicap = nextWeekIndex === 0 ? 0 : clamp(rawTarget, low, high);
     return { teamId: team.id, teamName: team.name, nextWeekId: nextWeek.id, handicap };
   }).sort((a,b) => a.teamName.localeCompare(b.teamName));
 }
