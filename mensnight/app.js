@@ -97,12 +97,30 @@ function teamName(data, teamId){ const team = data.teams.find(t => t.id === team
 function getMiniSeasonByKey(key){ return MINI_SEASONS.find(s => s.key === key); }
 function getWeek(data, weekId){ return data.weeks.find(w => w.id === weekId); }
 
-// Handicap policy effective with Week 18:
-// W1-W3 preseason scores remain visible as history, but no longer influence
-// any handicap calculated for W18 or later.
-const PRESEASON_HANDICAP_RETIRE_WEEK_INDEX = 17; // zero-based index of W18
+/*
+  2026 MEN'S NIGHT HISTORICAL LOCK
+  --------------------------------
+  Completed results are immutable. Changing a future handicap rule must never
+  rewrite completed weekly points, completed mini seasons, or year-end totals.
+*/
+const OFFICIAL_SEASON_POINTS_THROUGH_W17 = {"T1":122.5,"T2":143.0,"T3":105.5,"T4":111.5,"T5":108.5,"T6":97.0,"T7":89.5,"T8":105.0,"T9":93.0,"T10":118.0,"T11":110.0,"T12":89.0,"T13":100.0,"T14":124.5,"T15":28.0,"T16":1.0};
+const OFFICIAL_MS5_POINTS_THROUGH_W17 = {"T1":18.0,"T2":28.0,"T3":18.0,"T4":10.5,"T5":10.5,"T6":18.0,"T7":15.0,"T8":21.5,"T9":20.5,"T10":18.0,"T11":7.0,"T12":13.5,"T13":16.5,"T14":8.5,"T15":1.5,"T16":0.0};
+const OFFICIAL_W17_CURRENT_WINNINGS = {"T1":537.5,"T2":697.8,"T3":347.6,"T4":974.6,"T5":409.6,"T6":439.3,"T7":675.3,"T8":399.8,"T9":172.4,"T10":799.5,"T11":1075.2,"T12":65.0,"T13":516.3,"T14":638.1,"T15":0.0,"T16":0.0};
+const OFFICIAL_W18_HANDICAPS = {"T1":3,"T2":3,"T3":2,"T4":1,"T5":1,"T6":0,"T7":1,"T8":4,"T9":2,"T10":5,"T11":2,"T12":6,"T13":2,"T14":6,"T15":7,"T16":4};
+const FROZEN_COMPLETED_MINI_SEASONS = {"ms2":{"T4":{"points":35.5,"droppedWeekId":"W4","weeklyWinnings":94.8,"miniSeasonPayout":240,"winningsIncludingWeekly":334.8},"T14":{"points":35,"droppedWeekId":"W4","weeklyWinnings":178.8,"miniSeasonPayout":144,"winningsIncludingWeekly":322.8},"T3":{"points":30.5,"droppedWeekId":"W4","weeklyWinnings":172.8,"miniSeasonPayout":96,"winningsIncludingWeekly":268.8},"T5":{"points":30,"droppedWeekId":"W7","weeklyWinnings":16.8,"miniSeasonPayout":0,"winningsIncludingWeekly":16.8},"T1":{"points":30,"droppedWeekId":"W7","weeklyWinnings":171,"miniSeasonPayout":0,"winningsIncludingWeekly":171},"T2":{"points":29.5,"droppedWeekId":"W6","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T8":{"points":27,"droppedWeekId":"W4","weeklyWinnings":168,"miniSeasonPayout":0,"winningsIncludingWeekly":168},"T11":{"points":23.5,"droppedWeekId":"W4","weeklyWinnings":16.8,"miniSeasonPayout":0,"winningsIncludingWeekly":16.8},"T13":{"points":23,"droppedWeekId":"W6","weeklyWinnings":85.5,"miniSeasonPayout":0,"winningsIncludingWeekly":85.5},"T9":{"points":22.5,"droppedWeekId":"W6","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T10":{"points":21.5,"droppedWeekId":"W6","weeklyWinnings":85.5,"miniSeasonPayout":0,"winningsIncludingWeekly":85.5},"T7":{"points":20.5,"droppedWeekId":"W7","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T6":{"points":15,"droppedWeekId":"W7","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T12":{"points":12,"droppedWeekId":"W7","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T15":{"points":4.5,"droppedWeekId":"W7","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0}},"ms3":{"T2":{"points":54,"droppedWeekId":"W11","weeklyWinnings":372.6,"miniSeasonPayout":303,"winningsIncludingWeekly":675.6},"T4":{"points":47.5,"droppedWeekId":"W9","weeklyWinnings":230.4,"miniSeasonPayout":181.8,"winningsIncludingWeekly":412.2},"T10":{"points":43.5,"droppedWeekId":"W8","weeklyWinnings":338.4,"miniSeasonPayout":121.2,"winningsIncludingWeekly":459.6},"T1":{"points":39.5,"droppedWeekId":"W11","weeklyWinnings":75,"miniSeasonPayout":0,"winningsIncludingWeekly":75},"T8":{"points":37.5,"droppedWeekId":"W9","weeklyWinnings":77.4,"miniSeasonPayout":0,"winningsIncludingWeekly":77.4},"T14":{"points":37.5,"droppedWeekId":"W10","weeklyWinnings":195,"miniSeasonPayout":0,"winningsIncludingWeekly":195},"T6":{"points":36,"droppedWeekId":"W8","weeklyWinnings":76.8,"miniSeasonPayout":0,"winningsIncludingWeekly":76.8},"T12":{"points":31,"droppedWeekId":"W10","weeklyWinnings":39,"miniSeasonPayout":0,"winningsIncludingWeekly":39},"T11":{"points":30.5,"droppedWeekId":"W9","weeklyWinnings":39,"miniSeasonPayout":0,"winningsIncludingWeekly":39},"T5":{"points":28.5,"droppedWeekId":"W9","weeklyWinnings":36,"miniSeasonPayout":0,"winningsIncludingWeekly":36},"T13":{"points":27,"droppedWeekId":"W10","weeklyWinnings":38.4,"miniSeasonPayout":0,"winningsIncludingWeekly":38.4},"T3":{"points":27,"droppedWeekId":"W11","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T7":{"points":21.5,"droppedWeekId":"W9","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T15":{"points":19,"droppedWeekId":"W11","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T9":{"points":15,"droppedWeekId":"W11","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T16":{"points":1,"droppedWeekId":null,"weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0}},"ms4":{"T11":{"points":50,"droppedWeekId":"W13","weeklyWinnings":280.8,"miniSeasonPayout":295,"winningsIncludingWeekly":575.8},"T14":{"points":43.5,"droppedWeekId":"W14","weeklyWinnings":154.5,"miniSeasonPayout":177,"winningsIncludingWeekly":331.5},"T5":{"points":39.5,"droppedWeekId":"W12","weeklyWinnings":0,"miniSeasonPayout":118,"winningsIncludingWeekly":118},"T10":{"points":35,"droppedWeekId":"W13","weeklyWinnings":180,"miniSeasonPayout":0,"winningsIncludingWeekly":180},"T1":{"points":34.5,"droppedWeekId":"W15","weeklyWinnings":202.5,"miniSeasonPayout":0,"winningsIncludingWeekly":202.5},"T9":{"points":34.5,"droppedWeekId":"W14","weeklyWinnings":134.4,"miniSeasonPayout":0,"winningsIncludingWeekly":134.4},"T13":{"points":33,"droppedWeekId":"W14","weeklyWinnings":148.8,"miniSeasonPayout":0,"winningsIncludingWeekly":148.8},"T2":{"points":33,"droppedWeekId":"W12","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T12":{"points":32.5,"droppedWeekId":"W13","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T7":{"points":32.5,"droppedWeekId":"W12","weeklyWinnings":274.5,"miniSeasonPayout":0,"winningsIncludingWeekly":274.5},"T3":{"points":30,"droppedWeekId":"W13","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T6":{"points":27.5,"droppedWeekId":"W12","weeklyWinnings":94.5,"miniSeasonPayout":0,"winningsIncludingWeekly":94.5},"T8":{"points":19,"droppedWeekId":"W13","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T4":{"points":17.5,"droppedWeekId":"W13","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0},"T15":{"points":3,"droppedWeekId":"W12","weeklyWinnings":0,"miniSeasonPayout":0,"winningsIncludingWeekly":0}}};
+
+function officialAppliedHandicap(weekId, teamId, calculatedHandicap){
+  if (weekId === 'W18' && Object.prototype.hasOwnProperty.call(OFFICIAL_W18_HANDICAPS, teamId)) {
+    return OFFICIAL_W18_HANDICAPS[teamId];
+  }
+  return calculatedHandicap;
+}
+
+// New handicap policy starts with Week 19 only.
+// W1-W3 remain historical records but no longer influence W19+ handicaps.
+const PRESEASON_RETIRE_FOR_HANDICAP_INDEX = 18; // W19 zero-based index
 function includeMiniSeasonForHandicap(ms, throughWeekIndexExclusive){
-  return !(ms.key === 'preseason' && throughWeekIndexExclusive >= PRESEASON_HANDICAP_RETIRE_WEEK_INDEX);
+  return !(ms.key === 'preseason' && throughWeekIndexExclusive >= PRESEASON_RETIRE_FOR_HANDICAP_INDEX);
 }
 function weekHasScores(week){ return Object.values(week.scores || {}).some(v => String(v).trim() !== ''); }
 function weekHasPairings(week){ return (week.pairings || []).some(p => p.teamA || p.teamB); }
@@ -301,7 +319,8 @@ function calculateLeague(data){
       const cap = weekIndex < 3 ? number(data.settings.preseasonMaxChange) : number(data.settings.inSeasonMaxChange);
       const low = Math.max(0, previousHdcp - cap);
       const high = Math.min(maxHandicap, previousHdcp + cap);
-      const handicap = weekIndex === 0 ? 0 : clamp(rawTarget, low, high);
+      const calculatedHandicap = weekIndex === 0 ? 0 : clamp(rawTarget, low, high);
+      const handicap = officialAppliedHandicap(week.id, item.teamId, calculatedHandicap);
       const grossDiff = bestGross === null ? 0 : Math.max(0, item.gross - bestGross);
       const net = item.gross - handicap;
       return { teamId: item.teamId, gross: item.gross, grossDiff, handicap, net, points: 0 };
@@ -369,7 +388,18 @@ function calculateLeague(data){
         })[0];
         teamState[team.id].droppedWeekIds.add(droppedWeekId);
       }
-      const points = round2(playedWeeks.reduce((sum,id)=>sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      let points = round2(playedWeeks.reduce((sum,id)=>sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      let frozenStanding = FROZEN_COMPLETED_MINI_SEASONS[ms.key]?.[team.id] || null;
+      if (frozenStanding) {
+        points = frozenStanding.points;
+        droppedWeekId = frozenStanding.droppedWeekId;
+      } else if (ms.key === 'ms5' && Object.prototype.hasOwnProperty.call(OFFICIAL_MS5_POINTS_THROUGH_W17, team.id)) {
+        points = round2(
+          OFFICIAL_MS5_POINTS_THROUGH_W17[team.id]
+          + (teamState[team.id].weeklyPoints.W18 || 0)
+          + (teamState[team.id].weeklyPoints.W19 || 0)
+        );
+      }
       standings.push({
         teamId: team.id,
         teamName: team.name,
@@ -377,7 +407,7 @@ function calculateLeague(data){
         points,
         droppedWeekId,
         droppedGrossDiff: droppedWeekId ? teamState[team.id].weeklyGrossDiffs[droppedWeekId] : null,
-        weeklyWinnings: round2(ms.weeks.reduce((sum, weekId) => {
+        weeklyWinnings: frozenStanding ? frozenStanding.weeklyWinnings : round2(ms.weeks.reduce((sum, weekId) => {
           const weekEntry = weekly.find(entry => entry.id === weekId);
           if (!weekEntry) return sum;
           const award = weekEntry.payouts.weeklyAwardRows.find(row => row.teamId === team.id);
@@ -397,7 +427,14 @@ function calculateLeague(data){
       if (standing) standing.miniSeasonPayout = row.amount;
     });
     standings.forEach(row => {
-      row.winningsIncludingWeekly = round2((row.weeklyWinnings || 0) + (row.miniSeasonPayout || 0));
+      const frozen = FROZEN_COMPLETED_MINI_SEASONS[ms.key]?.[row.teamId] || null;
+      if (frozen) {
+        row.miniSeasonPayout = frozen.miniSeasonPayout;
+        row.weeklyWinnings = frozen.weeklyWinnings;
+        row.winningsIncludingWeekly = frozen.winningsIncludingWeekly;
+      } else {
+        row.winningsIncludingWeekly = round2((row.weeklyWinnings || 0) + (row.miniSeasonPayout || 0));
+      }
     });
     miniSeasonPayoutRows[ms.key] = { baseRows: payoutRowsForSeason, awardRows: miniSeasonAwardRows };
 
@@ -415,14 +452,37 @@ function calculateLeague(data){
     .map(team => {
       const officialWeekIds = MINI_SEASONS.filter(ms => ms.official).flatMap(ms => ms.weeks).filter(weekId => teamState[team.id].weeklyResults[weekId]);
       if (!officialWeekIds.length) return null;
-      const points = round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
+      const points = Object.prototype.hasOwnProperty.call(OFFICIAL_SEASON_POINTS_THROUGH_W17, team.id)
+        ? round2(
+            OFFICIAL_SEASON_POINTS_THROUGH_W17[team.id]
+            + (teamState[team.id].weeklyPoints.W18 || 0)
+            + (teamState[team.id].weeklyPoints.W19 || 0)
+          )
+        : round2(officialWeekIds.reduce((sum,id)=> sum + (teamState[team.id].weeklyPoints[id] || 0), 0));
       const currentHdcp = teamState[team.id].appliedHandicaps.length ? teamState[team.id].appliedHandicaps[teamState[team.id].appliedHandicaps.length - 1] : 0;
+
+      // Preserve the pre-change winnings through W17 and add only W18/W19 team payouts.
+      let futureWeeklyWinnings = 0;
+      ['W18','W19'].forEach(weekId => {
+        const weekEntry = weekly.find(entry => entry.id === weekId);
+        const award = weekEntry?.payouts?.weeklyAwardRows?.find(row => row.teamId === team.id);
+        futureWeeklyWinnings += award?.amount || 0;
+      });
+      let futureMiniSeasonWinnings = 0;
+      const ms5Standing = miniSeasonStandings.ms5?.find(row => row.teamId === team.id);
+      if (isMiniSeasonCompleteByProgress(weekly, MINI_SEASONS.find(ms => ms.key === 'ms5'))) {
+        futureMiniSeasonWinnings = ms5Standing?.miniSeasonPayout || 0;
+      }
+      const currentWinnings = Object.prototype.hasOwnProperty.call(OFFICIAL_W17_CURRENT_WINNINGS, team.id)
+        ? round2(OFFICIAL_W17_CURRENT_WINNINGS[team.id] + futureWeeklyWinnings + futureMiniSeasonWinnings)
+        : round2(teamState[team.id].currentWinnings);
+
       return {
         teamId: team.id,
         teamName: team.name,
         points,
         handicap: currentHdcp,
-        currentWinnings: round2(teamState[team.id].currentWinnings)
+        currentWinnings
       };
     })
     .filter(Boolean)
