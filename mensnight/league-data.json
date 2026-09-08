@@ -28,7 +28,7 @@
     "maxHandicap": 7,
     "holeInOneDefault": "500L of Fuel & $1,000 Cash"
   },
-  "yearEndCollected": 3840,
+  "yearEndCollected": 3600,
   "teams": [
     {
       "id": "T1",
