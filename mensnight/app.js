@@ -584,7 +584,7 @@ function isMiniSeasonCompleteByProgress(weekly, miniSeason){
     .map(weekId => weekly.find(entry => entry.id === weekId))
     .filter(entry => entry && entry.results.length > 0);
   if (!playedSeasonWeeks.length) return false;
-  const latestWeek = findLatestWeekWithData(weekly);
+  const latestWeek = [...weekly].reverse().find(entry => entry.results.length > 0) || null;
   if (!latestWeek) return false;
   const latestIndex = weekly.findIndex(entry => entry.id === latestWeek.id);
   const lastSeasonIndex = Math.max(...miniSeason.weeks.map(weekId => weekly.findIndex(entry => entry.id === weekId)).filter(index => index >= 0));
