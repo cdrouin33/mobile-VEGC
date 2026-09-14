@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VKGC Men's Night</title><style>
+:root{--bg:#06111b;--bg2:#072019;--card:#08251d;--ink:#f8f4e8;--muted:#bfcac2;--green:#17845f;--gold:#d2a13a;--gold2:#f0cc78;--line:rgba(210,161,58,.28)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(120deg,var(--bg),var(--bg2));color:var(--ink);font-family:Arial,sans-serif}.wrap{width:min(1180px,calc(100% - 24px));margin:auto}.hero{margin:18px 0;border:1px solid rgba(210,161,58,.45);border-radius:24px;padding:24px;background:linear-gradient(125deg,#06281d,#084c37 58%,#051c2a)}h1{margin:5px 0 8px;font-size:clamp(2rem,5vw,3.4rem)}.eyebrow{color:var(--gold2);font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}.section{margin:16px 0}.card{background:rgba(8,37,29,.94);border:1px solid var(--line);border-radius:20px;padding:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.champions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.champ{background:rgba(210,161,58,.09);border:1px solid rgba(210,161,58,.34);border-radius:16px;padding:14px}.champ .place{color:var(--gold2);font-size:.78rem;font-weight:900}.champ .pts{font-size:1.4rem;font-weight:900}.info{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}.info span{color:var(--muted)}.pairings{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pair{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px}.hole{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(210,161,58,.45);color:var(--gold2);font-weight:900}.muted{color:var(--muted)}.winner{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}.btn{display:inline-block;border:0;border-radius:999px;padding:11px 15px;font-weight:900;background:var(--gold);color:#102118;cursor:pointer}.btn.secondary{background:#194c3b;color:white}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:grid;gap:6px;font-weight:800;color:#d7e5de;font-size:.85rem}input,textarea,select{width:100%;background:#061814;color:white;border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px;font:inherit}.actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.small{font-size:.86rem}.pair-editor{display:grid;grid-template-columns:80px 1fr 1fr;gap:8px;margin:8px 0;align-items:center}.status{padding:10px;border-radius:10px;background:rgba(255,255,255,.05);margin-top:10px;white-space:pre-wrap}code{color:#f7d98f}.warn{border:1px solid rgba(240,204,120,.4);background:rgba(210,161,58,.08);padding:12px;border-radius:12px}
+@media(max-width:850px){.grid,.pairings,.form-grid{grid-template-columns:1fr}.champions{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.champions{grid-template-columns:1fr}.pair-editor{grid-template-columns:58px 1fr 1fr}}
+</style></head>
+<body>
+<div class="wrap">
+  <section class="hero"><div class="eyebrow">Vegreville Kinsmen Golf Club</div><h1>Men's Night Continues</h1>
+  <div class="muted">Official league complete — weekly play continues until the weather says otherwise.</div></section>
+
+  <section class="section"><h2>2026 Year-End Winners</h2><div class="champions" id="champions"></div></section>
+
+  <section class="section grid">
+    <div class="card"><h2 id="weekTitle"></h2><div id="weekInfo"></div><p id="notes"></p>
+      <div class="warn small"><strong>Handicaps are frozen</strong> for the rest of the fall season.</div></div>
+    <div class="card"><h2 id="lastTitle"></h2><div class="muted" id="lastDate"></div><div id="winners"></div><p id="carry"></p></div>
+  </section>
+
+  <section class="section card"><h2>Weekly Pairings</h2><div class="pairings" id="pairings"></div></section>
+</div>
+<script src="weekly-data.js"></script>
+<script>
+const D=window.MENS_NIGHT_DATA,H=window.MENS_NIGHT_HANDICAPS,Y=window.MENS_NIGHT_YEAR_END;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+document.getElementById('champions').innerHTML=Y.map(x=>`<div class="champ"><div class="place">${esc(x.place)}</div><h3>${esc(x.team)}</h3><div class="pts">${esc(x.points)}</div></div>`).join('');
+document.getElementById('weekTitle').textContent=`Week ${D.week} • ${D.date}`;
+const info=[['Start',D.start],['Format',D.format],['Weekly Competition',D.competition],['KP',D.kp],['Meal',D.meal],['Drink Special',D.drink]];
+document.getElementById('weekInfo').innerHTML=info.map(([a,b])=>`<div class="info"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
+document.getElementById('notes').textContent=D.notes;
+document.getElementById('lastTitle').textContent=D.lastWeek.title;
+document.getElementById('lastDate').textContent=D.lastWeek.date;
+document.getElementById('winners').innerHTML=D.lastWeek.winners.map(([a,b])=>`<div class="winner"><strong>${esc(a)}</strong><strong>${esc(b)}</strong></div>`).join('');
+document.getElementById('carry').textContent=D.lastWeek.carry;
+document.getElementById('pairings').innerHTML=D.pairings.map(([h,a,b])=>`<div class="pair"><div class="hole">${h}</div><div><strong>${esc(a)} vs ${esc(b)}</strong><div class="muted small">Handicaps: ${H[a]} vs ${H[b]}</div></div></div>`).join('');
+</script></body></html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VKGC Men's Night Admin</title><style>
+:root{--bg:#06111b;--bg2:#072019;--card:#08251d;--ink:#f8f4e8;--muted:#bfcac2;--green:#17845f;--gold:#d2a13a;--gold2:#f0cc78;--line:rgba(210,161,58,.28)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(120deg,var(--bg),var(--bg2));color:var(--ink);font-family:Arial,sans-serif}.wrap{width:min(1180px,calc(100% - 24px));margin:auto}.hero{margin:18px 0;border:1px solid rgba(210,161,58,.45);border-radius:24px;padding:24px;background:linear-gradient(125deg,#06281d,#084c37 58%,#051c2a)}h1{margin:5px 0 8px;font-size:clamp(2rem,5vw,3.4rem)}.eyebrow{color:var(--gold2);font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}.section{margin:16px 0}.card{background:rgba(8,37,29,.94);border:1px solid var(--line);border-radius:20px;padding:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.champions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.champ{background:rgba(210,161,58,.09);border:1px solid rgba(210,161,58,.34);border-radius:16px;padding:14px}.champ .place{color:var(--gold2);font-size:.78rem;font-weight:900}.champ .pts{font-size:1.4rem;font-weight:900}.info{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}.info span{color:var(--muted)}.pairings{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pair{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px}.hole{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(210,161,58,.45);color:var(--gold2);font-weight:900}.muted{color:var(--muted)}.winner{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}.btn{display:inline-block;border:0;border-radius:999px;padding:11px 15px;font-weight:900;background:var(--gold);color:#102118;cursor:pointer}.btn.secondary{background:#194c3b;color:white}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:grid;gap:6px;font-weight:800;color:#d7e5de;font-size:.85rem}input,textarea,select{width:100%;background:#061814;color:white;border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px;font:inherit}.actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.small{font-size:.86rem}.pair-editor{display:grid;grid-template-columns:80px 1fr 1fr;gap:8px;margin:8px 0;align-items:center}.status{padding:10px;border-radius:10px;background:rgba(255,255,255,.05);margin-top:10px;white-space:pre-wrap}code{color:#f7d98f}.warn{border:1px solid rgba(240,204,120,.4);background:rgba(210,161,58,.08);padding:12px;border-radius:12px}
+@media(max-width:850px){.grid,.pairings,.form-grid{grid-template-columns:1fr}.champions{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.champions{grid-template-columns:1fr}.pair-editor{grid-template-columns:58px 1fr 1fr}}
+</style></head>
+<body>
+<div class="wrap">
+<section class="hero"><div class="eyebrow">VKGC Men's Night</div><h1>Weekly Admin</h1>
+<div class="muted">Edit the week, generate pairings, then download one replacement <strong>weekly-data.js</strong> file.</div></section>
+
+<section class="card">
+<div class="warn small"><strong>Important:</strong> because vegkgc.com is a static site, this page cannot directly overwrite the live website by itself. After editing, click <strong>Download weekly-data.js</strong> and replace that one file on your website. No HTML editing required.</div>
+<div class="form-grid" style="margin-top:14px">
+<label>Week Number<input id="week" type="number"></label>
+<label>Date<input id="date"></label>
+<label>Start<input id="start"></label>
+<label>Format<input id="format"></label>
+<label>Weekly Competition<input id="competition"></label>
+<label>KP / Carryover<input id="kp"></label>
+<label>Meal<input id="meal"></label>
+<label>Drink Special<input id="drink"></label>
+<label style="grid-column:1/-1">Notes<textarea id="notes" rows="4"></textarea></label>
+<label>Last Week Title<input id="lastTitle"></label>
+<label>Last Week Date<input id="lastDate"></label>
+<label style="grid-column:1/-1">Last Week Winners — one per line, format: Label | $Amount<textarea id="lastWinners" rows="7"></textarea></label>
+<label style="grid-column:1/-1">Carryover Note<input id="carry"></label>
+</div>
+</section>
+
+<section class="section card">
+<h2>Pairings</h2>
+<p class="muted small">Generate balanced pairings using frozen handicaps, or edit any matchup manually before downloading.</p>
+<div class="actions"><button class="btn" id="gen">Generate Pairings</button><button class="btn secondary" id="reset">Reset Saved Pairings</button></div>
+<div id="pairEditor"></div>
+<div class="status" id="scoreBox"></div>
+</section>
+
+<section class="section card">
+<h2>Save Weekly Update</h2>
+<div class="actions"><button class="btn" id="download">Download weekly-data.js</button></div>
+<div class="status" id="status">Make your changes above, then download the update file.</div>
+</section>
+</div>
+<script src="weekly-data.js"></script>
+<script>
+const D=JSON.parse(JSON.stringify(window.MENS_NIGHT_DATA));
+const H=window.MENS_NIGHT_HANDICAPS;
+const Y=window.MENS_NIGHT_YEAR_END;
+const HOLES=[1,2,3,4,5,6,8,9];
+const TEAMS=Object.keys(H);
+
+function fill(){
+  for(const k of ['week','date','start','format','competition','kp','meal','drink','notes']) document.getElementById(k).value=D[k];
+  document.getElementById('lastTitle').value=D.lastWeek.title;
+  document.getElementById('lastDate').value=D.lastWeek.date;
+  document.getElementById('lastWinners').value=D.lastWeek.winners.map(x=>x.join(' | ')).join('\n');
+  document.getElementById('carry').value=D.lastWeek.carry;
+  renderPairEditor(D.pairings);
+}
+
+function selectTeam(val){
+  return '<select>'+TEAMS.map(t=>`<option ${t===val?'selected':''}>${t}</option>`).join('')+'</select>';
+}
+function renderPairEditor(pairs){
+  document.getElementById('pairEditor').innerHTML=pairs.map(([h,a,b],i)=>`<div class="pair-editor" data-i="${i}"><strong>Hole ${h}</strong>${selectTeam(a)}${selectTeam(b)}</div>`).join('');
+  updateScore();
+}
+function readPairs(){
+  return [...document.querySelectorAll('.pair-editor')].map((row,i)=>[HOLES[i],row.querySelectorAll('select')[0].value,row.querySelectorAll('select')[1].value]);
+}
+function updateScore(){
+  const p=readPairs();
+  const used=p.flatMap(x=>[x[1],x[2]]);
+  const dup=used.filter((t,i)=>used.indexOf(t)!==i);
+  const score=p.reduce((s,x)=>s+Math.abs(H[x[1]]-H[x[2]]),0);
+  document.getElementById('scoreBox').textContent=`Total handicap gap: ${score}${dup.length?'\nWARNING — duplicate team(s): '+[...new Set(dup)].join(', '):''}`;
+}
+document.getElementById('pairEditor').addEventListener('change',updateScore);
+
+function shuffled(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function scorePairs(p){return p.reduce((s,[a,b])=>s+Math.abs(H[a]-H[b]),0)}
+
+function generate(){
+  let best=null,bestScore=999;
+  for(let n=0;n<8000;n++) {
+    // random within handicap bands, then adjacent pairing
+    const arr=shuffled(TEAMS).sort((a,b)=>H[a]-H[b] || Math.random()-.5);
+    const pairs=[]; for(let i=0;i<arr.length;i+=2) pairs.push([arr[i],arr[i+1]]);
+    const s=scorePairs(pairs);
+    if(s<bestScore){best=pairs;bestScore=s;if(s===0)break}
+  }
+  best.sort((a,b)=>a.includes('Blood Farts')?-1:b.includes('Blood Farts')?1:0);
+  renderPairEditor(best.map((x,i)=>[HOLES[i],x[0],x[1]]));
+}
+
+function buildData(){
+  const winners=document.getElementById('lastWinners').value.split('\n').map(s=>s.trim()).filter(Boolean).map(line=>{
+    const parts=line.split('|');
+    return [parts[0].trim(),(parts[1]||'').trim()];
+  });
+  return {
+    week:Number(document.getElementById('week').value)||D.week,
+    date:document.getElementById('date').value.trim(),
+    start:document.getElementById('start').value.trim(),
+    format:document.getElementById('format').value.trim(),
+    competition:document.getElementById('competition').value.trim(),
+    kp:document.getElementById('kp').value.trim(),
+    meal:document.getElementById('meal').value.trim(),
+    drink:document.getElementById('drink').value.trim(),
+    notes:document.getElementById('notes').value.trim(),
+    lastWeek:{
+      title:document.getElementById('lastTitle').value.trim(),
+      date:document.getElementById('lastDate').value.trim(),
+      winners,
+      carry:document.getElementById('carry').value.trim()
+    },
+    pairings:readPairs()
+  };
+}
+
+function download(){
+  const data=buildData();
+  const used=data.pairings.flatMap(x=>[x[1],x[2]]);
+  if(new Set(used).size!==TEAMS.length) {
+    document.getElementById('status').textContent='Cannot download: every team must appear exactly once in the pairings.';
+    return;
+  }
+  const js=`window.MENS_NIGHT_DATA = ${JSON.stringify(data,null,2)};\nwindow.MENS_NIGHT_HANDICAPS = ${JSON.stringify(H,null,2)};\nwindow.MENS_NIGHT_YEAR_END = ${JSON.stringify(Y,null,2)};\n`;
+  const blob=new Blob([js],{type:'text/javascript'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='weekly-data.js'; a.click(); URL.revokeObjectURL(a.href);
+  document.getElementById('status').textContent='Downloaded weekly-data.js. Replace the existing weekly-data.js on the website and the public page will update.';
+}
+
+document.getElementById('gen').addEventListener('click',generate);
+document.getElementById('reset').addEventListener('click',()=>renderPairEditor(D.pairings));
+document.getElementById('download').addEventListener('click',download);
+fill();
+</script></body></html>
