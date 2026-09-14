@@ -5,7 +5,7 @@ window.MENS_NIGHT_DATA = {
   "format": "4-Person Scramble • White Tees",
   "competition": "Weekly Cash payouts + proximity prizes",
   "kp": "$120 carryover + this week's entries",
-  "meal": "TBA",
+  "meal": "$20 • TBA",
   "drink": "Alley Kat Casual Water $6.25 && VKGC Pitchers Only $22",
   "notes": "The year-long league standings are finished, but Men's Night is not. We will keep the same scramble format going every Tuesday until the weather shuts us down. Weekly cash, proximity prizes and KP carryovers are still in play.",
   "lastWeek": {
