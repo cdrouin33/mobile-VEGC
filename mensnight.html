@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071b16">
+  <title>VKGC Men's Night — Weekly Golf</title>
+  <style>
+    :root{
+      --bg:#06111b;--bg2:#072019;--card:#08251d;--card2:#071a18;
+      --ink:#f8f4e8;--muted:#bfcac2;--green:#17845f;--green2:#0d684b;
+      --gold:#d2a13a;--gold2:#f0cc78;--line:rgba(210,161,58,.28);
+      --soft:rgba(255,255,255,.055);--shadow:0 18px 44px rgba(0,0,0,.34);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:
+      radial-gradient(circle at 15% 0%,rgba(23,132,95,.25),transparent 34%),
+      linear-gradient(120deg,var(--bg),var(--bg2) 55%,#041019);color:var(--ink);
+      font-family:Inter,"Segoe UI",Arial,sans-serif}
+    .wrap{width:min(1180px,calc(100% - 28px));margin:0 auto}
+    header{padding:22px 0 12px}
+    .hero{border:1px solid rgba(210,161,58,.48);border-radius:28px;padding:26px;
+      background:linear-gradient(125deg,rgba(6,40,29,.98),rgba(8,76,55,.92) 55%,rgba(5,28,42,.96));
+      box-shadow:var(--shadow)}
+    .eyebrow{font-size:.78rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2)}
+    h1{font-size:clamp(2rem,5vw,3.7rem);margin:8px 0 8px;line-height:1;letter-spacing:-.04em}
+    .hero p{margin:0;color:#f0e8d7;font-size:1.08rem}
+    .section{margin:18px 0}
+    .title-row{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:10px}
+    h2{margin:0;font-size:1.35rem}.sub{color:var(--muted);font-size:.9rem}
+    .champions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .champ{background:linear-gradient(145deg,rgba(210,161,58,.14),rgba(8,37,29,.95));border:1px solid rgba(210,161,58,.4);border-radius:20px;padding:18px;box-shadow:0 10px 26px rgba(0,0,0,.22)}
+    .place{color:var(--gold2);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+    .champ h3{font-size:1.22rem;margin:8px 0 5px}.points{font-size:1.7rem;font-weight:900}.money{margin-top:5px;color:#d6efdf;font-weight:800}
+    .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
+    .card{background:linear-gradient(145deg,rgba(8,37,29,.97),rgba(5,25,24,.98));border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 12px 28px rgba(0,0,0,.24)}
+    .pill{display:inline-flex;padding:6px 11px;border-radius:999px;background:rgba(23,132,95,.16);border:1px solid rgba(78,194,146,.28);font-size:.78rem;font-weight:850;color:#ddffef}
+    .info-list{display:grid;gap:0;margin-top:12px}.info{display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08)}.info:last-child{border-bottom:0}.info span{color:var(--muted)}.info strong{text-align:right}
+    .note{margin-top:14px;padding:13px 14px;border-radius:15px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);color:#e9e3d6;line-height:1.45}
+    .pairings{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    .pair{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;padding:12px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.075)}
+    .hole{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgba(210,161,58,.15);border:1px solid rgba(210,161,58,.42);color:var(--gold2);font-weight:950}
+    .teams{font-weight:850;line-height:1.35}.hcp{font-size:.78rem;color:var(--muted);font-weight:700;margin-top:4px}
+    .winners{display:grid;gap:9px;margin-top:12px}.winner{display:flex;justify-content:space-between;gap:12px;padding:12px 13px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.075)}.winner strong:last-child{color:var(--gold2)}
+    .carry{margin-top:12px;padding:13px;border-radius:15px;background:rgba(210,161,58,.10);border:1px solid rgba(210,161,58,.32)}
+    .frozen{margin-top:10px;color:var(--muted);font-size:.85rem}
+    footer{padding:8px 0 28px;text-align:center;color:var(--muted);font-size:.82rem}
+
+    /* ADMIN / PAIRING GENERATOR — only appears with ?admin=1 */
+    #adminPanel{display:none;margin:18px 0 28px}
+    #adminPanel.show{display:block}
+    .admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .admin-row{display:grid;gap:6px}
+    .admin-row label{font-size:.8rem;color:var(--muted);font-weight:800}
+    .admin-row input,.admin-row textarea{width:100%;background:#061814;color:var(--ink);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px;font:inherit}
+    .admin-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+    .btn{border:0;border-radius:999px;padding:10px 14px;font-weight:900;cursor:pointer;background:var(--gold);color:#112016}
+    .btn.secondary{background:#194c3b;color:#eafff5}
+    .generator-output{margin-top:12px;padding:12px;border-radius:14px;background:rgba(255,255,255,.04);white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:.84rem}
+    .admin-note{margin-top:10px;color:var(--muted);font-size:.84rem;line-height:1.45}
+
+    @media(max-width:860px){.champions{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.pairings{grid-template-columns:1fr}.admin-grid{grid-template-columns:1fr}}
+    @media(max-width:520px){.wrap{width:min(100% - 18px,1180px)}.hero{padding:20px;border-radius:22px}.champions{grid-template-columns:1fr}.card{padding:16px}.info{align-items:flex-start}.winner{align-items:flex-start}.pair{grid-template-columns:50px 1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap hero">
+    <div class="eyebrow">Vegreville Kinsmen Golf Club</div>
+    <h1>Men's Night Continues</h1>
+    <p>The official league is complete, but Tuesday Men's Night keeps rolling for as long as the weather lets us.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="section">
+    <div class="title-row"><h2>2026 Year-End Winners</h2><span class="sub">Official final standings</span></div>
+    <div class="champions" id="champions"></div>
+  </section>
+
+  <section class="section grid">
+    <article class="card">
+      <div class="title-row"><div><span class="pill" id="weekPill"></span><h2 id="weekDate" style="margin-top:8px"></h2></div></div>
+      <div class="info-list" id="weekInfo"></div>
+      <div class="note" id="weekNotes"></div>
+      <div class="frozen"><strong>Post-season handicaps are frozen</strong> for the remainder of fall Men's Night. Scores will not alter next year's starting handicaps.</div>
+    </article>
+
+    <article class="card">
+      <div class="title-row"><div><span class="pill">LAST WEEK</span><h2 id="lastWeekTitle" style="margin-top:8px"></h2></div><span class="sub" id="lastWeekDate"></span></div>
+      <div class="winners" id="winners"></div>
+      <div class="carry" id="carry"></div>
+    </article>
+  </section>
+
+  <section class="section card">
+    <div class="title-row"><div><span class="pill" id="pairingWeekPill"></span><h2 style="margin-top:8px">Weekly Pairings</h2></div><span class="sub">Frozen fall handicaps shown</span></div>
+    <div class="pairings" id="pairings"></div>
+  </section>
+
+  <section class="card" id="adminPanel">
+    <div class="title-row"><div><span class="pill">ADMIN MODE</span><h2 style="margin-top:8px">Weekly Update & Pairing Generator</h2></div><span class="sub">Open this page with <strong>?admin=1</strong></span></div>
+    <div class="admin-grid">
+      <div class="admin-row"><label>Week Number</label><input id="aWeek" type="number"></div>
+      <div class="admin-row"><label>Date</label><input id="aDate" type="text"></div>
+      <div class="admin-row"><label>Meal</label><input id="aMeal" type="text"></div>
+      <div class="admin-row"><label>Drink Special</label><input id="aDrink" type="text"></div>
+      <div class="admin-row"><label>KP / Carryover</label><input id="aKP" type="text"></div>
+      <div class="admin-row"><label>Weekly Competition</label><input id="aCompetition" type="text"></div>
+      <div class="admin-row" style="grid-column:1/-1"><label>Notes</label><textarea id="aNotes" rows="3"></textarea></div>
+    </div>
+    <div class="admin-actions">
+      <button class="btn" id="applyWeekBtn" type="button">Preview Weekly Changes</button>
+      <button class="btn secondary" id="generateBtn" type="button">Generate Balanced Pairings</button>
+      <button class="btn secondary" id="resetBtn" type="button">Reset to Saved Pairings</button>
+    </div>
+    <div class="generator-output" id="generatorOutput">Pairing generator uses the frozen handicaps below and tries to keep matchups as even as possible.</div>
+    <div class="admin-note">
+      <strong>How to make changes permanent:</strong> all week-to-week content lives in the single <code>WEEKLY_DATA</code> block near the top of the script at the bottom of this file. Update that block, save, and upload the new <code>index.html</code>. The generator is for quickly producing suggested pairings; once you like them, copy them into <code>WEEKLY_DATA.pairings</code>.
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Vegreville Kinsmen Golf Club • Men's Night 2026</footer>
+
+<script>
+/* ============================================================
+   ONLY EDIT THIS SECTION EACH WEEK
+   ============================================================ */
+const WEEKLY_DATA = {
+  week: 20,
+  date: "Tuesday, September 15",
+  start: "5:30 PM Shotgun",
+  format: "4-Person Scramble • 9 Holes",
+  competition: "Cash payouts + proximity prizes",
+  kp: "$128 carryover + this week's entries",
+  meal: "TBA",
+  drink: "TBA",
+  notes: "The year-long league standings are finished, but Men's Night is not. We will keep the same scramble format going every Tuesday until the weather shuts us down. Weekly cash, proximity prizes and KP carryovers are still in play.",
+
+  lastWeek: {
+    title: "Week 19 Weekly Winners",
+    date: "Sept. 8",
+    winners: [
+      ["1st — Severly Handicap", "$192.00"],
+      ["T-2nd — Blood Farts", "$38.40"],
+      ["T-2nd — XXX Stiff Shafts", "$38.40"],
+      ["T-2nd — Lefties", "$38.40"],
+      ["T-2nd — Soft & Short", "$38.40"],
+      ["T-2nd — PTSD", "$38.40"]
+    ],
+    carry: "KP: Not won in Week 19 — $128 carries into this week."
+  },
+
+  pairings: [
+    [1, "Blood Farts", "UFA"],
+    [2, "XXX Stiff Shafts", "Clam Diggers"],
+    [3, "Grip it & Sip it", "Lefties"],
+    [4, "Soft & Short", "Napa"],
+    [5, "Pappy Putters", "PTSD"],
+    [6, "Severly Handicap", "Morning Wood"],
+    [8, "Short Circuit", "Shankoholics"],
+    [9, "Under Balls", "The Bogeymen"]
+  ]
+};
+
+/* ============================================================
+   FROZEN FALL HANDICAPS — DO NOT CHANGE WEEK TO WEEK
+   ============================================================ */
+const FROZEN_HANDICAPS = {
+  "Blood Farts": 0,
+  "UFA": 1,
+  "XXX Stiff Shafts": 1,
+  "Grip it & Sip it": 1,
+  "Lefties": 1,
+  "Clam Diggers": 1,
+  "Soft & Short": 2,
+  "Napa": 2,
+  "Pappy Putters": 3,
+  "PTSD": 3,
+  "Severly Handicap": 3,
+  "Morning Wood": 4,
+  "Under Balls": 4,
+  "Short Circuit": 5,
+  "Shankoholics": 6,
+  "The Bogeymen": 7
+};
+
+/* ============================================================
+   YEAR-END WINNERS — FROZEN
+   ============================================================ */
+const YEAR_END_WINNERS = [
+  {place:"1st Place", team:"PTSD", points:"159.5 pts", money:"$1,440 year-end payout"},
+  {place:"T-2nd Place", team:"Morning Wood", points:"139.5 pts", money:"$900 year-end payout"},
+  {place:"T-2nd Place", team:"Short Circuit", points:"139.5 pts", money:"$900 year-end payout"},
+  {place:"4th Place", team:"Pappy Putters", points:"132.0 pts", money:"$360 year-end payout"}
+];
+
+const HOLES = [1,2,3,4,5,6,8,9];
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+}
+
+function renderChampions(){
+  document.getElementById("champions").innerHTML = YEAR_END_WINNERS.map(x => `
+    <article class="champ">
+      <div class="place">${esc(x.place)}</div>
+      <h3>${esc(x.team)}</h3>
+      <div class="points">${esc(x.points)}</div>
+      <div class="money">${esc(x.money)}</div>
+    </article>`).join("");
+}
+
+function renderWeek(data = WEEKLY_DATA){
+  document.getElementById("weekPill").textContent = `THIS WEEK • WEEK ${data.week}`;
+  document.getElementById("pairingWeekPill").textContent = `WEEK ${data.week}`;
+  document.getElementById("weekDate").textContent = data.date;
+
+  const info = [
+    ["Start", data.start],
+    ["Format", data.format],
+    ["Weekly Competition", data.competition],
+    ["KP", data.kp],
+    ["Meal", data.meal],
+    ["Drink Special", data.drink]
+  ];
+  document.getElementById("weekInfo").innerHTML = info.map(([a,b]) =>
+    `<div class="info"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join("");
+
+  document.getElementById("weekNotes").innerHTML = `<strong>Notes:</strong> ${esc(data.notes)}`;
+  renderPairings(data.pairings);
+}
+
+function renderLastWeek(){
+  const lw = WEEKLY_DATA.lastWeek;
+  document.getElementById("lastWeekTitle").textContent = lw.title;
+  document.getElementById("lastWeekDate").textContent = lw.date;
+  document.getElementById("winners").innerHTML = lw.winners.map(([label,amount]) =>
+    `<div class="winner"><strong>${esc(label)}</strong><strong>${esc(amount)}</strong></div>`).join("");
+  document.getElementById("carry").innerHTML = `<strong>${esc(lw.carry)}</strong>`;
+}
+
+function renderPairings(pairings){
+  document.getElementById("pairings").innerHTML = pairings.map(([hole,a,b]) => {
+    const ha = FROZEN_HANDICAPS[a];
+    const hb = FROZEN_HANDICAPS[b];
+    return `<div class="pair">
+      <div class="hole">${hole}</div>
+      <div>
+        <div class="teams">${esc(a)} vs ${esc(b)}</div>
+        <div class="hcp">Handicaps: ${ha} vs ${hb}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function shuffle(arr){
+  const a = [...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function pairingScore(pairs){
+  return pairs.reduce((sum,[a,b]) => sum + Math.abs(FROZEN_HANDICAPS[a]-FROZEN_HANDICAPS[b]),0);
+}
+
+function generateBalancedPairings(){
+  const teams = Object.keys(FROZEN_HANDICAPS);
+  let best = null;
+  let bestScore = Infinity;
+
+  // Try many randomized orderings, then pair adjacent teams.
+  for(let n=0;n<4000;n++){
+    const mixed = shuffle(teams).sort((a,b) => {
+      const diff = FROZEN_HANDICAPS[a] - FROZEN_HANDICAPS[b];
+      return diff || (Math.random()-.5);
+    });
+    const pairs = [];
+    for(let i=0;i<mixed.length;i+=2) pairs.push([mixed[i],mixed[i+1]]);
+    const score = pairingScore(pairs);
+    if(score < bestScore){
+      bestScore = score;
+      best = pairs;
+      if(score === 0) break;
+    }
+  }
+
+  // Keep Blood Farts on Hole 1 when possible, for continuity.
+  best.sort((p1,p2) => {
+    if(p1.includes("Blood Farts")) return -1;
+    if(p2.includes("Blood Farts")) return 1;
+    return 0;
+  });
+
+  const generated = best.map((pair,i) => [HOLES[i], pair[0], pair[1]]);
+  renderPairings(generated);
+
+  const out = generated.map(([h,a,b]) =>
+    `Hole ${h}: ${a} (${FROZEN_HANDICAPS[a]}) vs ${b} (${FROZEN_HANDICAPS[b]})`
+  ).join("\n");
+  document.getElementById("generatorOutput").textContent =
+    `Suggested Week ${Number(document.getElementById("aWeek").value || WEEKLY_DATA.week)} pairings\n\n${out}\n\nTotal handicap-gap score: ${bestScore}`;
+}
+
+function setupAdmin(){
+  const params = new URLSearchParams(location.search);
+  if(params.get("admin") !== "1") return;
+
+  const panel = document.getElementById("adminPanel");
+  panel.classList.add("show");
+
+  document.getElementById("aWeek").value = WEEKLY_DATA.week;
+  document.getElementById("aDate").value = WEEKLY_DATA.date;
+  document.getElementById("aMeal").value = WEEKLY_DATA.meal;
+  document.getElementById("aDrink").value = WEEKLY_DATA.drink;
+  document.getElementById("aKP").value = WEEKLY_DATA.kp;
+  document.getElementById("aCompetition").value = WEEKLY_DATA.competition;
+  document.getElementById("aNotes").value = WEEKLY_DATA.notes;
+
+  document.getElementById("applyWeekBtn").addEventListener("click", () => {
+    const preview = {
+      ...WEEKLY_DATA,
+      week: Number(document.getElementById("aWeek").value) || WEEKLY_DATA.week,
+      date: document.getElementById("aDate").value.trim() || WEEKLY_DATA.date,
+      meal: document.getElementById("aMeal").value.trim() || "TBA",
+      drink: document.getElementById("aDrink").value.trim() || "TBA",
+      kp: document.getElementById("aKP").value.trim() || WEEKLY_DATA.kp,
+      competition: document.getElementById("aCompetition").value.trim() || WEEKLY_DATA.competition,
+      notes: document.getElementById("aNotes").value.trim() || WEEKLY_DATA.notes
+    };
+    renderWeek(preview);
+    document.getElementById("generatorOutput").textContent =
+      "Preview updated. To make it permanent, copy these values into WEEKLY_DATA in the file and save.";
+  });
+
+  document.getElementById("generateBtn").addEventListener("click", generateBalancedPairings);
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    renderWeek(WEEKLY_DATA);
+    document.getElementById("generatorOutput").textContent =
+      "Reset to the pairings saved in WEEKLY_DATA.";
+  });
+}
+
+renderChampions();
+renderWeek();
+renderLastWeek();
+setupAdmin();
+</script>
+</body>
+</html>
