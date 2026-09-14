@@ -1577,7 +1577,7 @@
       "id": "W19",
       "date": "2026-09-08",
       "miniSeasonKey": "ms5",
-      "attendancePlayers": 64,
+      "attendancePlayers": 0,
       "weeklyExtraMoney": 0,
       "miniSeasonExtraMoney": 0,
       "yearEndExtraMoney": 0,
@@ -1628,22 +1628,7 @@
           "teamB": "T8"
         }
       ],
-      "scores": {
-        "T1": 33,
-        "T2": 32,
-        "T3": 32,
-        "T4": 33,
-        "T5": 32,
-        "T6": 29,
-        "T7": 30,
-        "T8": 31,
-        "T9": 31,
-        "T10": 35,
-        "T11": 31,
-        "T12": 36,
-        "T13": 33,
-        "T14": 36
-      },
+      "scores": {},
       "mealOption": "Steak Dinner with all The Trimmings",
       "mealPrice": "$30",
       "drinkSpecial": "Alley Kat Casual Water $6.25, VKGC Pitchers $25",
