@@ -2,42 +2,42 @@ window.MENS_NIGHT_DATA = {
   "week": 20,
   "date": "Tuesday, September 15",
   "start": "5:30 PM Shotgun",
-  "format": "4-Person Scramble • White Tees",
-  "competition": "Weekly Cash payouts + proximity prizes",
-  "kp": "$120 carryover + this week's entries",
+  "format": "4-Person Scramble \u2022 9 Holes",
+  "competition": "Cash payouts + proximity prizes",
+  "kp": "$128 carryover + this week's entries",
   "meal": "TBA",
-  "drink": "Alley Kat Casual Water $6.25 && VKGC Pitchers Only $22",
+  "drink": "TBA",
   "notes": "The year-long league standings are finished, but Men's Night is not. We will keep the same scramble format going every Tuesday until the weather shuts us down. Weekly cash, proximity prizes and KP carryovers are still in play.",
   "lastWeek": {
     "title": "Week 19 Weekly Winners",
     "date": "Sept. 8",
     "winners": [
       [
-        "1st — Severly Handicap",
+        "1st \u2014 Severly Handicap",
         "$192.00"
       ],
       [
-        "T-2nd — Blood Farts",
+        "T-2nd \u2014 Blood Farts",
         "$38.40"
       ],
       [
-        "T-2nd — XXX Stiff Shafts",
+        "T-2nd \u2014 XXX Stiff Shafts",
         "$38.40"
       ],
       [
-        "T-2nd — Lefties",
+        "T-2nd \u2014 Lefties",
         "$38.40"
       ],
       [
-        "T-2nd — Soft & Short",
+        "T-2nd \u2014 Soft & Short",
         "$38.40"
       ],
       [
-        "T-2nd — PTSD",
+        "T-2nd \u2014 PTSD",
         "$38.40"
       ]
     ],
-    "carry": "KP: Not won in Week 19 — $120 carries into this week."
+    "carry": "KP: Not won in Week 19 \u2014 $128 carries into this week."
   },
   "pairings": [
     [
