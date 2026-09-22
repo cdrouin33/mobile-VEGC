@@ -1,71 +1,79 @@
 window.MENS_NIGHT_DATA = {
-  "week": 21,
-  "date": "Tuesday, September 22",
+  "week": 20,
+  "date": "Tuesday, September 15",
   "start": "5:30 PM Shotgun",
   "format": "4-Person Scramble • White Tees",
   "competition": "Weekly Cash payouts + proximity prizes",
-  "kp": "",
-  "meal": "$20 • Alfredo Penne, Grilled Chicken, Roasted Potatoes & Garlic Bread",
-  "drink": "16oz Pint of VKGC Lager & Slice if Pizza $10 • Starting at 4pm",
+  "kp": "$120 carryover + this week's entries",
+  "meal": "$20 • BBQ Burger Buffet and Poutine Bar",
+  "drink": "Alley Kat Casual Water $6.25 && VKGC Pitchers Only $22",
   "notes": "The year-long league standings are finished, but Men's Night is not. We will keep the same scramble format going every Tuesday until the weather shuts us down. Weekly cash, proximity prizes and KP carryovers are still in play.",
   "lastWeek": {
-    "title": "Week 20 Weekly Winners",
-    "date": "Sept. 15",
+    "title": "Week 19 Weekly Winners",
+    "date": "Sept. 8",
     "winners": [
       [
-        "T-1st — Short Circuit",
-        ""
+        "1st — Severly Handicap",
+        "$192.00"
       ],
       [
-        "T-1st — Napa",
-        ""
+        "T-2nd — Blood Farts",
+        "$38.40"
       ],
       [
-        "T-2nd — Shankaholics",
-        ""
+        "T-2nd — XXX Stiff Shafts",
+        "$38.40"
       ],
       [
-        "T-2nd — Pappy Putters",
-        ""
+        "T-2nd — Lefties",
+        "$38.40"
+      ],
+      [
+        "T-2nd — Soft & Short",
+        "$38.40"
+      ],
+      [
+        "T-2nd — PTSD",
+        "$38.40"
       ]
     ],
-    "carry": ""
+    "carry": "KP: Not won in Week 19 — $120 carries into this week."
   },
   "pairings": [
     [
       1,
       "Blood Farts",
-      "Clam Diggers"
+      "UFA"
     ],
     [
       2,
-      "UFA",
-      "Soft & Short"
+      "XXX Stiff Shafts",
+      "Clam Diggers"
     ],
     [
       3,
       "Grip it & Sip it",
-      "Napa"
+      "Lefties"
     ],
     [
       4,
-      "XXX Stiff Shafts",
-      "PTSD"
+      "Soft & Short",
+      "Napa"
     ],
     [
       5,
-      "Severly Handicap",
-      "Short Circuit"
+      "Pappy Putters",
+      "PTSD"
     ],
     [
       6,
-      "Morning Wood",
-      "Shankoholics"
+      "Severly Handicap",
+      "Morning Wood"
     ],
     [
       8,
-      "Lefties",
-      "Pappy Putters"
+      "Short Circuit",
+      "Shankoholics"
     ],
     [
       9,
