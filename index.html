@@ -210,9 +210,15 @@ body{
     }
     .hero-photo-slot.has-img .hero-photo-placeholder{display:none;}
     @media (max-width:720px){
-      .hero-photo-slot img{height:240px;}
-      .hero-photo-slot{min-height:180px;}
+    .hero-photo-slot img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
     }
+    .hero-photo-slot{
+        min-height:0;
+    }
+}
     /* Stage 7: Weekend Warrior image slot (right-side box) */
     .ww-photo-slot{
       border:1px solid var(--line);
